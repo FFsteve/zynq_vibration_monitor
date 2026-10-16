@@ -1,0 +1,254 @@
+# ============================================================
+# Zynq Vibration Monitor
+# Git ignore rules
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Vivado generated project / build files
+# ------------------------------------------------------------
+
+# Local Vivado workspace
+vivado_project/
+
+# Vivado cache and temporary data
+.Xil/
+*.jou
+*.log
+*.str
+*.tmp
+*.dmp
+*.pb
+*.wdb
+*.wcfg
+
+# Vivado generated directories
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.gen/
+
+# Generated IP products
+*.ip_user_files/
+*.ipcache/
+
+# Hardware Manager / debug
+*.ltx
+*.hwdef
+
+# Bitstream / implementation outputs
+*.bit
+*.bin
+*.mmi
+*.sysdef
+
+# Checkpoints
+*.dcp
+
+# Vivado project files
+*.xpr
+
+# WebTalk / usage statistics
+*.xml
+*.html
+*.webtalk
+usage_statistics_webtalk.*
+webtalk*.jou
+webtalk*.log
+
+
+# ------------------------------------------------------------
+# ModelSim / Questa simulation
+# ------------------------------------------------------------
+
+work/
+work_lib/
+transcript
+vsim.wlf
+modelsim.ini
+
+*.vcd
+*.fst
+*.wlf
+
+wlft*
+covhtmlreport/
+coverage.ucdb
+
+
+# ------------------------------------------------------------
+# STM32 / Keil MDK
+# ------------------------------------------------------------
+
+# Build output
+Objects/
+Listings/
+
+*.o
+*.obj
+*.d
+*.crf
+*.dep
+*.lnp
+*.axf
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+
+# Keil generated/debug files
+*.bak
+*.ddk
+*.edk
+*.iex
+*.htm
+*.sct
+*.tra
+*.uvguix.*
+*.uvoptx
+*.uvgui.*
+*.scvd
+
+# Keep Keil project definition
+!*.uvprojx
+
+
+# ------------------------------------------------------------
+# Python host tools
+# ------------------------------------------------------------
+
+__pycache__/
+*.py[cod]
+*.pyd
+
+.venv/
+venv/
+env/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+*.egg-info/
+dist/
+build/
+
+
+# ------------------------------------------------------------
+# VS Code / IDE
+# ------------------------------------------------------------
+
+.vscode/
+
+.idea/
+
+*.code-workspace
+
+
+# ------------------------------------------------------------
+# Operating system
+# ------------------------------------------------------------
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux / editors
+*~
+*.swp
+*.swo
+
+
+# ------------------------------------------------------------
+# Temporary files
+# ------------------------------------------------------------
+
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+
+~$*
+
+
+# ------------------------------------------------------------
+# Logs
+# ------------------------------------------------------------
+
+*.log
+
+logs/
+
+
+# ------------------------------------------------------------
+# Large / generated measurement data
+# ------------------------------------------------------------
+
+data/raw/
+data/temp/
+data/generated/
+
+# Keep reference and selected measured datasets
+!data/reference/
+!data/measured/
+
+
+# ------------------------------------------------------------
+# Local configuration / secrets
+# ------------------------------------------------------------
+
+.env
+.env.*
+*.local
+
+
+# ------------------------------------------------------------
+# Vendor/reference PDFs
+# ------------------------------------------------------------
+# Hardware manuals and schematics may have redistribution
+# restrictions. Keep them locally unless redistribution
+# permission is confirmed.
+
+docs/hardware/*.pdf
+
+
+# ------------------------------------------------------------
+# Keep important project files
+# ------------------------------------------------------------
+
+!README.md
+!AGENTS.md
+
+!rtl/
+!rtl/**
+
+!sim/
+!sim/**
+
+!constr/
+!constr/**
+
+!scripts/
+!scripts/**
+
+!stm32/
+!stm32/**
+
+!host/
+!host/**
+
+!skill/
+!skill/**
+
+!report/
+!report/**
