@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-31",
+  "status": "PASS_STAGE4_SOFTWARE",
+  "simulators": {
+    "modelsim": {
+      "dc_remove": {
+        "status": "PASS",
+        "checks": 98192,
+        "errors": 0
+      },
+      "fir_lp_serial": {
+        "status": "PASS",
+        "checks": 8222769,
+        "errors": 0
+      },
+      "vibration_filter": {
+        "status": "PASS",
+        "checks": 1604429,
+        "errors": 0
+      },
+      "filter_monitor_core": {
+        "status": "PASS",
+        "checks": 2490721,
+        "errors": 0
+      },
+      "negative_cases": [
+        "missing_coeff",
+        "invalid_gap"
+      ],
+      "capture": {
+        "engine": "modelsim",
+        "status": "PASS_RTL_CAPTURE",
+        "fir_samples": 41728,
+        "triple_samples": 4000,
+        "fir_input_from_python_dc_reference": true,
+        "triple_input_is_raw_s16": true,
+        "scalar_tones": [
+          {
+            "frequency_hz": 5,
+            "rtl_gain_db": -0.10730504288434883
+          },
+          {
+            "frequency_hz": 10,
+            "rtl_gain_db": 0.08325856275949328
+          },
+          {
+            "frequency_hz": 20,
+            "rtl_gain_db": 0.1503676575714473
+          },
+          {
+            "frequency_hz": 30,
+            "rtl_gain_db": 0.15337687431452665
+          },
+          {
+            "frequency_hz": 50,
+            "rtl_gain_db": -61.4756573192861
+          },
+          {
+            "frequency_hz": 60,
+            "rtl_gain_db": -61.53785488283633
+          },
+          {
+            "frequency_hz": 80,
+            "rtl_gain_db": -64.14813161812538
+          },
+          {
+            "frequency_hz": 100,
+            "rtl_gain_db": -75.83028655690393
+          }
+        ],
+        "actual_three_axis_tones": [
+          {
+            "axis": 0,
+            "frequency_hz": 10,
+            "rtl_gain_db": 0.08325856275949328
+          },
+          {
+            "axis": 1,
+            "frequency_hz": 30,
+            "rtl_gain_db": 0.15315761813044612
+          },
+          {
+            "axis": 2,
+            "frequency_hz": 60,
+            "rtl_gain_db": -61.65055070237553
+          }
+        ]
+      }
+    },
+    "xsim": {
+      "dc_remove": {
+        "status": "PASS",
+        "checks": 98192,
+        "errors": 0
+      },
+      "fir_lp_serial": {
+        "status": "PASS",
+        "checks": 8222769,
+        "errors": 0
+      },
+      "vibration_filter": {
+        "status": "PASS",
+        "checks": 1604429,
+        "errors": 0
+      },
+      "filter_monitor_core": {
+        "status": "PASS",
+        "checks": 2490721,
+        "errors": 0
+      },
+      "negative_cases": [
+        "missing_coeff",
+        "invalid_gap"
+      ],
+      "capture": {
+        "engine": "xsim",
+        "status": "PASS_RTL_CAPTURE",
+        "fir_samples": 41728,
+        "triple_samples": 4000,
+        "fir_input_from_python_dc_reference": true,
+        "triple_input_is_raw_s16": true,
+        "scalar_tones": [
+          {
+            "frequency_hz": 5,
+            "rtl_gain_db": -0.10730504288434883
+          },
+          {
+            "frequency_hz": 10,
+            "rtl_gain_db": 0.08325856275949328
+          },
+          {
+            "frequency_hz": 20,
+            "rtl_gain_db": 0.1503676575714473
+          },
+          {
+            "frequency_hz": 30,
+            "rtl_gain_db": 0.15337687431452665
+          },
+          {
+            "frequency_hz": 50,
+            "rtl_gain_db": -61.4756573192861
+          },
+          {
+            "frequency_hz": 60,
+            "rtl_gain_db": -61.53785488283633
+          },
+          {
+            "frequency_hz": 80,
+            "rtl_gain_db": -64.14813161812538
+          },
+          {
+            "frequency_hz": 100,
+            "rtl_gain_db": -75.83028655690393
+          }
+        ],
+        "actual_three_axis_tones": [
+          {
+            "axis": 0,
+            "frequency_hz": 10,
+            "rtl_gain_db": 0.08325856275949328
+          },
+          {
+            "axis": 1,
+            "frequency_hz": 30,
+            "rtl_gain_db": 0.15315761813044612
+          },
+          {
+            "axis": 2,
+            "frequency_hz": 60,
+            "rtl_gain_db": -61.65055070237553
+          }
+        ]
+      }
+    }
+  },
+  "ooc": {
+    "part": "xc7z010clg400-1",
+    "period_ns": 20,
+    "internal_setup_slack_ns": 9.198,
+    "internal_hold_slack_ns": 0.117,
+    "luts": 2282,
+    "registers": 3901,
+    "dsp": 3,
+    "bram": 0,
+    "latches": 0,
+    "unconstrained_internal_endpoints": 0,
+    "unconstrained_input_ports": 58,
+    "unconstrained_output_ports": 165,
+    "drc_warnings": {
+      "DPOP-1": 3,
+      "ZPS7-1": 1
+    },
+    "parent_clock_location_not_assigned": true,
+    "scope": "OOC内部寄存器路径；不代表接口/时钟父级/板级签核"
+  },
+  "source_sha256": {
+    "rtl/dc_remove.v": "9de850ead00ae7c4217f45e0874c630dd38c65151898ce4218a8b8f1d3ea0eb4",
+    "rtl/fir_lp_serial.v": "c181fa9a0a02bfbf80f48bf363f6521f1c5b975c70c7cdabc9ef07d683bf624d",
+    "rtl/vibration_filter.v": "838aa583cfb58188d4e8492a434beaa278b5de92d0893a2368a38e1b0b3537b2",
+    "rtl/filter_monitor_core.v": "12a113e59e35432e5b8ba29c81df674ec33be34a2d59a574cc88fecbd14f2e79",
+    "sim/tb/tb_dc_remove.v": "37f27df53614ae98277ffa50cb7645ae6fb5d47475dd39424665dca11dc92299",
+    "sim/tb/tb_fir_lp_serial.v": "b6d8dad247aaa830125bf2e3773fd6b0452586f2e21e2b3185ec9e471201aa42",
+    "sim/tb/tb_vibration_filter.v": "c03966388b9c5eea5b41fe097941de97891c70db30007fa57b41a6668d557eee",
+    "sim/tb/tb_filter_monitor_core.v": "ff5984b4c044132ada7edf9975dec29155adac203c55d4892a4662c5af84d870",
+    "data/reference/stage4/fir_lp_63_q16.mem": "b9b74fb39759cf352d2b388ea15650b0a1522d1f15dd6f4861f622d7b580fc35",
+    "sim/tb/stage4_check.vh": "d8e31b5c81366fbe7f07fc32aba754fa878ff61edb0efbcf41b69def0d934bca",
+    "sim/tb/stage4_negative_cases.v": "f07a33c06c11525f927d266b97b36629a33d42f4302465acd1fe2d549f6c5d66",
+    "sim/run_stage4.ps1": "a45c461d7aac2170072ce966e8a84eb41e7ceef98d08d4d0d4ace16a04daf6c4",
+    "sim/check_stage4_negative.ps1": "2a5e64bc43062ee804b06da753008d4a99fef1eab04cdd9b9f8481615049c09c",
+    "scripts/check_stage4_synthesis.tcl": "8d20349e2da65ecfd6ff7dc1d30a46e9a443a0b1462906c1548519044d6700b7",
+    "scripts/check_stage4_synthesis.ps1": "30de2488c96713220443fdb876d987dee6dc3b8dd8bf47e02b47a4bd22aa35fc",
+    "host/stage4_vectors.py": "3aa34876774a89817a501d89308a0e6abc14667950449da7fa73331060372bca",
+    "host/check_stage4_captures.py": "f6945e8fa1b1f8820ff180ea7140ee665e0a3bd5d6ea52859e3231fd01e1aec9",
+    ".gitattributes": "806bf89858f943de60ec92deac1ca4ee7cc3c5a78c366144acac79a1ae8c5b90"
+  },
+  "limitations": [
+    "未集成至板级top或下载",
+    "去直流不是传感器校准",
+    "真实采样均匀性和长期效果待最终联调"
+  ],
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File sim/run_stage4.ps1 -Simulator both",
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File sim/run_stage4.ps1 -Simulator both -Test filter_monitor_core",
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/check_stage4_synthesis.ps1"
+  ]
+}

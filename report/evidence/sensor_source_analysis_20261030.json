@@ -1,0 +1,854 @@
+{
+  "scope": "已有50ms稳态采集；通信对照通过，初始化与计量验收仍待完成",
+  "hashes": {
+    "sensor_source_20261030.atkdl": "0dc979977c04a31301d35ddf8f7efb7f053c1ebb32200d346494947702466b34",
+    "sensor_source_d0_20261030.csv": "4a2951cf8496b67175a647e566ccfa0485a518b4680ffa845efc111cfa5c4302",
+    "sensor_source_d1_20261030.csv": "e4114072e024f36b99c1dfae67dbee1cd1b6f4b662058742661a3bd750412d0f",
+    "sensor_source_i2c_20261030.csv": "5729df27b54fef6ffd53794b3efa0ff95ee684fba9a2df670945abb13d1b9c24"
+  },
+  "d0": {
+    "bytes": 123,
+    "frames": [
+      {
+        "seq": 237,
+        "axes": [
+          474,
+          -292,
+          21954
+        ],
+        "hex": "A5 5A ED 01 DA FE DC 55 C2 83",
+        "payload": "01 DA FE DC 55 C2",
+        "start_us": 3423.9500000000003,
+        "end_us": 4291.999999999999
+      },
+      {
+        "seq": 238,
+        "axes": [
+          658,
+          -284,
+          21924
+        ],
+        "hex": "A5 5A EE 02 92 FE E4 55 A4 95",
+        "payload": "02 92 FE E4 55 A4",
+        "start_us": 6418.700000000001,
+        "end_us": 7286.75
+      },
+      {
+        "seq": 239,
+        "axes": [
+          508,
+          -284,
+          21940
+        ],
+        "hex": "A5 5A EF 01 FC FE E4 55 B4 E9",
+        "payload": "01 FC FE E4 55 B4",
+        "start_us": 10420.400000000001,
+        "end_us": 11288.45
+      },
+      {
+        "seq": 240,
+        "axes": [
+          518,
+          -228,
+          21870
+        ],
+        "hex": "A5 5A F0 02 06 FF 1C 55 6E 2C",
+        "payload": "02 06 FF 1C 55 6E",
+        "start_us": 14422.050000000001,
+        "end_us": 15290.1
+      },
+      {
+        "seq": 241,
+        "axes": [
+          580,
+          -174,
+          22016
+        ],
+        "hex": "A5 5A F1 02 44 FF 52 56 00 4C",
+        "payload": "02 44 FF 52 56 00",
+        "start_us": 18423.75,
+        "end_us": 19291.800000000003
+      },
+      {
+        "seq": 242,
+        "axes": [
+          402,
+          -162,
+          22018
+        ],
+        "hex": "A5 5A F2 01 92 FF 5E 56 02 94",
+        "payload": "01 92 FF 5E 56 02",
+        "start_us": 22416.75,
+        "end_us": 23284.8
+      },
+      {
+        "seq": 243,
+        "axes": [
+          598,
+          -148,
+          21872
+        ],
+        "hex": "A5 5A F3 02 56 FF 6C 55 70 11",
+        "payload": "02 56 FF 6C 55 70",
+        "start_us": 26418.45,
+        "end_us": 27286.45
+      },
+      {
+        "seq": 244,
+        "axes": [
+          552,
+          -316,
+          21980
+        ],
+        "hex": "A5 5A F4 02 28 FE C4 55 DC 6D",
+        "payload": "02 28 FE C4 55 DC",
+        "start_us": 30420.100000000002,
+        "end_us": 31288.15
+      },
+      {
+        "seq": 245,
+        "axes": [
+          476,
+          -444,
+          22012
+        ],
+        "hex": "A5 5A F5 01 DC FE 44 55 FC 3B",
+        "payload": "01 DC FE 44 55 FC",
+        "start_us": 34421.799999999996,
+        "end_us": 35289.84999999999
+      },
+      {
+        "seq": 246,
+        "axes": [
+          704,
+          -368,
+          21950
+        ],
+        "hex": "A5 5A F6 02 C0 FE 90 55 BE B1",
+        "payload": "02 C0 FE 90 55 BE",
+        "start_us": 38423.450000000004,
+        "end_us": 39291.5
+      },
+      {
+        "seq": 247,
+        "axes": [
+          474,
+          -426,
+          21992
+        ],
+        "hex": "A5 5A F7 01 DA FE 56 55 E8 39",
+        "payload": "01 DA FE 56 55 E8",
+        "start_us": 42416.45,
+        "end_us": 43284.49999999999
+      },
+      {
+        "seq": 248,
+        "axes": [
+          650,
+          -344,
+          21904
+        ],
+        "hex": "A5 5A F8 02 8A FE A8 55 90 E3",
+        "payload": "02 8A FE A8 55 90",
+        "start_us": 46418.149999999994,
+        "end_us": 47286.2
+      }
+    ],
+    "checksum_errors": [],
+    "discontinuities": [],
+    "boundary_bytes": [
+      {
+        "index": 9,
+        "start": 38.6,
+        "duration": 69.4,
+        "kind": "TX data",
+        "value": "56"
+      },
+      {
+        "index": 20,
+        "start": 125.4,
+        "duration": 69.4,
+        "kind": "TX data",
+        "value": "02"
+      },
+      {
+        "index": 31,
+        "start": 212.25,
+        "duration": 69.4,
+        "kind": "TX data",
+        "value": "45"
+      }
+    ],
+    "unexpected": [],
+    "intervals_us": [
+      2994.7500000000005,
+      4001.7000000000007,
+      4001.6499999999996,
+      4001.699999999999,
+      3993.0,
+      4001.7000000000007,
+      4001.6500000000015,
+      4001.6999999999935,
+      4001.6500000000087,
+      3992.9999999999927,
+      4001.699999999997
+    ],
+    "mean_interval_us": 3908.563636363636
+  },
+  "d1": {
+    "bytes": 130,
+    "frames": [
+      {
+        "seq": 236,
+        "axes": [
+          538,
+          -230,
+          22018
+        ],
+        "hex": "A5 5A EC 02 1A FF 1A 56 02 45",
+        "payload": "02 1A FF 1A 56 02",
+        "start_us": 286.15,
+        "end_us": 1154.15
+      },
+      {
+        "seq": 237,
+        "axes": [
+          474,
+          -292,
+          21954
+        ],
+        "hex": "A5 5A ED 01 DA FE DC 55 C2 83",
+        "payload": "01 DA FE DC 55 C2",
+        "start_us": 4287.8,
+        "end_us": 5155.8
+      },
+      {
+        "seq": 238,
+        "axes": [
+          658,
+          -284,
+          21924
+        ],
+        "hex": "A5 5A EE 02 92 FE E4 55 A4 95",
+        "payload": "02 92 FE E4 55 A4",
+        "start_us": 7282.549999999999,
+        "end_us": 8150.549999999999
+      },
+      {
+        "seq": 239,
+        "axes": [
+          508,
+          -284,
+          21940
+        ],
+        "hex": "A5 5A EF 01 FC FE E4 55 B4 E9",
+        "payload": "01 FC FE E4 55 B4",
+        "start_us": 11284.2,
+        "end_us": 12152.25
+      },
+      {
+        "seq": 240,
+        "axes": [
+          518,
+          -228,
+          21870
+        ],
+        "hex": "A5 5A F0 02 06 FF 1C 55 6E 2C",
+        "payload": "02 06 FF 1C 55 6E",
+        "start_us": 15285.9,
+        "end_us": 16153.95
+      },
+      {
+        "seq": 241,
+        "axes": [
+          580,
+          -174,
+          22016
+        ],
+        "hex": "A5 5A F1 02 44 FF 52 56 00 4C",
+        "payload": "02 44 FF 52 56 00",
+        "start_us": 19287.600000000002,
+        "end_us": 20155.6
+      },
+      {
+        "seq": 242,
+        "axes": [
+          402,
+          -162,
+          22018
+        ],
+        "hex": "A5 5A F2 01 92 FF 5E 56 02 94",
+        "payload": "01 92 FF 5E 56 02",
+        "start_us": 23280.6,
+        "end_us": 24148.600000000002
+      },
+      {
+        "seq": 243,
+        "axes": [
+          598,
+          -148,
+          21872
+        ],
+        "hex": "A5 5A F3 02 56 FF 6C 55 70 11",
+        "payload": "02 56 FF 6C 55 70",
+        "start_us": 27282.25,
+        "end_us": 28150.300000000003
+      },
+      {
+        "seq": 244,
+        "axes": [
+          552,
+          -316,
+          21980
+        ],
+        "hex": "A5 5A F4 02 28 FE C4 55 DC 6D",
+        "payload": "02 28 FE C4 55 DC",
+        "start_us": 31283.95,
+        "end_us": 32151.950000000004
+      },
+      {
+        "seq": 245,
+        "axes": [
+          476,
+          -444,
+          22012
+        ],
+        "hex": "A5 5A F5 01 DC FE 44 55 FC 3B",
+        "payload": "01 DC FE 44 55 FC",
+        "start_us": 35285.600000000006,
+        "end_us": 36153.65
+      },
+      {
+        "seq": 246,
+        "axes": [
+          704,
+          -368,
+          21950
+        ],
+        "hex": "A5 5A F6 02 C0 FE 90 55 BE B1",
+        "payload": "02 C0 FE 90 55 BE",
+        "start_us": 39287.3,
+        "end_us": 40155.35
+      },
+      {
+        "seq": 247,
+        "axes": [
+          474,
+          -426,
+          21992
+        ],
+        "hex": "A5 5A F7 01 DA FE 56 55 E8 39",
+        "payload": "01 DA FE 56 55 E8",
+        "start_us": 43280.299999999996,
+        "end_us": 44148.299999999996
+      },
+      {
+        "seq": 248,
+        "axes": [
+          650,
+          -344,
+          21904
+        ],
+        "hex": "A5 5A F8 02 8A FE A8 55 90 E3",
+        "payload": "02 8A FE A8 55 90",
+        "start_us": 47282.0,
+        "end_us": 48150.0
+      }
+    ],
+    "checksum_errors": [],
+    "discontinuities": [],
+    "boundary_bytes": [],
+    "unexpected": [],
+    "intervals_us": [
+      4001.65,
+      2994.749999999999,
+      4001.6500000000015,
+      4001.699999999999,
+      4001.7000000000025,
+      3992.9999999999964,
+      4001.6500000000015,
+      4001.7000000000007,
+      4001.650000000005,
+      4001.699999999997,
+      3992.9999999999927,
+      4001.7000000000044
+    ],
+    "mean_interval_us": 3916.320833333333
+  },
+  "i2c": [
+    {
+      "start_us": 1166.15,
+      "end_us": 1559.0500000000002,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 2166.15,
+      "end_us": 2559.05,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 2564.35,
+      "end_us": 3407.85,
+      "register": "3B",
+      "payload": "01 DA FE DC 55 C2",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 5166.1,
+      "end_us": 5559.0,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 5564.3,
+      "end_us": 6407.8,
+      "register": "3B",
+      "payload": "02 92 FE E4 55 A4",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 8166.05,
+      "end_us": 8558.95,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 9166.050000000001,
+      "end_us": 9558.95,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 9564.25,
+      "end_us": 10407.75,
+      "register": "3B",
+      "payload": "01 FC FE E4 55 B4",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 12166.0,
+      "end_us": 12558.9,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 13166.0,
+      "end_us": 13558.85,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 13564.199999999999,
+      "end_us": 14407.699999999999,
+      "register": "3B",
+      "payload": "02 06 FF 1C 55 6E",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 16165.949999999999,
+      "end_us": 16558.85,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 17165.949999999997,
+      "end_us": 17558.799999999996,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 17564.1,
+      "end_us": 18407.649999999998,
+      "register": "3B",
+      "payload": "02 44 FF 52 56 00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 20165.9,
+      "end_us": 20558.75,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 21165.9,
+      "end_us": 21558.75,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 21564.050000000003,
+      "end_us": 22407.600000000002,
+      "register": "3B",
+      "payload": "01 92 FF 5E 56 02",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 24165.85,
+      "end_us": 24558.699999999997,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 25165.8,
+      "end_us": 25558.7,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 25564.0,
+      "end_us": 26407.5,
+      "register": "3B",
+      "payload": "02 56 FF 6C 55 70",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 28165.8,
+      "end_us": 28558.649999999998,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 29165.75,
+      "end_us": 29558.65,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 29563.949999999997,
+      "end_us": 30407.449999999997,
+      "register": "3B",
+      "payload": "02 28 FE C4 55 DC",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 32165.7,
+      "end_us": 32558.600000000002,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 33165.700000000004,
+      "end_us": 33558.600000000006,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 33563.899999999994,
+      "end_us": 34407.399999999994,
+      "register": "3B",
+      "payload": "01 DC FE 44 55 FC",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 36165.65,
+      "end_us": 36558.55,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 37165.65,
+      "end_us": 37558.55,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 37563.850000000006,
+      "end_us": 38407.350000000006,
+      "register": "3B",
+      "payload": "02 C0 FE 90 55 BE",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 40165.6,
+      "end_us": 40558.5,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 41165.6,
+      "end_us": 41558.45,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 41563.8,
+      "end_us": 42407.3,
+      "register": "3B",
+      "payload": "01 DA FE 56 55 E8",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 44165.55,
+      "end_us": 44558.450000000004,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 45165.55,
+      "end_us": 45558.4,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 45563.75,
+      "end_us": 46407.25,
+      "register": "3B",
+      "payload": "02 8A FE A8 55 90",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 48165.5,
+      "end_us": 48558.35,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 49165.5,
+      "end_us": 49558.35,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    }
+  ],
+  "register_counts": {
+    "3A": 25,
+    "3B": 12
+  },
+  "comparisons": [
+    {
+      "seq": 237,
+      "i2c_end_us": 3407.85,
+      "d0_start_us": 3423.9500000000003,
+      "d1_start_us": 4287.8,
+      "sensor_to_uart_us": 16.100000000000364,
+      "uart_start_to_reply_us": 863.8499999999999,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 238,
+      "i2c_end_us": 6407.8,
+      "d0_start_us": 6418.700000000001,
+      "d1_start_us": 7282.549999999999,
+      "sensor_to_uart_us": 10.900000000000546,
+      "uart_start_to_reply_us": 863.8499999999985,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 239,
+      "i2c_end_us": 10407.75,
+      "d0_start_us": 10420.400000000001,
+      "d1_start_us": 11284.2,
+      "sensor_to_uart_us": 12.650000000001455,
+      "uart_start_to_reply_us": 863.7999999999993,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 240,
+      "i2c_end_us": 14407.699999999999,
+      "d0_start_us": 14422.050000000001,
+      "d1_start_us": 15285.9,
+      "sensor_to_uart_us": 14.350000000002183,
+      "uart_start_to_reply_us": 863.8499999999985,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 241,
+      "i2c_end_us": 18407.649999999998,
+      "d0_start_us": 18423.75,
+      "d1_start_us": 19287.600000000002,
+      "sensor_to_uart_us": 16.100000000002183,
+      "uart_start_to_reply_us": 863.8500000000022,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 242,
+      "i2c_end_us": 22407.600000000002,
+      "d0_start_us": 22416.75,
+      "d1_start_us": 23280.6,
+      "sensor_to_uart_us": 9.149999999997817,
+      "uart_start_to_reply_us": 863.8499999999985,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 243,
+      "i2c_end_us": 26407.5,
+      "d0_start_us": 26418.45,
+      "d1_start_us": 27282.25,
+      "sensor_to_uart_us": 10.950000000000728,
+      "uart_start_to_reply_us": 863.7999999999993,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 244,
+      "i2c_end_us": 30407.449999999997,
+      "d0_start_us": 30420.100000000002,
+      "d1_start_us": 31283.95,
+      "sensor_to_uart_us": 12.650000000005093,
+      "uart_start_to_reply_us": 863.8499999999985,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 245,
+      "i2c_end_us": 34407.399999999994,
+      "d0_start_us": 34421.799999999996,
+      "d1_start_us": 35285.600000000006,
+      "sensor_to_uart_us": 14.400000000001455,
+      "uart_start_to_reply_us": 863.8000000000102,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 246,
+      "i2c_end_us": 38407.350000000006,
+      "d0_start_us": 38423.450000000004,
+      "d1_start_us": 39287.3,
+      "sensor_to_uart_us": 16.099999999998545,
+      "uart_start_to_reply_us": 863.8499999999985,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 247,
+      "i2c_end_us": 42407.3,
+      "d0_start_us": 42416.45,
+      "d1_start_us": 43280.299999999996,
+      "sensor_to_uart_us": 9.14999999999418,
+      "uart_start_to_reply_us": 863.8499999999985,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 248,
+      "i2c_end_us": 46407.25,
+      "d0_start_us": 46418.149999999994,
+      "d1_start_us": 47282.0,
+      "sensor_to_uart_us": 10.89999999999418,
+      "uart_start_to_reply_us": 863.8500000000058,
+      "all_bytes_equal": true
+    }
+  ],
+  "initial_boundary_reply": [
+    {
+      "seq": 236,
+      "axes": [
+        538,
+        -230,
+        22018
+      ],
+      "hex": "A5 5A EC 02 1A FF 1A 56 02 45",
+      "payload": "02 1A FF 1A 56 02",
+      "start_us": 286.15,
+      "end_us": 1154.15
+    }
+  ],
+  "trailing_partial_i2c": [
+    {
+      "index": 2199,
+      "start": 49573.75,
+      "duration": 70.0,
+      "kind": "Address/data",
+      "value": "Address write: 68"
+    },
+    {
+      "index": 2200,
+      "start": 49643.75,
+      "duration": 10.0,
+      "kind": "Address/data",
+      "value": "Write"
+    },
+    {
+      "index": 2201,
+      "start": 49653.75,
+      "duration": 10.0,
+      "kind": "Address/data",
+      "value": "ACK"
+    },
+    {
+      "index": 2210,
+      "start": 49664.4,
+      "duration": 80.0,
+      "kind": "Address/data",
+      "value": "Data write: 3B"
+    },
+    {
+      "index": 2211,
+      "start": 49744.4,
+      "duration": 10.0,
+      "kind": "Address/data",
+      "value": "ACK"
+    },
+    {
+      "index": 2220,
+      "start": 49770.8,
+      "duration": 70.0,
+      "kind": "Address/data",
+      "value": "Address read: 68"
+    },
+    {
+      "index": 2221,
+      "start": 49840.8,
+      "duration": 10.0,
+      "kind": "Address/data",
+      "value": "Read"
+    },
+    {
+      "index": 2222,
+      "start": 49850.8,
+      "duration": 10.0,
+      "kind": "Address/data",
+      "value": "ACK"
+    },
+    {
+      "index": 2231,
+      "start": 49860.799999999996,
+      "duration": 80.0,
+      "kind": "Address/data",
+      "value": "Data read: 02"
+    },
+    {
+      "index": 2232,
+      "start": 49940.8,
+      "duration": 10.0,
+      "kind": "Address/data",
+      "value": "ACK"
+    }
+  ],
+  "archive_crc_ok": true,
+  "stationary_review": {
+    "user_report": "完全静止平放",
+    "expected_accel_config": "源码 1C=00；本记录未捕获配置回读",
+    "source": "docs/hardware/mpu6050_module_manual.pdf 第7页：AFS_SEL=0，16384 LSB/g",
+    "mean_axes": [
+      549.5,
+      -289.1666666666667,
+      21952.666666666668
+    ],
+    "mean_norm_counts": 21961.82005107406,
+    "mean_norm_g_if_2g_config": 1.3404431183516883,
+    "conclusion": "静止合成值偏离1g，测量值验收未通过，需补初始化及翻转验证；未确定根因"
+  },
+  "result": "PASS_COMMUNICATION_CAPTURE_MEASUREMENT_PENDING"
+}

@@ -1,0 +1,39 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sat Oct 31 12:04:59 2026
+| Host         : LAPTOP-1OLLF8TS running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file preflight_utilization.rpt
+| Design       : system_top
+| Device       : 7z010clg400-1
+| Design State : Optimized
+------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------+----------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|        Instance       |        Module        | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------+----------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| system_top            |                (top) |        261 |        221 |      40 |    0 | 371 |      0 |      0 |          0 |
+|   (system_top)        |                (top) |          0 |          0 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   u_core              |  system_monitor_core |        252 |        212 |      40 |    0 | 360 |      0 |      0 |          0 |
+|     u_processing      | feature_monitor_core |        124 |        124 |       0 |    0 | 186 |      0 |      0 |          0 |
+|       filtering       |  filter_monitor_core |        124 |        124 |       0 |    0 | 186 |      0 |      0 |          0 |
+|         (filtering)   |  filter_monitor_core |         32 |         32 |       0 |    0 |   0 |      0 |      0 |          0 |
+|         communication |         monitor_core |         92 |         92 |       0 |    0 | 186 |      0 |      0 |          0 |
+|           u_parser    |        packet_parser |         72 |         72 |       0 |    0 | 150 |      0 |      0 |          0 |
+|           u_rx        |              uart_rx |         20 |         20 |       0 |    0 |  36 |      0 |      0 |          0 |
+|     u_return          |    return_controller |        105 |         65 |      40 |    0 |  93 |      0 |      0 |          0 |
+|     u_select          | return_source_select |          0 |          0 |       0 |    0 |  57 |      0 |      0 |          0 |
+|     u_tx              |              uart_tx |         23 |         23 |       0 |    0 |  24 |      0 |      0 |          0 |
+|   u_reset             |       power_on_reset |          9 |          9 |       0 |    0 |  11 |      0 |      0 |          0 |
++-----------------------+----------------------+------------+------------+---------+------+-----+--------+--------+------------+
+
+

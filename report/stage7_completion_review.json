@@ -1,0 +1,34 @@
+{
+  "status": "PASS_STAGE7_COMPLETION_REVIEW",
+  "date": "2026-10-31",
+  "software_tasks_complete": true,
+  "original_omission": "仿真波形及部分构建/失败日志未包含在原交付包",
+  "omission_fixed": true,
+  "waveform_count": 42,
+  "base_candidate_payloads_verified": 97,
+  "base_frozen_archive_sources_verified": 177,
+  "base_candidate_modified": false,
+  "functional_sources_modified": false,
+  "live_source_differences": [
+    "report/ai_devlog.md"
+  ],
+  "difference_reason": "仅工作区AI日志追加本轮复核记录，rc1源码ZIP及目录不改",
+  "full_hardware_acceptance_complete": false,
+  "hardware_actions_performed": false,
+  "payload_sha256": {
+    "ai_devlog_review.md": "ac2114defba837aad3d36b1197e6d426fc6cf4606c9d9582df4340fdf7e2f38c",
+    "completion_review.md": "dde91a5ffff049273ae577873bcb07e859570b7a36ead7fc5a91fa7e3f93588c",
+    "evidence_manifest.json": "fe65f71584ba0b5e027eb1258fb45da5e54281a5505b7ba688e5043fe5970764",
+    "external_dependencies.json": "3690dfb4c52025355956047aa6155e85c77007cddce02b80e9ebad255f298d10",
+    "logs/skill_structure_validation.log": "6cf9e7f0d34ccd36dbd28f270cd28dd04277b2e1516bd4333ce7bb501d7b18d4",
+    "logs/stage6_implementation_debug.log": "6f918ec483861fe6b10428c1fe8b6ea37217ab886bc5fa971ec06dbe5b8c31df",
+    "logs/stage6_implementation_verified.log": "a211a5ef1b81bb50e197067098d9f1bfbf3b95d33f6364a89e82639fcb791fff",
+    "logs/stage7_host_verified.log": "1df9b1a6ddc8a9ee8b20afc39d91988c3880d3f5079dc598c20c6ac502a189b5",
+    "logs/stage7_package.log": "31278c016b5457ea3d58552f6f98f30473c5076aa23e904c063c41137683940f",
+    "logs/stage7_regression_final.log": "ce87dfb6c867ef460a7b9dbfc6ed5d601ceab1e8151c2bee78433e899b7d38b1",
+    "logs/stage7_regression_first_attempt.log": "80325e7c50de202784ee05e9e1a1314a406ec18437315da13a21949a810533b2",
+    "logs/stage7_release_final.log": "522c77138599e001a3ae72374c69624181de684380b4c145098a9c54b6a27ab6",
+    "logs/stage7_release_run.log": "64129280eb495fb84852afa89556834e9b82a74b553b737f8aadf3ddc73643a8",
+    "simulation_waveforms.zip": "dc8cc147c5218b1a374e1c329e374624989806d37c567b8106c0c619dfa36c3c"
+  }
+}

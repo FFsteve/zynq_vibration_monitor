@@ -1,0 +1,327 @@
+{
+  "status": "PASS_STAGE5_NUMERIC_DESIGN_ONLY",
+  "sqrt_vectors": 10033,
+  "feature_cases": {
+    "zero": {
+      "energy": [
+        0,
+        0,
+        0
+      ],
+      "mean_square": [
+        0,
+        0,
+        0
+      ],
+      "peak": [
+        0,
+        0,
+        0
+      ],
+      "rms": [
+        0,
+        0,
+        0
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "constant_signed": {
+      "energy": [
+        512000000,
+        288000000,
+        137430564992
+      ],
+      "mean_square": [
+        4000000,
+        2250000,
+        1073676289
+      ],
+      "peak": [
+        2000,
+        1500,
+        32767
+      ],
+      "rms": [
+        2000,
+        1500,
+        32767
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "fullscale_negative": {
+      "energy": [
+        2199023255552,
+        2199023255552,
+        2199023255552
+      ],
+      "mean_square": [
+        17179869184,
+        17179869184,
+        17179869184
+      ],
+      "peak": [
+        131072,
+        131072,
+        131072
+      ],
+      "rms": [
+        131072,
+        131072,
+        131072
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "fullscale_positive": {
+      "energy": [
+        2198989701248,
+        2198989701248,
+        2198989701248
+      ],
+      "mean_square": [
+        17179607041,
+        17179607041,
+        17179607041
+      ],
+      "peak": [
+        131071,
+        131071,
+        131071
+      ],
+      "rms": [
+        131071,
+        131071,
+        131071
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "alternating_extremes": {
+      "energy": [
+        2199006478400,
+        2199006478400,
+        128
+      ],
+      "mean_square": [
+        17179738112,
+        17179738112,
+        1
+      ],
+      "peak": [
+        131072,
+        131072,
+        1
+      ],
+      "rms": [
+        131071,
+        131071,
+        1
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "impulse_first": {
+      "energy": [
+        17179869184,
+        25000000,
+        81000000
+      ],
+      "mean_square": [
+        134217728,
+        195312,
+        632812
+      ],
+      "peak": [
+        131072,
+        5000,
+        9000
+      ],
+      "rms": [
+        11585,
+        441,
+        795
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "impulse_last": {
+      "energy": [
+        17179869184,
+        25000000,
+        81000000
+      ],
+      "mean_square": [
+        134217728,
+        195312,
+        632812
+      ],
+      "peak": [
+        131072,
+        5000,
+        9000
+      ],
+      "rms": [
+        11585,
+        441,
+        795
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "sine_integer_cycles": {
+      "energy": [
+        6400059072,
+        4095919908,
+        1600039892
+      ],
+      "mean_square": [
+        50000461,
+        31999374,
+        12500311
+      ],
+      "peak": [
+        10000,
+        8000,
+        5000
+      ],
+      "rms": [
+        7071,
+        5656,
+        3535
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    },
+    "random_fullscale": {
+      "energy": [
+        788614357442,
+        725904635503,
+        773830533814
+      ],
+      "mean_square": [
+        6161049667,
+        5671129964,
+        6045551045
+      ],
+      "peak": [
+        130900,
+        130723,
+        129619
+      ],
+      "rms": [
+        78492,
+        75306,
+        77753
+      ],
+      "window_id": 0,
+      "seq_start": 250,
+      "seq_end": 121
+    }
+  },
+  "alarm_trace": [
+    {
+      "axes": [
+        false,
+        false,
+        false
+      ],
+      "any": false,
+      "valid": true,
+      "rises": [],
+      "falls": []
+    },
+    {
+      "axes": [
+        true,
+        false,
+        false
+      ],
+      "any": true,
+      "valid": true,
+      "rises": [
+        0
+      ],
+      "falls": []
+    },
+    {
+      "axes": [
+        true,
+        false,
+        false
+      ],
+      "any": true,
+      "valid": true,
+      "rises": [],
+      "falls": []
+    },
+    {
+      "axes": [
+        true,
+        false,
+        false
+      ],
+      "any": true,
+      "valid": true,
+      "rises": [],
+      "falls": []
+    },
+    {
+      "axes": [
+        true,
+        false,
+        false
+      ],
+      "any": true,
+      "valid": true,
+      "rises": [],
+      "falls": []
+    },
+    {
+      "axes": [
+        true,
+        false,
+        false
+      ],
+      "any": true,
+      "valid": true,
+      "rises": [],
+      "falls": []
+    },
+    {
+      "axes": [
+        false,
+        false,
+        false
+      ],
+      "any": false,
+      "valid": true,
+      "rises": [],
+      "falls": [
+        0
+      ]
+    }
+  ],
+  "invalid_cases_rejected": 10,
+  "window_length": 128,
+  "nominal_window_ms": 512,
+  "rms_on": 2000,
+  "rms_off": 1500,
+  "assert_windows": 2,
+  "release_windows": 2,
+  "limitations": [
+    "未编写或运行第五阶段RTL/TB",
+    "未运行第五阶段ModelSim/XSim或综合",
+    "阈值为原始计数演示参数，不是故障标准",
+    "真实采样和校准问题保留"
+  ]
+}

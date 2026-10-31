@@ -1,0 +1,888 @@
+{
+  "result": "PASS_COMPLETE_CHAINS_BIAS_HYPOTHESIS_PENDING",
+  "capture_ms": 50,
+  "configuration_comparison": "用户确认仅翻转、程序配置未改；实际配置回读仍未捕获。Z近似正反水平时，中点/半差才可解释为零偏/灵敏度初估",
+  "d0": {
+    "bytes": 120,
+    "frames": [
+      {
+        "seq": 102,
+        "axes": [
+          2874,
+          -924,
+          -11312
+        ],
+        "hex": "A5 5A 66 0B 3A FC 64 D3 D0 CC",
+        "payload": "0B 3A FC 64 D3 D0",
+        "start_us": 2481.0,
+        "end_us": 3349.0
+      },
+      {
+        "seq": 103,
+        "axes": [
+          3066,
+          -820,
+          -11330
+        ],
+        "hex": "A5 5A 67 0B FA FC CC D3 BE CB",
+        "payload": "0B FA FC CC D3 BE",
+        "start_us": 6482.65,
+        "end_us": 7350.7
+      },
+      {
+        "seq": 104,
+        "axes": [
+          2772,
+          -924,
+          -11390
+        ],
+        "hex": "A5 5A 68 0A D4 FC 64 D3 82 7F",
+        "payload": "0A D4 FC 64 D3 82",
+        "start_us": 10484.349999999999,
+        "end_us": 11352.400000000001
+      },
+      {
+        "seq": 105,
+        "axes": [
+          2942,
+          -942,
+          -11382
+        ],
+        "hex": "A5 5A 69 0B 7E FC 52 D3 8A EB",
+        "payload": "0B 7E FC 52 D3 8A",
+        "start_us": 14486.0,
+        "end_us": 15354.050000000001
+      },
+      {
+        "seq": 106,
+        "axes": [
+          2982,
+          -858,
+          -11408
+        ],
+        "hex": "A5 5A 6A 0B A6 FC A6 D3 70 3E",
+        "payload": "0B A6 FC A6 D3 70",
+        "start_us": 18479.0,
+        "end_us": 19347.05
+      },
+      {
+        "seq": 107,
+        "axes": [
+          2852,
+          -924,
+          -11386
+        ],
+        "hex": "A5 5A 6B 0B 24 FC 64 D3 86 89",
+        "payload": "0B 24 FC 64 D3 86",
+        "start_us": 22480.699999999997,
+        "end_us": 23348.750000000004
+      },
+      {
+        "seq": 108,
+        "axes": [
+          3046,
+          -850,
+          -11404
+        ],
+        "hex": "A5 5A 6C 0B E6 FC AE D3 74 74",
+        "payload": "0B E6 FC AE D3 74",
+        "start_us": 26482.399999999998,
+        "end_us": 27350.4
+      },
+      {
+        "seq": 109,
+        "axes": [
+          2850,
+          -926,
+          -11330
+        ],
+        "hex": "A5 5A 6D 0B 22 FC 62 D3 BE B7",
+        "payload": "0B 22 FC 62 D3 BE",
+        "start_us": 30484.05,
+        "end_us": 31352.1
+      },
+      {
+        "seq": 110,
+        "axes": [
+          2984,
+          -930,
+          -11352
+        ],
+        "hex": "A5 5A 6E 0B A8 FC 5E D3 A8 14",
+        "payload": "0B A8 FC 5E D3 A8",
+        "start_us": 34485.75,
+        "end_us": 35353.8
+      },
+      {
+        "seq": 111,
+        "axes": [
+          3076,
+          -888,
+          -11352
+        ],
+        "hex": "A5 5A 6F 0C 04 FC 88 D3 A8 68",
+        "payload": "0C 04 FC 88 D3 A8",
+        "start_us": 38478.75,
+        "end_us": 39346.799999999996
+      },
+      {
+        "seq": 112,
+        "axes": [
+          2852,
+          -922,
+          -11468
+        ],
+        "hex": "A5 5A 70 0B 24 FC 66 D3 34 22",
+        "payload": "0B 24 FC 66 D3 34",
+        "start_us": 42480.4,
+        "end_us": 43348.45
+      },
+      {
+        "seq": 113,
+        "axes": [
+          2972,
+          -916,
+          -11396
+        ],
+        "hex": "A5 5A 71 0B 9C FC 6C D3 7C D9",
+        "payload": "0B 9C FC 6C D3 7C",
+        "start_us": 46482.100000000006,
+        "end_us": 47350.15
+      }
+    ],
+    "checksum_errors": [],
+    "discontinuities": [],
+    "boundary_bytes": [],
+    "unexpected": [],
+    "intervals_us": [
+      4001.6499999999996,
+      4001.699999999999,
+      4001.6500000000015,
+      3993.0,
+      4001.699999999997,
+      4001.7000000000007,
+      4001.6500000000015,
+      4001.7000000000007,
+      3993.0,
+      4001.6500000000015,
+      4001.7000000000044
+    ],
+    "mean_interval_us": 4000.1000000000004
+  },
+  "d1": {
+    "bytes": 120,
+    "frames": [
+      {
+        "seq": 102,
+        "axes": [
+          2874,
+          -924,
+          -11312
+        ],
+        "hex": "A5 5A 66 0B 3A FC 64 D3 D0 CC",
+        "payload": "0B 3A FC 64 D3 D0",
+        "start_us": 3344.8,
+        "end_us": 4212.85
+      },
+      {
+        "seq": 103,
+        "axes": [
+          3066,
+          -820,
+          -11330
+        ],
+        "hex": "A5 5A 67 0B FA FC CC D3 BE CB",
+        "payload": "0B FA FC CC D3 BE",
+        "start_us": 7346.5,
+        "end_us": 8214.5
+      },
+      {
+        "seq": 104,
+        "axes": [
+          2772,
+          -924,
+          -11390
+        ],
+        "hex": "A5 5A 68 0A D4 FC 64 D3 82 7F",
+        "payload": "0A D4 FC 64 D3 82",
+        "start_us": 11348.2,
+        "end_us": 12216.2
+      },
+      {
+        "seq": 105,
+        "axes": [
+          2942,
+          -942,
+          -11382
+        ],
+        "hex": "A5 5A 69 0B 7E FC 52 D3 8A EB",
+        "payload": "0B 7E FC 52 D3 8A",
+        "start_us": 15349.85,
+        "end_us": 16217.850000000002
+      },
+      {
+        "seq": 106,
+        "axes": [
+          2982,
+          -858,
+          -11408
+        ],
+        "hex": "A5 5A 6A 0B A6 FC A6 D3 70 3E",
+        "payload": "0B A6 FC A6 D3 70",
+        "start_us": 19342.85,
+        "end_us": 20210.85
+      },
+      {
+        "seq": 107,
+        "axes": [
+          2852,
+          -924,
+          -11386
+        ],
+        "hex": "A5 5A 6B 0B 24 FC 64 D3 86 89",
+        "payload": "0B 24 FC 64 D3 86",
+        "start_us": 23344.550000000003,
+        "end_us": 24212.55
+      },
+      {
+        "seq": 108,
+        "axes": [
+          3046,
+          -850,
+          -11404
+        ],
+        "hex": "A5 5A 6C 0B E6 FC AE D3 74 74",
+        "payload": "0B E6 FC AE D3 74",
+        "start_us": 27346.25,
+        "end_us": 28214.25
+      },
+      {
+        "seq": 109,
+        "axes": [
+          2850,
+          -926,
+          -11330
+        ],
+        "hex": "A5 5A 6D 0B 22 FC 62 D3 BE B7",
+        "payload": "0B 22 FC 62 D3 BE",
+        "start_us": 31347.899999999998,
+        "end_us": 32215.9
+      },
+      {
+        "seq": 110,
+        "axes": [
+          2984,
+          -930,
+          -11352
+        ],
+        "hex": "A5 5A 6E 0B A8 FC 5E D3 A8 14",
+        "payload": "0B A8 FC 5E D3 A8",
+        "start_us": 35349.600000000006,
+        "end_us": 36217.6
+      },
+      {
+        "seq": 111,
+        "axes": [
+          3076,
+          -888,
+          -11352
+        ],
+        "hex": "A5 5A 6F 0C 04 FC 88 D3 A8 68",
+        "payload": "0C 04 FC 88 D3 A8",
+        "start_us": 39342.6,
+        "end_us": 40210.6
+      },
+      {
+        "seq": 112,
+        "axes": [
+          2852,
+          -922,
+          -11468
+        ],
+        "hex": "A5 5A 70 0B 24 FC 66 D3 34 22",
+        "payload": "0B 24 FC 66 D3 34",
+        "start_us": 43344.25,
+        "end_us": 44212.25
+      },
+      {
+        "seq": 113,
+        "axes": [
+          2972,
+          -916,
+          -11396
+        ],
+        "hex": "A5 5A 71 0B 9C FC 6C D3 7C D9",
+        "payload": "0B 9C FC 6C D3 7C",
+        "start_us": 47345.950000000004,
+        "end_us": 48213.95
+      }
+    ],
+    "checksum_errors": [],
+    "discontinuities": [],
+    "boundary_bytes": [],
+    "unexpected": [],
+    "intervals_us": [
+      4001.7,
+      4001.7000000000007,
+      4001.6499999999996,
+      3992.999999999998,
+      4001.7000000000044,
+      4001.699999999997,
+      4001.649999999998,
+      4001.700000000008,
+      3992.9999999999927,
+      4001.6500000000015,
+      4001.7000000000044
+    ],
+    "mean_interval_us": 4000.104545454546
+  },
+  "i2c": [
+    {
+      "start_us": 228.4,
+      "end_us": 621.25,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 1228.3500000000001,
+      "end_us": 1621.25,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 1626.55,
+      "end_us": 2470.05,
+      "register": "3B",
+      "payload": "0B 3A FC 64 D3 D0",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 4228.349999999999,
+      "end_us": 4621.2,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 5228.3,
+      "end_us": 5621.2,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 5626.5,
+      "end_us": 6470.0,
+      "register": "3B",
+      "payload": "0B FA FC CC D3 BE",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 8228.25,
+      "end_us": 8621.15,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 9228.25,
+      "end_us": 9621.15,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 9626.45,
+      "end_us": 10469.95,
+      "register": "3B",
+      "payload": "0A D4 FC 64 D3 82",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 12228.199999999999,
+      "end_us": 12621.099999999999,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 13228.199999999999,
+      "end_us": 13621.099999999999,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 13626.4,
+      "end_us": 14469.9,
+      "register": "3B",
+      "payload": "0B 7E FC 52 D3 8A",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 16228.15,
+      "end_us": 16621.05,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 17228.149999999998,
+      "end_us": 17620.999999999996,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 17626.35,
+      "end_us": 18469.85,
+      "register": "3B",
+      "payload": "0B A6 FC A6 D3 70",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 20228.100000000002,
+      "end_us": 20621.000000000004,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 21228.100000000002,
+      "end_us": 21620.95,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 21626.3,
+      "end_us": 22469.8,
+      "register": "3B",
+      "payload": "0B 24 FC 64 D3 86",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 24228.05,
+      "end_us": 24620.95,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 25228.05,
+      "end_us": 25620.899999999998,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 25626.25,
+      "end_us": 26469.75,
+      "register": "3B",
+      "payload": "0B E6 FC AE D3 74",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 28228.0,
+      "end_us": 28620.85,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 29228.0,
+      "end_us": 29620.85,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 29626.149999999998,
+      "end_us": 30469.699999999997,
+      "register": "3B",
+      "payload": "0B 22 FC 62 D3 BE",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 32227.95,
+      "end_us": 32620.8,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 33227.95,
+      "end_us": 33620.799999999996,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 33626.1,
+      "end_us": 34469.6,
+      "register": "3B",
+      "payload": "0B A8 FC 5E D3 A8",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 36227.9,
+      "end_us": 36620.75,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 37227.85,
+      "end_us": 37620.75,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 37626.05,
+      "end_us": 38469.55,
+      "register": "3B",
+      "payload": "0C 04 FC 88 D3 A8",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 40227.85,
+      "end_us": 40620.7,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 41227.8,
+      "end_us": 41620.700000000004,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 41626.0,
+      "end_us": 42469.5,
+      "register": "3B",
+      "payload": "0B 24 FC 66 D3 34",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 44227.75,
+      "end_us": 44620.65,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 45227.75,
+      "end_us": 45620.65,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 45625.950000000004,
+      "end_us": 46469.450000000004,
+      "register": "3B",
+      "payload": "0B 9C FC 6C D3 7C",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 48227.7,
+      "end_us": 48620.6,
+      "register": "3A",
+      "payload": "00",
+      "ack_pattern_ok": true
+    },
+    {
+      "start_us": 49227.7,
+      "end_us": 49620.6,
+      "register": "3A",
+      "payload": "01",
+      "ack_pattern_ok": true
+    }
+  ],
+  "comparisons": [
+    {
+      "seq": 102,
+      "i2c_end_us": 2470.05,
+      "d0_start_us": 2481.0,
+      "d1_start_us": 3344.8,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 103,
+      "i2c_end_us": 6470.0,
+      "d0_start_us": 6482.65,
+      "d1_start_us": 7346.5,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 104,
+      "i2c_end_us": 10469.95,
+      "d0_start_us": 10484.349999999999,
+      "d1_start_us": 11348.2,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 105,
+      "i2c_end_us": 14469.9,
+      "d0_start_us": 14486.0,
+      "d1_start_us": 15349.85,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 106,
+      "i2c_end_us": 18469.85,
+      "d0_start_us": 18479.0,
+      "d1_start_us": 19342.85,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 107,
+      "i2c_end_us": 22469.8,
+      "d0_start_us": 22480.699999999997,
+      "d1_start_us": 23344.550000000003,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 108,
+      "i2c_end_us": 26469.75,
+      "d0_start_us": 26482.399999999998,
+      "d1_start_us": 27346.25,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 109,
+      "i2c_end_us": 30469.699999999997,
+      "d0_start_us": 30484.05,
+      "d1_start_us": 31347.899999999998,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 110,
+      "i2c_end_us": 34469.6,
+      "d0_start_us": 34485.75,
+      "d1_start_us": 35349.600000000006,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 111,
+      "i2c_end_us": 38469.55,
+      "d0_start_us": 38478.75,
+      "d1_start_us": 39342.6,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 112,
+      "i2c_end_us": 42469.5,
+      "d0_start_us": 42480.4,
+      "d1_start_us": 43344.25,
+      "all_bytes_equal": true
+    },
+    {
+      "seq": 113,
+      "i2c_end_us": 46469.450000000004,
+      "d0_start_us": 46482.100000000006,
+      "d1_start_us": 47345.950000000004,
+      "all_bytes_equal": true
+    }
+  ],
+  "boundary_prefix": {
+    "d0": [],
+    "d1": [
+      {
+        "index": 0,
+        "start": 2.85,
+        "duration": 8.7,
+        "kind": "TX data",
+        "value": "Start bit"
+      },
+      {
+        "index": 1,
+        "start": 11.55,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 2,
+        "start": 20.2,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 3,
+        "start": 28.9,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 4,
+        "start": 37.55,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "0"
+      },
+      {
+        "index": 5,
+        "start": 46.25,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "0"
+      },
+      {
+        "index": 6,
+        "start": 54.95,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 7,
+        "start": 63.6,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "0"
+      },
+      {
+        "index": 8,
+        "start": 72.3,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "0"
+      },
+      {
+        "index": 9,
+        "start": 11.55,
+        "duration": 69.4,
+        "kind": "TX data",
+        "value": "27"
+      },
+      {
+        "index": 10,
+        "start": 80.95,
+        "duration": 4.35,
+        "kind": "TX warnings",
+        "value": "Stop bit error"
+      },
+      {
+        "index": 11,
+        "start": 124.35,
+        "duration": 8.7,
+        "kind": "TX data",
+        "value": "Start bit"
+      },
+      {
+        "index": 12,
+        "start": 133.05,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 13,
+        "start": 141.7,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 14,
+        "start": 150.4,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 15,
+        "start": 159.05,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 16,
+        "start": 167.75,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 17,
+        "start": 176.45,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "0"
+      },
+      {
+        "index": 18,
+        "start": 185.1,
+        "duration": 8.7,
+        "kind": "TX bits",
+        "value": "0"
+      },
+      {
+        "index": 19,
+        "start": 193.8,
+        "duration": 8.65,
+        "kind": "TX bits",
+        "value": "1"
+      },
+      {
+        "index": 20,
+        "start": 133.05,
+        "duration": 69.4,
+        "kind": "TX data",
+        "value": "9F"
+      },
+      {
+        "index": 21,
+        "start": 202.45,
+        "duration": 8.7,
+        "kind": "TX data",
+        "value": "Stop bit"
+      }
+    ]
+  },
+  "boundary_warnings": [
+    {
+      "index": 10,
+      "start": 80.95,
+      "duration": 4.35,
+      "kind": "TX warnings",
+      "value": "Stop bit error"
+    }
+  ],
+  "register_counts": {
+    "3A": 26,
+    "3B": 12
+  },
+  "old_mean_axes": [
+    549.5,
+    -289.1666666666667,
+    21952.666666666668
+  ],
+  "new_mean_axes": [
+    2939,
+    -902,
+    -11375.833333333334
+  ],
+  "mean_norm_g_if_2g_config": 0.7192602187621615,
+  "provisional_z_offset_counts": 5288.416666666667,
+  "provisional_z_sensitivity_counts_per_g": 16664.25,
+  "provisional_scale_relative_error_percent": 1.71051025390625,
+  "provisional_z_offset_g": 0.3227793375651042,
+  "archive_crc_ok": true,
+  "hashes": {
+    "sensor_zdown_d0_20261030.csv": "1b896007a3a7b088af13117174659987299edded724e7c1cb58c51847e835ecd",
+    "sensor_zdown_d1_20261030.csv": "718891a9783b382a6036b0b8d65435fc499ea3f675975893703445c21a9eb21a",
+    "sensor_zdown_i2c_20261030.csv": "8dd0005575fedee6deabb99e95615ec832c1b980af1f597ed9f1a5ac8c53ad67",
+    "sensor_zdown_20261030.atkdl": "df318a9989f12044b9e84b274f2593ed6d2eb59b7cbb26961798a3c03fa41a08",
+    "sensor_source_analysis_20261030.json": "22b4a2393c7a9446e5971187c96cd0f196dd3efdd8845b25b38bbbe4e4ab31bf"
+  }
+}

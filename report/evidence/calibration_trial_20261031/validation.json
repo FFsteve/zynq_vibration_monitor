@@ -1,0 +1,51 @@
+{
+  "status": "SOFTWARE_PASS_EXPERIMENTAL_ONLY",
+  "formal_calibration_pass": false,
+  "board_test_pass": null,
+  "capture_frames": 73,
+  "c_axis_values_checked": 196608,
+  "c_packets_checked": 65536,
+  "max_integer_difference_from_float": [
+    1,
+    1,
+    1
+  ],
+  "keil_targets_passed": [
+    "FixedSource",
+    "SensorSource",
+    "SensorCalibratedTrial"
+  ],
+  "source_sha256": {
+    "stm32/app/accel_calibration.c": "c98f1db08371b158ee09b0467eb5f80782c8c374f6cd7415a8eacafae0a3eb24",
+    "stm32/app/accel_calibration.h": "9f99f83aa313435cd3c60b24b1c337c1731b2d1b2f68e3f02bdeaff7d488d54c",
+    "stm32/app/accel_calibration_params.h": "23ea7d81468f6601b8a5ad31fb1733cbafaaa13e137b5a16b2a64ae9ead7e97f",
+    "stm32/app/acquisition.c": "2da3fa28b22e34524a0bcd01b87e2f1736c269f944e7fbff73c0008995716dc4",
+    "stm32/app/sample_packet.c": "9a5578f688e51a886fdb7293f64478bd3f2ee7260a2fef661ce56326a775a8e9",
+    "stm32/bsp/mpu6050.c": "a3e3cd0eb45f6ef8b2e567550dcd61541eb0557971847131dd407b5a337e5376",
+    "stm32/keil/vibration_calibration.uvprojx": "6d6a5445479d4919337f4cf85641b00b2a854caf695ae43c9b4097041ee3d70a",
+    "stm32/tests/test_calibration.c": "87457fd2e9e746bd3338fe680283d2788ca05611c6d97a317285d68ac4c356ac",
+    "stm32/tests/check_calibration.py": "f5bcaf3af8398306e010c4b1b99aba459df7ea9bffc5343b25f6555e779ffde2",
+    "stm32/test_calibration.ps1": "8f8e85e4a90c68da6c7614c335ac9333935b3be875e4a91c0e54e59fd0c0ef81",
+    "stm32/build_keil.ps1": "c7bbf5d7e26a2d16d9808a10d53eeb737406e0863b046384868e52ef6f2bce27",
+    "host/calibrate_mpu6050.py": "3abeb07e3d0f884169c4d26f62f2fb403bb3d0ebd3de9fd561f28af4ccd28f6a"
+  },
+  "firmware_sha256": {
+    "build\\stm32\\SensorCalibratedTrial\\vibration_monitor.axf": "01a995142388284434cb0524f89d8683eb327d133df209e82bedd4ea2b69c803",
+    "build\\stm32\\SensorCalibratedTrial\\vibration_monitor.hex": "c897a1dc16b92755baf83764fd015590aba3d2950a1b0a86c843348e92ab25c4"
+  },
+  "evidence_sha256": {
+    "accel_calibration_params.h": "23ea7d81468f6601b8a5ad31fb1733cbafaaa13e137b5a16b2a64ae9ead7e97f",
+    "analysis.json": "d9d0f870e287c59cfec3c74ea93f76a68e5ee062fd7b25ed97b6740159540b15",
+    "calibration_tests.log": "268d4b99d1e112d7a16cc84810677d37f80ad2d65b87851de65e0bb4615df185",
+    "c_vectors.zip": "b0783365e5ee6def31c557dca147353a4369436ab6da37b3d2231d3018b829d9",
+    "keil_baseline.log": "98f22d1eab0aabc0dbca0b04af6b534e72946e327247632c306aa31dfb325e04",
+    "keil_trial.log": "ff186442c513ad72117812268ee3530567372ceef250d5d95e56d2be670178df",
+    "portable_baseline.log": "310807cbde386c63a045d5b31e87cec47d5544b1550848c8e282f23edefe11be",
+    "xn_corrected.csv": "38e16f1217294ce542c16e1a7129f516312d43f9a70f95509756579034cde0a4",
+    "xp_corrected.csv": "b64523b5fdba611c998b74e82a0284ede18a84c82f79a1c9d92435656f22a763",
+    "yn_corrected.csv": "becb675c431d6b75a0c7f4a0f0399bdac162e25d451621d32ab950fe0f55673a",
+    "yp_corrected.csv": "60d874601e5a6ed825aca27d68e8f54eca2f01d27380d1fa23e1d430ff6c7463",
+    "zn_corrected.csv": "f2bae1c444838677a7f87a2a3cc064bc23daf9ab04ce037a0e2cc0e0e1671e72",
+    "zp_corrected.csv": "9929cf538d5fe59b88329895687b984f46038fdc51db8bd15d2bdb694d9cdce8"
+  }
+}

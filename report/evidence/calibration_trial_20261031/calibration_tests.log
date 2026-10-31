@@ -1,0 +1,2 @@
+PASS calibration_c values_per_axis=65536 axes=3 integration_errors_recovery_fixed_bypass=passed
+PASS calibration_crosscheck {"axis_values": 196608, "packets": 65536, "max_integer_difference_from_float": [1, 1, 1], "saturations": [952, 355, 4728]}

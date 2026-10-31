@@ -1,8 +1,53 @@
-# First task for Codex
+# 软件候选版已冻结：下一步完整上板验收
 
-Read AGENTS.md, docs/project_context.md, docs/hardware_pinmap.md, and all four schematic/manual PDFs. Do not modify files yet. Produce:
-1. Pin/voltage/clock cross-check with schematic page citations; flag unknowns and any conflict with existing docs.
-2. An interface specification and state diagram/table for an independently testable 115200-8N1 UART receiver clocked at nominal 50MHz.
-3. A self-checking testbench plan, including back-to-back bytes and malformed start/stop conditions.
-4. A small staged implementation plan with exact files, acceptance criteria and required human hardware checks.
-Wait for user approval before editing. Do not claim hardware or simulation results without executing them.
+第一、二阶段已获用户接受。第三阶段已完成软件与仿真闭环，并取得基本实物通信证据。2026-10-30 用户同意把传感器偏差后续处理，以第三阶段基本通信成果作为基础，授权进入第四阶段；进一步确认暂按250Hz采样、保留5～30Hz、抑制50Hz及以上设计。
+
+用户于 2026-10-29 开始中途板测，已提供 FixedSource 双路整包回传截图。2026-10-30 授权查看 SensorSource 的已有 50 ms 记录，12 组 I2C 六字节、D0 三轴与 D1 回传逐字节一致，通信闭环通过，见 `../report/sensor_source_validation_20261030.md`。但完全静止时合成值按预期 ±2g 配置换算约 1.34g，量值验收未通过；记录不含初始化回读，需先排查。不能把通信成功等同于全部传感器验收通过。
+
+## 第四阶段当前状态
+
+2026-10-31用户明确批准继续编写，并要求每阶段主要内容完成后自动仿真。四个新RTL和对应自检已完成；ModelSim/XSim均通过，单轴41728样本、三轴4000组、600正常串口包及错误/恢复覆盖；OOC内部时序通过。实际结果见 `../report/stage4_validation.md`，设计见 `stage4_design.md`，复现见 `stage4_test_guide.md`。
+
+第四阶段软件验收已完成；用户随后批准第五阶段具体方案，窗口均方值、峰值、整数RMS与滞回报警也已实现并验收。继续保留原始十字节回传，滤波结果为18位内部接口；板级top、STM32和约束未改。
+
+用户已授权每阶段主要代码完成后由助手自行执行相应自检及必要综合、报告结论，无需再次询问是否运行常规仿真。上板联调集中最终阶段；未实际执行不得声称通过。
+
+## 保留的后续实物事项
+
+- 正反静止对照支持较大Z零偏，详见 `../report/sensor_zdown_validation_20261030.md`；后续补初始化配置回读、六面静止和重复验证，不直接写入约5288的临时补偿。
+- 边界停止位提示、较长记录、采样均匀性及回绕继续单独验收。当前数值频响以均匀250Hz为假设，不能用去直流替代校准或把仿真信号称作实测。
+- 正式约束已有实现检查与通信证据，详见 `fpga_constraints.md`；ZPS7-1提示及未测电气事项继续保留。
+
+保持第一版仅 PL，不引入 PS、AXI、Linux 或 PYNQ。保持十字节输入约定；需要变更时先获批准。Markdown 和说明性注释继续使用中文，厂商库与 PDF 授权未核实前不公开。
+
+## 第五阶段当前状态与下一步
+
+2026-10-31用户明确确认128样本、2000/1500演示阈值及两窗确认，授权四个RTL和双工具仿真。`isqrt_u36`、`window_features`、`threshold_alarm`、`feature_monitor_core`已完成；ModelSim/XSim四项自检及导出对照、八项非法参数拒绝均通过。完整内部核心隔离OOC检查通过，20ns时钟内部建立/保持裕量9.063ns/0.088ns。
+
+第五阶段软件验收完成，见 `../report/stage5_validation.md`、`stage5_test_guide.md`。原始十字节通信和板级top未改，不会从D1直接看到RMS或报警。
+
+用户已补充原分期截图：第六阶段是系统联调与量化，第七阶段是回归、修复与交付，已持久化在 `stage_plan.md`。第六阶段的原始/滤波选择采用获批的十字节尺度4规则；RMS/峰值/MS仍为内部接口，没有另加结果协议。
+
+最终阶段统一进行板级集成、完整约束/时序和实物验收；MPU6050初始化回读、校准、均匀采样和真实阈值仍为待验证。
+
+## 第六阶段结果与下一步
+
+第六阶段方案已获明确批准。`return_source_select`、`system_monitor_core`、`system_top`及各自自检已完成；ModelSim/XSim通过，长序列两模式各5632包/40窗，所有导出匹配独立参考，拥塞/复位/错误恢复和默认参数通道通过。两种完整顶层独立实现通过，原始/滤波内部建立裕量5.205ns/8.300ns，保持裕量0.037ns/0.028ns。
+
+只标记网络不能保证支路保留，实际修正为427位明确保留的调试快照负载；两模式均保留三轴FIR、三个开方器和报警，旧未连接发送器移除。源模式写入采集元数据，滤波线缆计数乘4恢复尺度。实际证据见 `../report/stage6_validation.md`。
+
+软件与实现部分完成；实物按此前约定集中最终阶段，`../report/stage6_board_record.md`仍为未验证。下一步第七阶段按 `stage_plan.md` 运行全部自检、重跑失败案例、冻结版本、整理说明/波形/日志/AI记录，并对最终源码重新实现、检查时序/DRC及冷启动实物演示。不要把本阶段软件成果称为已经通过新增板测。
+
+## 第七阶段结果与当前唯一待办
+
+2026-10-31完成从全部阶段起的ModelSim/XSim回归、PC11项、可移植C与两个Keil重建；原始/滤波/debug三版重新实现并生成bit，debug有匹配ltx，Keil AXF另转为有效HEX。软件候选版v1.0-rc1，入口见 `stage7_delivery.md`、`../report/stage7_validation.md`。
+
+需求核对见 `../report/requirements_audit.md`：已知软件要求满足，整体实物与传感器校准尚未验收，没有正式评分规则全文不能担保未知条款。当前下一步按 `board_test_plan.md` 从B01～B12逐项操作，填写 `../report/final_board_record.md`；不再自行开始新功能阶段。
+
+没有执行本轮下载、采集或硬件操作。既有基本通信证据不替代新版整体板测；软件/数字内容、真实周期、量值校准和报警物理验证分别签收。若板测需修复，建立rc2并重跑受影响检查，不能修改rc1后沿用冻结哈希。
+
+## 冻结后校准实验的当前待办
+
+2026-10-31已分析四份新X/Y与两份旧Z，每份实际上只有50ms；独立实验校准工程及测试通过，详见 `../report/mpu6050_calibration_analysis_20261031.md`。软件检查通过不代表传感器标定通过，也未由代理执行烧录。
+
+下一步优先使用原SensorSource补采同一配置六面各20秒及独立第二轮、初始化实际回读，重查xn/旧zp约3ms周期与横轴残差。实验SensorCalibratedTrial用于初步对照，其D0已校正，不能再次当原始值拟合。不要将此分支默认为正式rc2；通过实物验证后再决定参数和新冻结版。

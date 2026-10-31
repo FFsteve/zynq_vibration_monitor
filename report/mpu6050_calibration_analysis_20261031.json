@@ -1,0 +1,1688 @@
+{
+  "status": "EXPERIMENTAL_ONLY",
+  "formal_calibration_pass": false,
+  "bias_counts": [
+    704.1602564102568,
+    -535.333333333333,
+    5288.416666666667
+  ],
+  "sensitivity_counts_per_g": [
+    16259.99358974359,
+    16474.0,
+    16664.25
+  ],
+  "gain": [
+    1.0076264735020948,
+    0.9945368459390554,
+    0.9831825614714134
+  ],
+  "bias_q16": [
+    46147847,
+    -35083605,
+    346581675
+  ],
+  "gain_q16": [
+    66036,
+    65178,
+    64434
+  ],
+  "issues": [
+    "没有独立第二轮或跨重启验证记录",
+    "新旧记录跨阶段，实际配置一致性尚未实测确认",
+    "xp仅0.05秒/13包，未达到20秒采集计划",
+    "xp横轴残差0.065615g超过建议0.05g，姿态/模型需核查",
+    "xn仅0.05秒/12包，未达到20秒采集计划",
+    "xn存在超出3.9～4.1毫秒的包间隔，采样周期仍待核查",
+    "xn横轴残差0.072145g超过建议0.05g，姿态/模型需核查",
+    "yp仅0.05秒/12包，未达到20秒采集计划",
+    "yn仅0.05秒/12包，未达到20秒采集计划",
+    "zp仅0.05秒/12包，未达到20秒采集计划",
+    "zp存在超出3.9～4.1毫秒的包间隔，采样周期仍待核查",
+    "zn仅0.05秒/12包，未达到20秒采集计划",
+    "zn横轴残差0.137444g超过建议0.05g，姿态/模型需核查"
+  ],
+  "captures": {
+    "xp": {
+      "csv": "report\\evidence\\xp_r1_uart.csv",
+      "csv_sha256": "ee1df3a1fafbe07eac84bf0e2d2752f49d30b786561761a91d60964a39849f15",
+      "encoding": "gb18030",
+      "archive": "report\\evidence\\xp_r1.atkdl",
+      "archive_info": {
+        "sha256": "8ae2f92b0237d2dc9b8cdfae82d181763e0818000db13bf5cc4ca46de69bd57b",
+        "crc_ok": true,
+        "settings": {
+          "RLE": false,
+          "index": 6,
+          "intervalTime": 0,
+          "isBuffer": true,
+          "model": 0,
+          "selectHzIndex": 5,
+          "selectThresholdLevelIndex": 3,
+          "selectTimeIndex": 5,
+          "setHz": 20000000,
+          "setTime": 50,
+          "thresholdLevel": 1.5,
+          "triggerPosition": 1
+        },
+        "uart_decoders": [
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "0"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          },
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "1"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          }
+        ]
+      },
+      "frames": [
+        {
+          "seq": 46,
+          "raw": [
+            16838,
+            474,
+            6444
+          ],
+          "start_s": 0.0006284999999999999,
+          "end_s": 0.00149655
+        },
+        {
+          "seq": 47,
+          "raw": [
+            17022,
+            542,
+            6478
+          ],
+          "start_s": 0.0046302,
+          "end_s": 0.0054982500000000005
+        },
+        {
+          "seq": 48,
+          "raw": [
+            17002,
+            516,
+            6380
+          ],
+          "start_s": 0.0086319,
+          "end_s": 0.0094999
+        },
+        {
+          "seq": 49,
+          "raw": [
+            16848,
+            480,
+            6474
+          ],
+          "start_s": 0.0126249,
+          "end_s": 0.0134929
+        },
+        {
+          "seq": 50,
+          "raw": [
+            17082,
+            594,
+            6410
+          ],
+          "start_s": 0.01662655,
+          "end_s": 0.017494600000000003
+        },
+        {
+          "seq": 51,
+          "raw": [
+            16982,
+            546,
+            6338
+          ],
+          "start_s": 0.02062825,
+          "end_s": 0.021496300000000003
+        },
+        {
+          "seq": 52,
+          "raw": [
+            16942,
+            460,
+            6344
+          ],
+          "start_s": 0.02462995,
+          "end_s": 0.02549795
+        },
+        {
+          "seq": 53,
+          "raw": [
+            17084,
+            554,
+            6298
+          ],
+          "start_s": 0.0286316,
+          "end_s": 0.029499650000000002
+        },
+        {
+          "seq": 54,
+          "raw": [
+            16894,
+            476,
+            6364
+          ],
+          "start_s": 0.032624600000000004,
+          "end_s": 0.03349265
+        },
+        {
+          "seq": 55,
+          "raw": [
+            16944,
+            490,
+            6336
+          ],
+          "start_s": 0.0366263,
+          "end_s": 0.03749435
+        },
+        {
+          "seq": 56,
+          "raw": [
+            17028,
+            528,
+            6386
+          ],
+          "start_s": 0.040628000000000004,
+          "end_s": 0.04149605
+        },
+        {
+          "seq": 57,
+          "raw": [
+            16802,
+            492,
+            6380
+          ],
+          "start_s": 0.04462965,
+          "end_s": 0.045497699999999995
+        },
+        {
+          "seq": 58,
+          "raw": [
+            17066,
+            520,
+            6332
+          ],
+          "start_s": 0.04863135,
+          "end_s": 0.0494994
+        }
+      ],
+      "count": 13,
+      "capture_seconds": 0.05,
+      "mean": [
+        16964.153846153848,
+        513.2307692307693,
+        6381.846153846154
+      ],
+      "std": [
+        95.44443946946845,
+        38.95757060819255,
+        56.05629039017559
+      ],
+      "min": [
+        16802,
+        460,
+        6298
+      ],
+      "max": [
+        17084,
+        594,
+        6478
+      ],
+      "second_minus_first_half": [
+        3.3809523809541133,
+        -22.47619047619054,
+        -72.09523809523853
+      ],
+      "interval_mean_s": 0.0040002375,
+      "interval_min_s": 0.003993,
+      "interval_max_s": 0.004001700000000004,
+      "interval_outliers": [],
+      "decoder_stats": {
+        "frames": 13,
+        "checksum_errors": 0,
+        "discarded_bytes": 0,
+        "trailing_bytes": 0,
+        "seq_discontinuities": 0,
+        "duplicates": 0,
+        "gap_mod256_total": 0
+      },
+      "candidate_checksum_errors": [],
+      "skipped_words": [],
+      "warnings": [],
+      "interior_warnings": [],
+      "fit_check": {
+        "mean_g": [
+          0.9999999999999999,
+          0.06364963594537466,
+          0.06561528344686901
+        ],
+        "mean_norm_g": 1.0041772710859067,
+        "max_cross_axis_g": 0.06561528344686901,
+        "independent_validation": false
+      }
+    },
+    "xn": {
+      "csv": "report\\evidence\\xn_r1_uart.csv",
+      "csv_sha256": "a7e7594ca893735c667cd015929e106e4559e67a5597c8752de9366ae2bb0747",
+      "encoding": "gb18030",
+      "archive": "report\\evidence\\xn_r1.atkdl",
+      "archive_info": {
+        "sha256": "8abfd383915ae29e856bdc8047f14ab9ffecb443a237fe958a37f090e1db3ed4",
+        "crc_ok": true,
+        "settings": {
+          "RLE": false,
+          "index": 6,
+          "intervalTime": 0,
+          "isBuffer": true,
+          "model": 0,
+          "selectHzIndex": 5,
+          "selectThresholdLevelIndex": 3,
+          "selectTimeIndex": 5,
+          "setHz": 20000000,
+          "setTime": 50,
+          "thresholdLevel": 1.5,
+          "triggerPosition": 1
+        },
+        "uart_decoders": [
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "0"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          },
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "1"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          }
+        ]
+      },
+      "frames": [
+        {
+          "seq": 236,
+          "raw": [
+            -15452,
+            -424,
+            6466
+          ],
+          "start_s": 0.00296275,
+          "end_s": 0.0038307999999999997
+        },
+        {
+          "seq": 237,
+          "raw": [
+            -15638,
+            -422,
+            6520
+          ],
+          "start_s": 0.0069644500000000005,
+          "end_s": 0.007832500000000001
+        },
+        {
+          "seq": 238,
+          "raw": [
+            -15480,
+            -480,
+            6482
+          ],
+          "start_s": 0.010966150000000001,
+          "end_s": 0.01183415
+        },
+        {
+          "seq": 239,
+          "raw": [
+            -15584,
+            -440,
+            6590
+          ],
+          "start_s": 0.01495915,
+          "end_s": 0.01582715
+        },
+        {
+          "seq": 240,
+          "raw": [
+            -15694,
+            -512,
+            6450
+          ],
+          "start_s": 0.0189608,
+          "end_s": 0.019828850000000002
+        },
+        {
+          "seq": 241,
+          "raw": [
+            -15474,
+            -416,
+            6506
+          ],
+          "start_s": 0.0229625,
+          "end_s": 0.023830550000000002
+        },
+        {
+          "seq": 242,
+          "raw": [
+            -15678,
+            -416,
+            6502
+          ],
+          "start_s": 0.0269642,
+          "end_s": 0.027832250000000003
+        },
+        {
+          "seq": 243,
+          "raw": [
+            -15592,
+            -500,
+            6502
+          ],
+          "start_s": 0.0309659,
+          "end_s": 0.0318339
+        },
+        {
+          "seq": 244,
+          "raw": [
+            -15448,
+            -446,
+            6494
+          ],
+          "start_s": 0.0349589,
+          "end_s": 0.0358269
+        },
+        {
+          "seq": 245,
+          "raw": [
+            -15658,
+            -466,
+            6420
+          ],
+          "start_s": 0.03896055,
+          "end_s": 0.0398286
+        },
+        {
+          "seq": 246,
+          "raw": [
+            -15478,
+            -502,
+            6486
+          ],
+          "start_s": 0.04296225,
+          "end_s": 0.043830299999999996
+        },
+        {
+          "seq": 247,
+          "raw": [
+            -15494,
+            -400,
+            6470
+          ],
+          "start_s": 0.0459657,
+          "end_s": 0.04683375
+        }
+      ],
+      "count": 12,
+      "capture_seconds": 0.05,
+      "mean": [
+        -15555.833333333334,
+        -452,
+        6490.666666666667
+      ],
+      "std": [
+        94.40900701766016,
+        38.781438859330635,
+        41.57213518984109
+      ],
+      "min": [
+        -15694,
+        -512,
+        6420
+      ],
+      "max": [
+        -15448,
+        -400,
+        6590
+      ],
+      "second_minus_first_half": [
+        -4.33333333333394,
+        -6,
+        -23.33333333333303
+      ],
+      "interval_mean_s": 0.00390935909090909,
+      "interval_min_s": 0.003003449999999998,
+      "interval_max_s": 0.004001700000000004,
+      "interval_outliers": [
+        {
+          "from_seq": 246,
+          "to_seq": 247,
+          "seconds": 0.003003449999999998
+        }
+      ],
+      "decoder_stats": {
+        "frames": 12,
+        "checksum_errors": 0,
+        "discarded_bytes": 0,
+        "trailing_bytes": 0,
+        "seq_discontinuities": 0,
+        "duplicates": 0,
+        "gap_mod256_total": 0
+      },
+      "candidate_checksum_errors": [],
+      "skipped_words": [],
+      "warnings": [],
+      "interior_warnings": [],
+      "fit_check": {
+        "mean_g": [
+          -1.0,
+          0.0050584759823560175,
+          0.0721454610918583
+        ],
+        "mean_norm_g": 1.002617366582913,
+        "max_cross_axis_g": 0.0721454610918583,
+        "independent_validation": false
+      }
+    },
+    "yp": {
+      "csv": "report\\evidence\\yp_r1_uart.csv",
+      "csv_sha256": "29ae0cec1f601fd509a6ad39101648930f3ed1bc950964e3f3039bcd735029a0",
+      "encoding": "gb18030",
+      "archive": "report\\evidence\\yp_r1.atkdl",
+      "archive_info": {
+        "sha256": "8e1fcea2d2c26e2c9d38f4e44bb355082516fa21bc7847902dec36e89142d6df",
+        "crc_ok": true,
+        "settings": {
+          "RLE": false,
+          "index": 6,
+          "intervalTime": 0,
+          "isBuffer": true,
+          "model": 0,
+          "selectHzIndex": 5,
+          "selectThresholdLevelIndex": 3,
+          "selectTimeIndex": 5,
+          "setHz": 20000000,
+          "setTime": 50,
+          "thresholdLevel": 1.5,
+          "triggerPosition": 1
+        },
+        "uart_decoders": [
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "0"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          },
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "1"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          }
+        ]
+      },
+      "frames": [
+        {
+          "seq": 55,
+          "raw": [
+            364,
+            15856,
+            5230
+          ],
+          "start_s": 0.0014157,
+          "end_s": 0.0022837
+        },
+        {
+          "seq": 56,
+          "raw": [
+            554,
+            15946,
+            5276
+          ],
+          "start_s": 0.00541735,
+          "end_s": 0.006285400000000001
+        },
+        {
+          "seq": 57,
+          "raw": [
+            370,
+            16008,
+            5246
+          ],
+          "start_s": 0.00941905,
+          "end_s": 0.0102871
+        },
+        {
+          "seq": 58,
+          "raw": [
+            412,
+            15938,
+            5282
+          ],
+          "start_s": 0.01342075,
+          "end_s": 0.014288799999999999
+        },
+        {
+          "seq": 59,
+          "raw": [
+            532,
+            15956,
+            5200
+          ],
+          "start_s": 0.017422450000000003,
+          "end_s": 0.01829045
+        },
+        {
+          "seq": 60,
+          "raw": [
+            342,
+            15922,
+            5276
+          ],
+          "start_s": 0.02141545,
+          "end_s": 0.0222835
+        },
+        {
+          "seq": 61,
+          "raw": [
+            514,
+            15892,
+            5274
+          ],
+          "start_s": 0.0254171,
+          "end_s": 0.02628515
+        },
+        {
+          "seq": 62,
+          "raw": [
+            524,
+            16002,
+            5240
+          ],
+          "start_s": 0.029418800000000002,
+          "end_s": 0.03028685
+        },
+        {
+          "seq": 63,
+          "raw": [
+            316,
+            15892,
+            5262
+          ],
+          "start_s": 0.0334205,
+          "end_s": 0.03428855
+        },
+        {
+          "seq": 64,
+          "raw": [
+            554,
+            15974,
+            5194
+          ],
+          "start_s": 0.037422199999999996,
+          "end_s": 0.0382902
+        },
+        {
+          "seq": 65,
+          "raw": [
+            452,
+            15960,
+            5214
+          ],
+          "start_s": 0.0414152,
+          "end_s": 0.04228325
+        },
+        {
+          "seq": 66,
+          "raw": [
+            382,
+            15918,
+            5286
+          ],
+          "start_s": 0.045416849999999995,
+          "end_s": 0.046284900000000004
+        }
+      ],
+      "count": 12,
+      "capture_seconds": 0.05,
+      "mean": [
+        443,
+        15938.666666666666,
+        5248.333333333333
+      ],
+      "std": [
+        88.84511548450227,
+        45.49791870031646,
+        32.761766334148305
+      ],
+      "min": [
+        316,
+        15856,
+        5194
+      ],
+      "max": [
+        554,
+        16008,
+        5286
+      ],
+      "second_minus_first_half": [
+        28,
+        2.0,
+        -6.66666666666697
+      ],
+      "interval_mean_s": 0.004000104545454545,
+      "interval_min_s": 0.0039929999999999966,
+      "interval_max_s": 0.004001700000000002,
+      "interval_outliers": [],
+      "decoder_stats": {
+        "frames": 12,
+        "checksum_errors": 0,
+        "discarded_bytes": 0,
+        "trailing_bytes": 6,
+        "seq_discontinuities": 0,
+        "duplicates": 0,
+        "gap_mod256_total": 0
+      },
+      "candidate_checksum_errors": [],
+      "skipped_words": [
+        {
+          "word_offset": 120,
+          "index": 1329,
+          "time": 0.04942725,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "A5"
+        },
+        {
+          "word_offset": 121,
+          "index": 1340,
+          "time": 0.04951405,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "5A"
+        },
+        {
+          "word_offset": 122,
+          "index": 1351,
+          "time": 0.04960085,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "43"
+        },
+        {
+          "word_offset": 123,
+          "index": 1362,
+          "time": 0.04968765,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "02"
+        },
+        {
+          "word_offset": 124,
+          "index": 1373,
+          "time": 0.049774500000000006,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "04"
+        },
+        {
+          "word_offset": 125,
+          "index": 1384,
+          "time": 0.049861300000000004,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "3E"
+        }
+      ],
+      "warnings": [],
+      "interior_warnings": [],
+      "fit_check": {
+        "mean_g": [
+          -0.016061522716404413,
+          0.9999999999999999,
+          -0.0024053487755724763
+        ],
+        "mean_norm_g": 1.0001474127750636,
+        "max_cross_axis_g": 0.016061522716404413,
+        "independent_validation": false
+      }
+    },
+    "yn": {
+      "csv": "report\\evidence\\yn_r1_uart.csv",
+      "csv_sha256": "baa7de8c92ba3bec94c27801260727d36b75131c45b5dad738ef6a9e27bbe648",
+      "encoding": "gb18030",
+      "archive": "report\\evidence\\yn_r1.atkdl",
+      "archive_info": {
+        "sha256": "2f09cabeb0935dbce68c9d4e66bc93dbebfb219946533b3d149324b53e9c75e3",
+        "crc_ok": true,
+        "settings": {
+          "RLE": false,
+          "index": 6,
+          "intervalTime": 0,
+          "isBuffer": true,
+          "model": 0,
+          "selectHzIndex": 5,
+          "selectThresholdLevelIndex": 3,
+          "selectTimeIndex": 5,
+          "setHz": 20000000,
+          "setTime": 50,
+          "thresholdLevel": 1.5,
+          "triggerPosition": 1
+        },
+        "uart_decoders": [
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "0"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          },
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "1"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          }
+        ]
+      },
+      "frames": [
+        {
+          "seq": 134,
+          "raw": [
+            994,
+            -17006,
+            5720
+          ],
+          "start_s": 0.0034865499999999997,
+          "end_s": 0.004354600000000001
+        },
+        {
+          "seq": 135,
+          "raw": [
+            782,
+            -17060,
+            5614
+          ],
+          "start_s": 0.00748825,
+          "end_s": 0.00835625
+        },
+        {
+          "seq": 136,
+          "raw": [
+            964,
+            -16960,
+            5592
+          ],
+          "start_s": 0.0114899,
+          "end_s": 0.01235795
+        },
+        {
+          "seq": 137,
+          "raw": [
+            792,
+            -17008,
+            5658
+          ],
+          "start_s": 0.0154829,
+          "end_s": 0.01635095
+        },
+        {
+          "seq": 138,
+          "raw": [
+            766,
+            -17132,
+            5616
+          ],
+          "start_s": 0.0194846,
+          "end_s": 0.02035265
+        },
+        {
+          "seq": 139,
+          "raw": [
+            964,
+            -16984,
+            5636
+          ],
+          "start_s": 0.0234863,
+          "end_s": 0.02435435
+        },
+        {
+          "seq": 140,
+          "raw": [
+            786,
+            -16982,
+            5564
+          ],
+          "start_s": 0.027488,
+          "end_s": 0.028356000000000003
+        },
+        {
+          "seq": 141,
+          "raw": [
+            906,
+            -16970,
+            5646
+          ],
+          "start_s": 0.03148965,
+          "end_s": 0.032357699999999996
+        },
+        {
+          "seq": 142,
+          "raw": [
+            938,
+            -16980,
+            5660
+          ],
+          "start_s": 0.03548265,
+          "end_s": 0.0363507
+        },
+        {
+          "seq": 143,
+          "raw": [
+            750,
+            -17002,
+            5568
+          ],
+          "start_s": 0.03948435,
+          "end_s": 0.0403524
+        },
+        {
+          "seq": 144,
+          "raw": [
+            938,
+            -17010,
+            5694
+          ],
+          "start_s": 0.04348605,
+          "end_s": 0.0443541
+        },
+        {
+          "seq": 145,
+          "raw": [
+            850,
+            -17018,
+            5718
+          ],
+          "start_s": 0.04748775,
+          "end_s": 0.04835575
+        }
+      ],
+      "count": 12,
+      "capture_seconds": 0.05,
+      "mean": [
+        869.1666666666666,
+        -17009.333333333332,
+        5640.5
+      ],
+      "std": [
+        90.49543768845058,
+        46.69695986470705,
+        52.8195900297332
+      ],
+      "min": [
+        750,
+        -17132,
+        5564
+      ],
+      "max": [
+        994,
+        -16960,
+        5720
+      ],
+      "second_minus_first_half": [
+        -15.666666666666629,
+        31.33333333333212,
+        2.3333333333339397
+      ],
+      "interval_mean_s": 0.004000109090909091,
+      "interval_min_s": 0.0039929999999999966,
+      "interval_max_s": 0.004001700000000004,
+      "interval_outliers": [],
+      "decoder_stats": {
+        "frames": 12,
+        "checksum_errors": 0,
+        "discarded_bytes": 4,
+        "trailing_bytes": 0,
+        "seq_discontinuities": 0,
+        "duplicates": 0,
+        "gap_mod256_total": 0
+      },
+      "candidate_checksum_errors": [],
+      "skipped_words": [
+        {
+          "word_offset": 0,
+          "index": 9,
+          "time": 1.44e-05,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "92"
+        },
+        {
+          "word_offset": 1,
+          "index": 20,
+          "time": 0.0001012,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "15"
+        },
+        {
+          "word_offset": 2,
+          "index": 31,
+          "time": 0.000188,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "FC"
+        },
+        {
+          "word_offset": 3,
+          "index": 42,
+          "time": 0.0002748,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "C8"
+        }
+      ],
+      "warnings": [],
+      "interior_warnings": [],
+      "fit_check": {
+        "mean_g": [
+          0.010147999711420053,
+          -1.0,
+          0.02112806356921752
+        ],
+        "mean_norm_g": 1.0002935165068119,
+        "max_cross_axis_g": 0.02112806356921752,
+        "independent_validation": false
+      }
+    },
+    "zp": {
+      "csv": "report\\evidence\\sensor_source_d0_20261030.csv",
+      "csv_sha256": "4a2951cf8496b67175a647e566ccfa0485a518b4680ffa845efc111cfa5c4302",
+      "encoding": "gb18030",
+      "archive": "report\\evidence\\sensor_source_20261030.atkdl",
+      "archive_info": {
+        "sha256": "0dc979977c04a31301d35ddf8f7efb7f053c1ebb32200d346494947702466b34",
+        "crc_ok": true,
+        "settings": {
+          "RLE": false,
+          "index": 6,
+          "intervalTime": 0,
+          "isBuffer": true,
+          "model": 0,
+          "selectHzIndex": 5,
+          "selectThresholdLevelIndex": 3,
+          "selectTimeIndex": 5,
+          "setHz": 20000000,
+          "setTime": 50,
+          "thresholdLevel": 1.5,
+          "triggerPosition": 1
+        },
+        "uart_decoders": [
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "0"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          },
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "1"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          }
+        ]
+      },
+      "frames": [
+        {
+          "seq": 237,
+          "raw": [
+            474,
+            -292,
+            21954
+          ],
+          "start_s": 0.0034239500000000003,
+          "end_s": 0.004292
+        },
+        {
+          "seq": 238,
+          "raw": [
+            658,
+            -284,
+            21924
+          ],
+          "start_s": 0.0064187,
+          "end_s": 0.007286750000000001
+        },
+        {
+          "seq": 239,
+          "raw": [
+            508,
+            -284,
+            21940
+          ],
+          "start_s": 0.010420400000000002,
+          "end_s": 0.01128845
+        },
+        {
+          "seq": 240,
+          "raw": [
+            518,
+            -228,
+            21870
+          ],
+          "start_s": 0.01442205,
+          "end_s": 0.015290100000000001
+        },
+        {
+          "seq": 241,
+          "raw": [
+            580,
+            -174,
+            22016
+          ],
+          "start_s": 0.01842375,
+          "end_s": 0.0192918
+        },
+        {
+          "seq": 242,
+          "raw": [
+            402,
+            -162,
+            22018
+          ],
+          "start_s": 0.02241675,
+          "end_s": 0.0232848
+        },
+        {
+          "seq": 243,
+          "raw": [
+            598,
+            -148,
+            21872
+          ],
+          "start_s": 0.02641845,
+          "end_s": 0.02728645
+        },
+        {
+          "seq": 244,
+          "raw": [
+            552,
+            -316,
+            21980
+          ],
+          "start_s": 0.030420100000000002,
+          "end_s": 0.03128815
+        },
+        {
+          "seq": 245,
+          "raw": [
+            476,
+            -444,
+            22012
+          ],
+          "start_s": 0.034421799999999995,
+          "end_s": 0.03528985
+        },
+        {
+          "seq": 246,
+          "raw": [
+            704,
+            -368,
+            21950
+          ],
+          "start_s": 0.038423450000000005,
+          "end_s": 0.0392915
+        },
+        {
+          "seq": 247,
+          "raw": [
+            474,
+            -426,
+            21992
+          ],
+          "start_s": 0.04241645,
+          "end_s": 0.0432845
+        },
+        {
+          "seq": 248,
+          "raw": [
+            650,
+            -344,
+            21904
+          ],
+          "start_s": 0.04641815,
+          "end_s": 0.04728620000000001
+        }
+      ],
+      "count": 12,
+      "capture_seconds": 0.05,
+      "mean": [
+        549.5,
+        -289.1666666666667,
+        21952.666666666668
+      ],
+      "std": [
+        90.60654200743704,
+        98.07402893485691,
+        52.91044463539455
+      ],
+      "min": [
+        402,
+        -444,
+        21870
+      ],
+      "max": [
+        704,
+        -148,
+        22018
+      ],
+      "second_minus_first_half": [
+        52.33333333333326,
+        -103.66666666666666,
+        -2.0
+      ],
+      "interval_mean_s": 0.003908563636363637,
+      "interval_min_s": 0.00299475,
+      "interval_max_s": 0.004001700000000001,
+      "interval_outliers": [
+        {
+          "from_seq": 237,
+          "to_seq": 238,
+          "seconds": 0.00299475
+        }
+      ],
+      "decoder_stats": {
+        "frames": 12,
+        "checksum_errors": 0,
+        "discarded_bytes": 3,
+        "trailing_bytes": 0,
+        "seq_discontinuities": 0,
+        "duplicates": 0,
+        "gap_mod256_total": 0
+      },
+      "candidate_checksum_errors": [],
+      "skipped_words": [
+        {
+          "word_offset": 0,
+          "index": 9,
+          "time": 3.8599999999999996e-05,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "56"
+        },
+        {
+          "word_offset": 1,
+          "index": 20,
+          "time": 0.0001254,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "02"
+        },
+        {
+          "word_offset": 2,
+          "index": 31,
+          "time": 0.00021224999999999998,
+          "duration": 6.94e-05,
+          "kind": "TX data",
+          "value": "45"
+        }
+      ],
+      "warnings": [],
+      "interior_warnings": [],
+      "fit_check": {
+        "mean_g": [
+          -0.009511704636083789,
+          0.014942738051879711,
+          0.9999999999999999
+        ],
+        "mean_norm_g": 1.0001872978564441,
+        "max_cross_axis_g": 0.014942738051879711,
+        "independent_validation": false
+      }
+    },
+    "zn": {
+      "csv": "report\\evidence\\sensor_zdown_d0_20261030.csv",
+      "csv_sha256": "1b896007a3a7b088af13117174659987299edded724e7c1cb58c51847e835ecd",
+      "encoding": "gb18030",
+      "archive": "report\\evidence\\sensor_zdown_20261030.atkdl",
+      "archive_info": {
+        "sha256": "df318a9989f12044b9e84b274f2593ed6d2eb59b7cbb26961798a3c03fa41a08",
+        "crc_ok": true,
+        "settings": {
+          "RLE": false,
+          "index": 6,
+          "intervalTime": 0,
+          "isBuffer": true,
+          "model": 0,
+          "selectHzIndex": 5,
+          "selectThresholdLevelIndex": 3,
+          "selectTimeIndex": 5,
+          "setHz": 20000000,
+          "setTime": 50,
+          "thresholdLevel": 1.5,
+          "triggerPosition": 1
+        },
+        "uart_decoders": [
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "0"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          },
+          {
+            "channels": {
+              "rx": "-",
+              "tx": "1"
+            },
+            "options": {
+              "baudrate": "115200",
+              "data_bits": "8",
+              "parity": "none",
+              "stop_bits": "1.0",
+              "bit_order": "lsb-first",
+              "format": "hex",
+              "invert_rx": "no",
+              "invert_tx": "no",
+              "put_sample_points": "no",
+              "show_start_stop": "yes",
+              "sample_point": "50",
+              "packet_idle_us": "-1",
+              "rx_packet_delim": "-1",
+              "tx_packet_delim": "-1",
+              "rx_packet_len": "-1",
+              "tx_packet_len": "-1",
+              "show_data_point": "yes"
+            }
+          }
+        ]
+      },
+      "frames": [
+        {
+          "seq": 102,
+          "raw": [
+            2874,
+            -924,
+            -11312
+          ],
+          "start_s": 0.002481,
+          "end_s": 0.003349
+        },
+        {
+          "seq": 103,
+          "raw": [
+            3066,
+            -820,
+            -11330
+          ],
+          "start_s": 0.0064826499999999995,
+          "end_s": 0.0073507
+        },
+        {
+          "seq": 104,
+          "raw": [
+            2772,
+            -924,
+            -11390
+          ],
+          "start_s": 0.01048435,
+          "end_s": 0.0113524
+        },
+        {
+          "seq": 105,
+          "raw": [
+            2942,
+            -942,
+            -11382
+          ],
+          "start_s": 0.014486,
+          "end_s": 0.015354050000000001
+        },
+        {
+          "seq": 106,
+          "raw": [
+            2982,
+            -858,
+            -11408
+          ],
+          "start_s": 0.018479,
+          "end_s": 0.019347049999999998
+        },
+        {
+          "seq": 107,
+          "raw": [
+            2852,
+            -924,
+            -11386
+          ],
+          "start_s": 0.0224807,
+          "end_s": 0.02334875
+        },
+        {
+          "seq": 108,
+          "raw": [
+            3046,
+            -850,
+            -11404
+          ],
+          "start_s": 0.0264824,
+          "end_s": 0.0273504
+        },
+        {
+          "seq": 109,
+          "raw": [
+            2850,
+            -926,
+            -11330
+          ],
+          "start_s": 0.030484050000000002,
+          "end_s": 0.0313521
+        },
+        {
+          "seq": 110,
+          "raw": [
+            2984,
+            -930,
+            -11352
+          ],
+          "start_s": 0.03448575,
+          "end_s": 0.035353800000000005
+        },
+        {
+          "seq": 111,
+          "raw": [
+            3076,
+            -888,
+            -11352
+          ],
+          "start_s": 0.03847875,
+          "end_s": 0.0393468
+        },
+        {
+          "seq": 112,
+          "raw": [
+            2852,
+            -922,
+            -11468
+          ],
+          "start_s": 0.0424804,
+          "end_s": 0.043348450000000004
+        },
+        {
+          "seq": 113,
+          "raw": [
+            2972,
+            -916,
+            -11396
+          ],
+          "start_s": 0.046482100000000005,
+          "end_s": 0.04735015
+        }
+      ],
+      "count": 12,
+      "capture_seconds": 0.05,
+      "mean": [
+        2939,
+        -902,
+        -11375.833333333334
+      ],
+      "std": [
+        98.39253482399418,
+        38.80955833530985,
+        43.15265362815496
+      ],
+      "min": [
+        2772,
+        -942,
+        -11468
+      ],
+      "max": [
+        3076,
+        -820,
+        -11312
+      ],
+      "second_minus_first_half": [
+        48.66666666666697,
+        -6.6666666666667425,
+        -15.66666666666606
+      ],
+      "interval_mean_s": 0.0040001,
+      "interval_min_s": 0.0039929999999999966,
+      "interval_max_s": 0.004001700000000004,
+      "interval_outliers": [],
+      "decoder_stats": {
+        "frames": 12,
+        "checksum_errors": 0,
+        "discarded_bytes": 0,
+        "trailing_bytes": 0,
+        "seq_discontinuities": 0,
+        "duplicates": 0,
+        "gap_mod256_total": 0
+      },
+      "candidate_checksum_errors": [],
+      "skipped_words": [],
+      "warnings": [],
+      "interior_warnings": [],
+      "fit_check": {
+        "mean_g": [
+          0.13744407285618032,
+          -0.022257294322366575,
+          -1.0
+        ],
+        "mean_norm_g": 1.009665848427474,
+        "max_cross_axis_g": 0.13744407285618032,
+        "independent_validation": false
+      }
+    }
+  },
+  "source_set_sha256": "dcbd9286b3d87c8eb1f10b19d063188e17efe6c178d1e0cc1dafb5468efaa493"
+}

@@ -1,0 +1,181 @@
+{
+  "status": "PASS_STAGE5_SOFTWARE",
+  "date": "2026-10-31",
+  "simulations": {
+    "modelsim": {
+      "isqrt_u36": {
+        "status": "PASS",
+        "checks": 231556,
+        "errors": 0
+      },
+      "window_features": {
+        "status": "PASS",
+        "checks": 131447,
+        "errors": 0
+      },
+      "threshold_alarm": {
+        "status": "PASS",
+        "checks": 10365,
+        "errors": 0
+      },
+      "feature_monitor_core": {
+        "status": "PASS",
+        "checks": 94715,
+        "errors": 0
+      }
+    },
+    "xsim": {
+      "isqrt_u36": {
+        "status": "PASS",
+        "checks": 231556,
+        "errors": 0
+      },
+      "window_features": {
+        "status": "PASS",
+        "checks": 131447,
+        "errors": 0
+      },
+      "threshold_alarm": {
+        "status": "PASS",
+        "checks": 10365,
+        "errors": 0
+      },
+      "feature_monitor_core": {
+        "status": "PASS",
+        "checks": 94715,
+        "errors": 0
+      }
+    }
+  },
+  "negative_cases_per_engine": [
+    "window_low",
+    "window_high",
+    "alarm_equal",
+    "alarm_high",
+    "alarm_zero",
+    "alarm_negative",
+    "assert",
+    "release"
+  ],
+  "captures": {
+    "modelsim": {
+      "status": "PASS_STAGE5_RTL_CAPTURES",
+      "simulator": "modelsim",
+      "window_results": 109,
+      "link_results": 12,
+      "alarm_cycles": 5008,
+      "alarm_axes": [
+        0,
+        0,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        0,
+        0,
+        0
+      ]
+    },
+    "xsim": {
+      "status": "PASS_STAGE5_RTL_CAPTURES",
+      "simulator": "xsim",
+      "window_results": 109,
+      "link_results": 12,
+      "alarm_cycles": 5008,
+      "alarm_axes": [
+        0,
+        0,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "manifest": {
+    "window_samples": 13952,
+    "window_results": 109,
+    "alarm_cycles": 5008,
+    "link_samples": 1600,
+    "link_results": 12,
+    "sqrt_vectors": 10033
+  },
+  "ooc": {
+    "top": "feature_monitor_core",
+    "part": "xc7z010clg400-1",
+    "period_ns": 20,
+    "setup_slack_ns": 9.063,
+    "hold_slack_ns": 0.088,
+    "lut": 3205,
+    "ff": 5894,
+    "dsp": 6,
+    "bram": 0,
+    "latches": 0,
+    "unconstrained_internal_endpoints": 0,
+    "unconstrained_inputs": 2,
+    "unconstrained_outputs": 846,
+    "drc_warnings": {
+      "DPOP-1": 3,
+      "DPOP-2": 3,
+      "RTSTAT-10": 1,
+      "ZPS7-1": 1
+    },
+    "board_timing_signoff": false
+  },
+  "logs": [
+    "build/stage5_full_run.log",
+    "build/stage5_window_final.log",
+    "build/stage5_synthesis_run.log"
+  ],
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\sim\\run_stage5.ps1 -Simulator both",
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\sim\\run_stage5.ps1 -Simulator both -Test window_features",
+    "python -X utf8 host/check_stage5_captures.py --simulator modelsim",
+    "python -X utf8 host/check_stage5_captures.py --simulator xsim",
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\check_stage5_synthesis.ps1"
+  ],
+  "latencies": {
+    "isqrt": 18,
+    "window_last_sample": 22,
+    "raw_frame_to_aligned_features": 218
+  },
+  "limitations": [
+    "未上板",
+    "未集成板级top或新结果协议",
+    "实际采样/传感器校准未验证",
+    "阈值为演示计数",
+    "OOC父级时钟/接口时序和警告留待最终集成"
+  ],
+  "sha256": {
+    "rtl/isqrt_u36.v": "0e5ee00fbed2ef2d018af964e3f06f12b000790b3c8ee7e59b467423694c55fa",
+    "rtl/window_features.v": "950b70985182f1f0f652c5f34c132239f1ae949e346c35a2985d06f8bfdc78c2",
+    "rtl/threshold_alarm.v": "39859c3585fd336f987896daf4a11915c184c73551ea92965171143cea8d4b6b",
+    "rtl/feature_monitor_core.v": "f04d5947c73f252d700e2015669db7d1cdfd3141f68832db08c129cd1a5bb5d3",
+    "sim/tb/tb_isqrt_u36.v": "d3d504574a02b098d287ad97209f922b0067533eb655bbd2834cab9b59d702fc",
+    "sim/tb/tb_window_features.v": "b94c3d45605598160407087e4d155e7d454fca5bc5bdf796e871e10a4fcb655d",
+    "sim/tb/tb_threshold_alarm.v": "8c16c3146a6aec74dee56cd5c05b147ff1d46d031b826fd07bf3d717e55e75ab",
+    "sim/tb/tb_feature_monitor_core.v": "f9e19c946c20069a34fa34ff841e640d8589421bf18f55014b3dc2ae75a83d31",
+    "sim/tb/stage5_check.vh": "127485af6980a29c85ee1ee58910a5742c1756eef4cc895552d97ae5af01eda9",
+    "sim/tb/stage5_negative_cases.v": "1cadeb0eb241d24f57e5c4deb91031c8f45072514adcd8c3afe7c7c394aabc5d",
+    "host/stage5_reference.py": "9fa915e4bcda6cb06c840213cd11fc185d7beda1e96f76a89a22d89277059328",
+    "host/stage5_vectors.py": "6bc48c4af65a770c4db9d4d36eed6cd33ce6f94995e2ffc3ea86a3fd00a32f91",
+    "host/check_stage5_captures.py": "f0d1ab2e32cb9814a593c875397d786f6ead1357cfc389413beb4b0c63432dbc",
+    "sim/run_stage5.ps1": "9911362b0e3d85c5f1b1345077be610423fb30790dcebba4e7267cc3b02a93ca",
+    "sim/check_stage5_negative.ps1": "f7e433b96db2d3fb6a4ee44d996555f68ec660c882addff66c8beb31340f214d",
+    "sim/modelsim/run_stage5.do": "2350e786ad850325c02d94f3d6bf3eb41ae41b3d90bf239c2b93cbf8b4104e03",
+    "sim/modelsim/run_stage5_negative.do": "7a28a4fdaea1c9d52d50ca86e2b7df58239c1b383e5939ef0f740ceb1dc77fed",
+    "sim/xsim/run_stage5.tcl": "abc3901b5c72be693aa79a280cfc1e3a7fe9e69acf2f8d86919a06e0fd74f43a",
+    "sim/xsim/run_stage5_negative.tcl": "d6d5df7d680ff18101f644e1c7fd31fd96a1c11810973fbd053d1be1d80730ea",
+    "scripts/check_stage5_synthesis.ps1": "b48a81c2df368863b06adb90ce4b575212b25df9d0af6de210fbb616f35b4ac7",
+    "scripts/check_stage5_synthesis.tcl": "9afc73d4eef3f815639c0dcae03544b1d2dab8a391d8692a4d335653544350f1"
+  }
+}

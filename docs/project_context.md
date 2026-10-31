@@ -1,26 +1,188 @@
-# Project brief and context transfer (2026-09-21)
+# 项目背景与交接信息（2026-09-21）
 
-## Hardware and developer
-- One student; comfortable with basic Verilog/testbenches, UART/SPI and STM32; new to Zynq PS.
-- ALIENTEK Navigator baseboard V3.9, XC7Z010 core board schematic v2V5.
-- Wildfire STM32F103C8T6 minimum board; Wildfire MPU6050 six-axis module; USB-to-UART adapter.
-- Goal: low-complexity, demonstrable contest work with quantitative FIR/resource comparisons, not industrial fault-diagnosis claims.
+## 硬件与开发者
 
-## Agreed initial architecture
-MPU6050 (I2C) -> STM32 (sensor acquisition and framing only) -> PL UART RX -> packet parser -> data register -> PL UART TX -> USB UART -> PC. Add FPGA DC/bias removal, fixed-point FIR, windowed mean-square/peak and threshold alarm *after* link validation. FFT is optional. No PS required for V1.
+- 一名学生独立开发，熟悉基础 Verilog、Testbench、UART/SPI 和 STM32，尚未学习 Zynq PS。
+- 正点原子领航者底板 V3.9，XC7Z010 核心板原理图 v2V5。
+- 野火 STM32F103C8T6 最小板、野火 MPU6050 六轴模块和 USB 串口适配器。
+- 目标是复杂度可控、可演示并能量化比较 FIR 效果与资源的竞赛作品，不作工业故障诊断能力的承诺。
 
-## First milestone and stop criteria
-1. Read WHO_AM_I and 6 raw acceleration bytes on STM32; verify sensor orientation, signed data and data-ready timing.
-2. Send framed 3-axis samples via USART1 TX PA9, nominal 115200 8N1.
-3. Simulate PL UART RX and packet parser including invalid header, checksum error, truncated frame, negative values and resync.
-4. Validate board UART RX with an actual signal; return an ACK first, then full framed data.
-5. Capture raw logs and test evidence before moving to FIR.
+## 已约定的初始架构
 
-## Draft sensor setup (not yet measured)
-MPU6050 address 0x68 (7-bit, AD0 low), PWR_MGMT_1(0x6B)=0x01, CONFIG(0x1A)=0x02, SMPLRT_DIV(0x19)=0x03, ACCEL_CONFIG(0x1C)=0x00. Target 250 samples/s, +/-2g, six raw acceleration bytes from 0x3B..0x40. Confirm timing with measurements: delay_ms(4) is not a synchronization guarantee. The module has its own 3.3V I2C pullups.
+MPU6050（I2C）-> STM32（仅采集与打包）-> PL UART 接收 -> 包解析 -> 数据寄存器 -> PL UART 发送 -> USB 串口 -> PC。
 
-## Draft UART input packet — must freeze before RTL
-10 bytes: A5 5A SEQ XH XL YH YL ZH ZL CHK, all three axes signed 16-bit, big-endian. CHK=SEQ XOR XH XOR XL XOR YH XOR YL XOR ZH XOR ZL. Frame-valid is asserted for one PL clock after complete verified packet. Define timeout and resynchronization. This is a proposed protocol, not a measured board result.
+通信链路验证后，再添加 FPGA 去直流/偏置、定点 FIR、窗口均方值/峰值和阈值报警。FFT 为可选项。第一版无需 PS。
 
-## Important limitations
-MPU6050 frequency/bandwidth and motion tests limit claims. For RMS of vibration remove mean/gravity contribution rather than blindly using 1g. Do not treat UART bandwidth calculation as confirmed real-world sampling quality. No full Vivado/XDC tool run, sensor read or board measurements have been performed by this handoff.
+## 首个里程碑与完成标准
+
+1. STM32 读出 WHO_AM_I 和 6 个原始加速度字节，验证方向、带符号数据和数据就绪时序。
+2. 通过 USART1 TX PA9 发送三轴数据包，标称 115200、8N1。
+3. 仿真 PL UART 接收与包解析，覆盖错误包头、校验错误、截断帧、负数和重新同步。
+4. 用真实信号验证板上 UART 接收；先回传 ACK，再回传完整数据包。
+5. 保存原始日志和测试证据后再进入 FIR。
+
+## 传感器配置草案：尚未实测
+
+MPU6050 采用 7 位地址 0x68（AD0 低），PWR_MGMT_1(0x6B)=0x01、CONFIG(0x1A)=0x02、SMPLRT_DIV(0x19)=0x03、ACCEL_CONFIG(0x1C)=0x00。
+
+目标为每秒 250 个样本、量程 +/-2g，从 0x3B..0x40 读取 6 个原始加速度字节。必须实测采样时序：`delay_ms(4)` 不能保证同步。模块自带上拉到 3.3V 的 I2C 电阻。
+
+## UART 输入包：第二阶段实现约定（2026-10-27）
+
+10 字节：`A5 5A SEQ XH XL YH YL ZH ZL CHK`。三轴均为 16 位带符号补码，高字节先发。
+
+```text
+CHK = SEQ XOR XH XOR XL XOR YH XOR YL XOR ZH XOR ZL
+```
+
+用户已接受第一阶段并授权第二阶段。沿用上述十字节布局，完整包校验成功后原子更新三轴与序号，包有效信号持续一个 PL 时钟周期。以下规则是当前软件实现约定，不是板测结果：
+
+- 默认字节超时为 100000 拍，50 MHz 下为 2 ms；字节有效事件的间隔必须严格小于此阈值。
+- 达到边界时清空旧窗口；同拍新字节可作为新窗口的首字节。UART 停止位错误优先，清空窗口并丢弃同拍字节。
+- 十字节滑动搜索包头与 XOR；错误候选继续滑动，成功后清空窗口。载荷中的包头不提前中断当前搜索。
+- SEQ 按模 256 检查连续性，首个合法包建立基准；跳号或重复只作诊断，不拒收校验正确的包。错误/超时不清除最近合法序号基准，复位会清除。
+- 坏包、超时和 UART 错误不覆盖最近合法三轴数据。XOR 和未转义包头不能保证检测所有损坏或完全避免偶然伪包。
+
+接口、精确周期边界和验证范围见 `stage2_design.md`。后续改变此约定仍需用户批准。
+
+## 重要限制
+
+MPU6050 的频率、带宽和运动测试条件会限制作品可作出的结论。振动 RMS 应先去除均值/重力贡献，不能直接机械地减去 1g。UART 带宽计算不能证明实际采样质量。初始交接时没有完成完整 Vivado/XDC 流程、传感器读取或板测。
+
+## 第一阶段进展（2026-10-27）
+
+用户已批准第一阶段实现。`rtl/uart_rx.v` 和配套自检 TB 只完成 8N1 字节接收。设计、命令和实际证据见 `uart_rx_design.md`、`stage1_test_guide.md` 和 `../report/stage1_validation.md`。
+
+第一阶段完成时上述协议仍为草案；本轮第二阶段授权后按前述规则实现。UART 字节有效信号不等于整包有效信号。
+
+核心板第 3 页确认 PL_GCLK 接 U18（Bank34 MRCC），纠正了 U13 错误。候选 XDC 已同步纠正，但仍面向未来板级顶层。字节接收仿真不代表已确认物理复位引脚、完成综合/实现、时序收敛或板卡测量。
+
+后续文档与说明性注释统一使用中文，文件名、标识符和工具指令保留原样。
+
+## 第二阶段进展（2026-10-27）
+
+已实现包解析器、UART TX 和三个配套自检，包括纯仿真的 TX→RX→解析器链路。ModelSim 与 XSim 的实际执行记录见 `../report/stage2_validation.md`，操作见 `stage2_test_guide.md`。
+
+用户暂缓上板测试，因此本轮没有修改板级约束、烧录设置或引入板级顶层；也没有实现 STM32 固件、ACK/整包回传控制、FIR 或 PS。第一阶段 RX 源码与自检文件保持不变。
+
+## 第三阶段进展（2026-10-27）
+
+用户接受第二阶段并授权第三阶段，继续暂缓上板。已新增上电复位、回传队列、通信核心和三端口顶层；默认回传重新组装的合法十字节包，可用 ACK_ONLY=1 单独选择 06 响应，不改变 UART 输入布局。
+
+ModelSim 和 XSim 四项新增自检均通过，包括 250 包/s、损坏/截断恢复、回传阻塞、队列满和复位。PC 原始二进制/CSV/JSON 工具已通过单元与双仿真捕获验收。用户提供 CMSIS 和标准库后，建立固定数据/传感器两个 Keil 目标，均实际编译链接通过，应用模拟依赖测试也通过。
+
+软件时钟按所提供系统文件默认外部 8 MHz、系统 72 MHz；这不是实物晶振确认。完整设计、使用与实际边界见 `stage3_design.md`、`stage3_test_guide.md`、`../report/stage3_validation.md`。没有真实 MPU6050/COM 日志、综合实现或板测，原始测量证据继续暂缓；没有进入 FIR 或 PS。
+
+## STM32 板型与引脚更新（2026-10-28）
+
+用户补充并确认使用野火小智 STM32F103C8T6 双 USB 核心板及配套扩展板，提供核心板规格书/原理图/引脚表和扩展板规格书/原理图。图面确认核心板 Y1 标称 8 MHz，PA9 可从扩展板通讯接口 3 引出。保留 USART1 TX/PA9 与 HSE_VALUE=8000000。
+
+本轮将 MPU6050 的默认连接从 I2C1/PB6/PB7 改为 **I2C2/PB10(SCL)/PB11(SDA)，通讯接口 2**，为扩展板 OLED 留出 PB6/PB7。原 I2C1 方案并非不能共享总线，这是选定的独立传感器接线方案。接口 VCC4 需由 J32 选为 3.3V，实际跳帽和插线未验证。板级宏定义位于 `stm32/config/board_pinmap.h`，I2C 驱动统一命名为 bsp_i2c。依据、文件修改和本次检查见 `stm32_board_review.md`。
+
+未改变十字节协议、FPGA RTL/XDC 或烧录设置，继续暂缓上板。核心板 USB 串口默认收到 STM32 的 PA9 原始包，不能当成 FPGA 回传链路的验收证据。
+
+## FPGA 正式约束更新（2026-10-28）
+
+用户要求现在完成引脚约束，补充领航者规格书及同板呼吸灯示例，并说明实板接线与原理图一致。当前采用 xc7z010clg400-1、50 MHz、clk/U18、pl_rx/K14、pl_tx/M15、LVCMOS33，正式 XDC 为 `constr/top.xdc`。实现阶段单独读取 `uart_rx_cdc.xdc`，只对 UART 输入到第一级同步 D 设置例外，保留两级之间时序。
+
+本地 Vivado 工程的约束引用已更新。隔离 build 中实际完成默认整包配置的综合/布局/布线，建立裕量 12.708 ns、保持裕量 0.037 ns，内部未约束端点为 0，CDC 为两级单比特同步 Info。DRC 有一条 ZPS7-1（PS7 block required）Warning，未关闭、未引入 PS7；不声称比特流配置或实板已验证。详情见 `fpga_constraints.md`。
+
+## 第三阶段中途接线反馈（2026-10-29）
+
+用户报告正在进行第三阶段后的中途测试，已接两板共地、PA9→K14，以及 K14(RX)↔COM2_TX、M15(TX)↔COM2_RX 跳帽，PC 连接 FPGA 下载器、STM32 DAP 和 DL16。按底板原理图，若 COM2 跳帽指 P1，则其 RS-232 接收器输出与 STM32 PA9 可能并联驱动 UART2_RX，指导断电后断开 UART2 与 COM2/RS485 路径，保留 TTL 直连。
+
+当前可以只用 DL16 探头观察 K14/M15，无需额外串口 USB；若用 PC 串口助手或 host 工具，另接 3.3V TTL USB 串口的 RXD/GND。用户已进入实物测试安排，但尚未提供实物跳帽照片、实际供电、下载设计或波形证据，不把此前仿真/实现结果改写成板测通过。本轮只核查与说明，没有操作硬件。
+
+## STM32 固定数据截图证据（2026-10-29）
+
+用户随后提供 P0 的四包 UART 截图：SEQ 为 9A/9B/9C/9D，三轴均为 1/-1/-32768，CHK 为 1B/1A/1D/1C。人工转录后用独立 PC 解码器检查，四包布局、补码和 XOR 均正确，与 FixedSource 输出一致。可确认这四包发送内容初步通过；没有带时间轴的原始记录，尚不能确认实际 4 ms 周期、长期无丢包、FPGA 回传或 MPU6050 工作。
+
+原截图和核查记录位于 `../report/stm32_fixed_uart_validation.md`。下一步补发送时序测量，并在确认 FPGA 运行当前设计后做固定包双通道回传对照，再做 SensorSource 的 I2C/三轴及完整链路。当前 FPGA 下载运行情况和实物跳帽位置仍未收到确认证据。
+
+### 后续时间测量与回传方向活动
+
+同日用户补充时间截图并说明 D1 接 M15(TX)，仍只测 FixedSource。单个位宽 8.7 us 符合名义 115200；17.4 us 为两个位的交替周期。图中 3.13365 ms 是长高电平，3.1423 ms/318.24 Hz 是局部边沿测量，不能当作发包周期/频率。包起点标签 101.11565 ms 与 105.1087 ms 相差 3.99305 ms，接近 4 ms，偏差 -6.95 us（约 -0.174%）；需要以相同起始下降沿重复测量，不把偏差直接归因于采样分辨率或某个时钟。
+
+第二路有延后串行波形，支持回传方向已有活动；尚缺 D0/D1 同次捕获的完整十字节清晰解码，不能宣布 FPGA 闭环通过。下一步保持 FixedSource，逐包比较 SEQ、三轴和 CHK，并统计多个包周期，再进行 SensorSource。证据与条件分析见上述核查记录文末；本次没有操作硬件、改程序或重复构建。
+
+### 固定数据双通道回传证据
+
+同日随后补充两张 D0/D1 清晰解码截图：两路分别同为 `A5 5A CB 00 01 FF FF 80 00 4A`、`A5 5A CC 00 01 FF FF 80 00 4D`。人工转录后，逐字节比较和独立 PC 协议解码四项均通过，三轴均为 1/-1/-32768，序号 CB→CC 连续、XOR 正确。按用户提供的测点描述，所示两组 FixedSource 的 STM32→FPGA→UART 回传基本功能板测通过，补齐了此前仅有 D1 活动的证据。
+
+用户报告其他包也一致，但未提供全记录自动统计；不声称长期零丢包或全部错误恢复实物验收完成。SensorSource 尚未测试；下一步保存当前捕获、补较长固定双路记录，再做 SensorSource 的身份、配置、I2C 六字节→D0→D1 对照。原图与核查结果保留在 `../report/stm32_fixed_uart_validation.md`。本轮只记录证据，没有修改程序、约束或操作硬件。
+
+## SensorSource 实物采集核查（2026-10-30）
+
+用户授权操作已打开的 ATK-LogicView 检查已有 SensorSource 记录。实际查看并保存 50 ms / 20 MS/s / 1.5V 的四路采集，导出三路协议 CSV，使用独立 PC 协议实现分析全部可比包：12 组 I2C 六字节→D0 三轴→D1 整包一致，ED～F8 连续且 XOR 正确；37 笔完整 I2C 事务 ACK 模式符合驱动。D1 多一个 EC 完整包，对应 D0 开始处截断包的尾部，不是已证实的额外回传。
+
+**本段通信闭环通过，传感器静止量值验收未通过。** 用户明确完全静止平放，三轴合成计数平均约 21961.82；按源码预期 1C=00（±2g、16384 LSB/g，模块手册第7页）换算约 1.34044g，与静止约 1g 不符。当前记录只有 3A/3B 稳态事务，没有身份和配置回读，不能确认实际量程/自检位或确定误差原因。不得直接把此数据写成正常加速度或自动增加固定偏移补偿。
+
+起点间隔有一段 2.99475 ms，其余十段 3.99300～4.00170 ms；严格周期/长期稳定性仍待较长捕获。下一步由用户补复位初始化记录及正反姿态静止记录，先核查实际配置再决定校准。完整原始工程、CSV、复现脚本和结果见 `../report/sensor_source_validation_20261030.md`。本轮仅操作查看/保存/导出，没有重新采集、复位、烧录或修改固件/RTL/XDC。
+
+### 同日 Z 朝下静止记录
+
+用户补采 Z 朝下，并明确仅翻转模块、程序配置未改。通过界面保留另一个 50 ms 原始工程及三路协议 CSV，独立分析确认 D0/D1 各12个完整包（66～71）、12组三路内容相同且 XOR 正确，38笔完整 I2C 事务 ACK 模式正确；本段包间隔平均4.00010ms。D1 起点附近80.95us有一条停止位错误，位于完整包前的截断/失步区域，已保留；不能宣称全记录零错误或确定边界警告根因。
+
+本次平均三轴为 2939/-902/-11375.83；与上次549.5/-289.17/+21952.67对照，Z在翻转后变负但正反不对称。近似正反水平且配置相同条件下，Z中点初估+5288.42、半差16664.25计数/g，较支持较大加性偏置，未确定实际配置/姿态/模块等原因，不直接写入补偿。下一步仍优先初始化配置回读，再做较长六面静止记录和可重复性验证。见 `../report/sensor_zdown_validation_20261030.md`；未修改固件/RTL/XDC，未重新采样或烧录。
+
+## 第四阶段启动与数值设计（2026-10-30）
+
+用户接受第三阶段基本通信成果作为继续开发的基础，允许将MPU6050静态偏差留待后续排查，授权开始第四阶段，并确认暂按250Hz采样、保留5～30Hz、抑制50Hz及以上设计。初始化、校准和长期采样事项仍为待验证，不阻止先完成独立数字处理设计。
+
+已确定三轴独立Q16基线估计（更新1/32）加63抽头定点FIR低通，18位系数含16小数位、41位累加、18位内部输出，保留原始十字节回传。设计和文件计划见 `stage4_design.md`，待实现的完整自检见 `stage4_test_plan.md`。
+
+实际运行 `host/stage4_reference.py`：18组共41728个样本检查通过，级联5～30Hz增益约-0.107～+0.156dB，50～125Hz最差约-58.951dB，当前整数模型相对独立浮点参考最大误差约0.9325计数。结果见 `../report/stage4_design_validation.md`。这些是数值设计结果，未创建新RTL/TB、未运行新模块仿真或综合；按AGENTS等待具体方案确认后实现。FIR信号群延迟124ms，与预计约3.86us计算延迟不同。
+
+## 第四阶段实现和阶段验收（2026-10-31）
+
+用户明确批准继续编写已设计的RTL与TB，并要求每阶段主要内容完成后助手自行运行仿真并报告结论；常规自检无需再次询问，上板联调集中最终阶段。
+
+已新增 `dc_remove`、`fir_lp_serial`、`vibration_filter`、`filter_monitor_core` 与配套自检/脚本。ModelSim2020.4及XSim2020.2四项均通过，checks分别98192/8222769/1604429/2490721，errors均0。覆盖41728个单轴样本、4000组三轴、600正常包/多次回绕、九个截断位置、坏校验/停止位及恢复；额外50MHz/115200默认通道通过。两工具实际导出逐样本及频率检查通过，缺失系数和非法断流阈值均被拒绝。
+
+隔离OOC计算模块实现资源为2282LUT、3901FF、3DSP、0BRAM，20ns时钟的内部寄存器建立/保持裕量9.198ns/0.117ns，无未约束内部端点。DRC保留3条DPOP-1和1条ZPS7-1 Warning，OOC接口和父级时钟位置未约束，不能作为完整板级时序签核。首次0ns抽象接口保持失败记录保留，最终只按原定内部时序范围验收，没有添加false_path。
+
+第四阶段软件验收通过，见 `../report/stage4_validation.md`、`stage4_test_guide.md`。原始通信模块、板级top、STM32、XDC和烧录设置未改；18位结果为内部接口，D1继续回传原始数据。FIR190拍、三轴193拍延迟已实际核对；去直流仍不替代传感器校准，实物滤波留待最终联调。
+
+## 第五阶段实现与验收（2026-10-31）
+
+用户明确批准128样本非重叠窗口、三轴MS/整数RMS/绝对峰值、2000置位/1500解除演示阈值和两窗连续确认；批准四个RTL、自检并自动运行ModelSim/XSim。实现 `isqrt_u36`、`window_features`、`threshold_alarm`、`feature_monitor_core`，保留原始协议、板级top、STM32和XDC。
+
+两仿真器四项均通过，最终checks为231556/131447/10365/94715，errors均0。覆盖10033开方值、109默认窗口/13952样本、5008报警激励拍、1600合成振动包/12精确窗口及600恢复包，另有默认50MHz/115200三包、窗长边界、确认数边界、质量门控及发布边界故障注入。两工具实际RTL导出逐项一致，八个非法参数配置均被拒绝。
+
+完整内部核心隔离实现使用3205LUT、5894FF、6DSP、0BRAM、0锁存；20ns内部建立/保持裕量9.063ns/0.088ns，0未约束内部端点。DRC保留3条DPOP-1、3条DPOP-2、1条RTSTAT-10和1条ZPS7-1 Warning；父级时钟、2个输入/846个输出端口预算未验证，OOC结果不能作为整体板级签核。
+
+原始解析帧到对齐特征实际218拍/4.36us，设计初稿217拍漏了进入滤波器的一拍，已据集成自检纠正；复位激励按既有UART等待高电平一个位时间的要求留空闲。新窗口/报警为内部接口，D1仍回传原始包。详见 `stage5_design.md`、`stage5_test_guide.md`、`../report/stage5_validation.md`。
+
+第五阶段软件验收完成，上板仍集中最终阶段；2000/1500不是实际故障标准，去直流和RMS不代表传感器已校准。后续先核对原分期并评审结果展示及传输方案，任何协议变更须获批准。
+
+## 第六阶段系统联调与量化（2026-10-31）
+
+用户补充截图纠正分期：第六阶段为系统联调与量化，第七阶段为回归、修复与交付，原图归档，计划持久化到 `stage_plan.md`。用户明确批准独立完整顶层、综合参数原始/滤波选择、滤波signed18右移2位装入十字节包并由PC乘4恢复尺度，以及自动双工具自检与两模式板级实现。
+
+新增 `return_source_select`、`system_monitor_core`、`system_top`。原前五阶段RTL、自检、STM32、原始输入协议、原top/XDC和本地Vivado工程保留。新回传有独立队列诊断，内部暂停只用于自检，板级固定0；包内没有源模式标志，采集必须记录模式。
+
+两工具覆盖全部262144选择器输入、两模式各5632长序列/三轴隔离包和40窗、坏包/九处截断/SEQ缺口/断流、256样本输出暂停中接纳5丢弃251且计算继续、队列/在途运算复位及恢复。默认50MHz/115200三模式另测坏包恢复与4ms周期；实际完整量化见 `../report/stage6_validation.md`。
+
+两模式完整板级实现分别使用3401LUT/6101FF和3324LUT/6091FF，均6DSP/0BRAM/0锁存；50MHz内部setup5.205ns/8.300ns、hold0.037ns/0.028ns，0未约束内部端点。每模式保留8条DRC Warning，CDC-3 Info两级同步通过，只切断输入到第一级D；UART异步IO提示不虚构同步预算。
+
+原始模式最初opt_design移除了无负载计算支路，只有网络MARK_DEBUG/KEEP/DONT_TOUCH不足；实际修正为427位明确保留的调试快照寄存器，重新实现并严格检查支路存在和唯一外部UART发送器。快照不参与功能反馈、不自动插入ILA。
+
+实测未执行、未生成比特流，仍按此前安排最终阶段统一上板；第六阶段仅软件与实现验收完成。下一步第七阶段按原计划完成全部回归、最终源码重建、版本冻结和干净启动的实物演示。传感器初始化、校准、实际采样和报警阈值仍为未验证。
+
+## 第七阶段回归与候选交付（2026-10-31）
+
+用户要求完成最后阶段、核对最初要求并生成完整上板方案。实际从全部阶段起完成双工具回归：18RTL/19TB，每工具21次阶段运行，共42次，24次非法配置/缺失系数拒绝；PC协议及回放11项、C的65536值/32向量与Keil双目标0错误/0警告通过。准确结果见 `../report/stage7_validation.md/.json`。
+
+最终源码独立生成raw/filtered/debug三版bit；ILA仅调试构建插入，不改功能RTL或原始协议，21组427位、1024点、PL50MHz，生成同版ltx。普通两版资源3401LUT/6101FF、3324LUT/6091FF；debug6695LUT/11520FF/12BRAM，均6DSP。建立裕量5.205/8.300/5.432ns，保持0.037/0.028/0.014ns，0未约束内部端点；各8条DRC Warning保留。调试hub新增JTAG时钟域，CDC为Info，未加入PS。
+
+早期host依赖缺NumPy已补；skill英文占位改为可复用fir-validation并实际结构验证；新增离线受控fixtures和显式COM回放工具，只用假设备自检，未打开真实串口。新固件AXF转HEX并校验Flash64KB范围和校验和。原功能RTL及旧工程/烧录设置未改。
+
+候选冻结v1.0-rc1位于 `build/release/v1.0-rc1/`，源码/发布哈希分别见 `../report/source_manifest.json`、`../report/release_manifest.json`。正文和注释中文，ps1 UTF-8 BOM；不分发厂商Libraries/PDF/IP生成源码、不公开推送。
+
+完整性结论：已知软件要求完整，新版整体实物、传感器初始化实测/校准、实际采样和真实报警仍待验证；未提供正式竞赛评分规则全文，不能担保未知条款。按 `board_test_plan.md` 执行B01～B12，`../report/final_board_record.md`保持未验证。用户本轮只要求方案，未代为下载、复位、测量或采集。
+
+## 冻结后六面短记录与实验校准（2026-10-31）
+
+用户补充report/evidence下xp/xn/yp/yn各一份atkdl和D0 UART CSV，并要求结合第三阶段旧Z进行分析修正；确认MPU6050相同。实际六面均为50ms，共73个完整包，数据位/字节/XOR/序号检查通过，原文件保持。零偏初值约704.160/-535.333/5288.417计数，比例1.007626/0.994537/0.983183；拟合记录存在0.066～0.137g的横轴残差，xn及旧zp各有约3ms间隔。配置跨阶段一致性、长记录和独立验证仍未完成。
+
+新增独立工程stm32/keil/vibration_calibration.uvprojx及SensorCalibratedTrial目标，在打包前进行Q16减偏/比例校正并饱和，仍为16384计数/g；原SensorSource保持原始输出，FixedSource不校正。三轴196608输入及应用错误恢复C/Python检查通过，三个Keil目标均0错误/0警告，实验AXF/HEX已生成，未烧录。无RTL修改，原冻结包不变；formal_calibration_pass=false。完整数据/命令/边界见 `../report/mpu6050_calibration_analysis_20261031.md/.json`。

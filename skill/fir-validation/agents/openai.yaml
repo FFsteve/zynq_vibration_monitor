@@ -1,0 +1,4 @@
+interface:
+  display_name: "FIR定点验证"
+  short_description: "执行本项目的定点参考、双仿真器自检与资源时序取证并保留失败证据"
+  default_prompt: "使用 $fir-validation 验证当前工程的定点滤波修改，报告实际结果和未验证边界。"

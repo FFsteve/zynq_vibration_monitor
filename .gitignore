@@ -252,3 +252,17 @@ docs/hardware/*.pdf
 
 !report/
 !report/**
+
+# 第三阶段：用户提供的厂商库只保留在本机，授权未核实前不公开。
+stm32/Libraries/
+
+# 下列规则放在源码目录放行规则之后，避免把工具缓存纳入版本管理。
+host/__pycache__/
+stm32/**/__pycache__/
+stm32/keil/DebugConfig/
+stm32/keil/*.uvguix.*
+stm32/keil/*.uvoptx
+
+# 所有源码和证据目录放行后，再统一排除Python缓存。
+__pycache__/
+*.py[cod]

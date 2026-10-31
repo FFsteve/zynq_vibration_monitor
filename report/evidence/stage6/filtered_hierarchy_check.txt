@@ -1,0 +1,8 @@
+*features/ux/* cells=194
+*features/uy/* cells=197
+*features/uz/* cells=197
+*alarm/* cells=129
+*processing/fxu/* cells=2012
+*processing/fyu/* cells=2015
+*processing/fzu/* cells=2013
+uart_tx=u_core/u_tx

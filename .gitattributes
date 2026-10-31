@@ -1,0 +1,6 @@
+# 源码和采集证据已有字节级哈希，禁止Git自动转换换行。
+# -text只关闭换行规范化，不关闭文本差异查看。
+* -text
+
+# 系数文件使用固定LF字节，保证跨Windows检出后的SHA256一致。
+/data/reference/stage4/*.mem text eol=lf

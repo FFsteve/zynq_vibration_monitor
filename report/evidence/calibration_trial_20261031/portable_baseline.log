@@ -1,0 +1,2 @@
+PASS firmware_portable values=65536 vectors=32 errors=0
+PASS firmware_vectors samples=32 errors=0

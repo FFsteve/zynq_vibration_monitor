@@ -1,15 +1,53 @@
-# Hardware pinmap and traceability — inspect schematic pages before wiring
+# 硬件引脚与依据：接线前核对原理图
 
-## Sensor -> STM32
-MPU6050 3V3 -> STM32 3.3V; GND -> GND; SDA -> PB7 (I2C1 SDA); SCL -> PB6 (I2C1 SCL); AD0 may remain open on this *specific module* because it has a 4.7k pull-down to GND. Its SDA and SCL have 2.2k pullups to 3.3V. INT unused in V1. Consult `mpu6050_module_schematic.pdf` p1 and `mpu6050_module_manual.pdf` p5.
+## 传感器到 STM32
 
-## STM32 -> PL -> USB UART
-- STM32 PA9 / USART1 TX -> baseboard J3 pin 1 / UART2_RX net -> core B35_L20_P -> XC7Z010 package K14 -> `pl_rx`.
-- PL `pl_tx` -> XC7Z010 package M15 / B35_L23_N -> J3 pin 2 / UART2_TX net -> USB UART RXD.
-- STM32 GND and USB UART GND -> J3 GND (identify 1-pin marking and meter-check before wiring). Do not connect RS-232 DB9 or adapter 5V outputs directly to FPGA IO.
-- The baseboard UART2 signals also route to RS232/RS485 circuitry via P1. Inspect the physical jumper setting and remove the relevant link before driving the TTL input externally. Sources: `zynq_baseboard_v3_9.pdf` pp1,5 and `zynq_core_2v5.pdf` p3.
+2026-10-28 根据用户补充的野火小智双 USB 核心板及扩展板资料，默认将 MPU6050 从 PB6/PB7 的 I2C1 调整为 **PB10/SCL、PB11/SDA 的 I2C2**。旧引脚可用于共享 I2C 总线，并非电气上必然冲突；本项目选择独立总线，为扩展板 OLED 保留 PB6/PB7。
 
-## PL clock and bank voltage
-- Core-board X1 is a nominal 50MHz PL oscillator, labeled PL_GCLK -> Bank34 B34_L3_P -> package U13 (core schematic p3). Treat this as a clock **candidate** until matched to the actual core-board revision and Vivado constraints.
-- Bank35 schematic power p7 shows +3.3V via an installed-choice 0-ohm path and an alternate VCCIO path marked NC. Confirm board assembly/voltage before asserting LVCMOS33 or wiring.
-- Use `constr/top_candidate.xdc` only after checking the actual board and selected FPGA part/package. It is a *candidate*, not a verified/implemented constraint set.
+选用扩展板“通讯接口 2”，J3/J4 分别为直插/弯插形式，电气上并联，只使用其中一个：
+
+| MPU6050 信号 | STM32 功能 | 扩展板通讯接口 2 的针号 |
+|---|---|---|
+| 3V3 | VCC4，必须选 3.3V | J3/J4.6 |
+| GND | GND | J3/J4.5 |
+| SDA | PB11 / I2C2_SDA | J3/J4.4 |
+| SCL | PB10 / I2C2_SCL | J3/J4.3 |
+| INT | 当前轮询方案不接 | 无需使用 PB8 |
+| AD0 | 模块默认下拉，保持地址 0x68 | 无需使用 PB9 |
+
+扩展板原理图第 4 个 PDF 页面显示 J32 控制 VCC4：2—3 接通选择 3.3V，1—2 接通选择 5V。按实物丝印/针号核对并测量后再接模块，不能只凭跳帽朝向判断；本轮未测跳帽或电压。通讯接口 1 与接口 2 共享 PB10/PB11 等网络，不作为两条独立总线同时使用。通讯接口 4 与 OLED 接口均接 PB6/PB7，本轮不初始化 OLED 或这两个引脚。
+
+模块自身 AD0 的 4.7 千欧下拉、SDA/SCL 的 2.2 千欧上拉见 `mpu6050_module_schematic.pdf` 第 1 页；模块六针名称见 `mpu6050_module_manual.pdf` 第 5 页。优先按上述四根独立信号接线，不根据文档页面上的左右方向猜测整排插接方向。
+
+新增 STM32 图纸依据：扩展板原理图 PDF 第 3 页的通讯接口 2/3/4、第 4 页的 OLED/J32/排针；扩展板规格书第 12 页；核心板原理图第 4、5 页；引脚表 Sheet1 第 14、15、27、28、31、32、40、41 行。完整原文件路径及核查记录见 `stm32_board_review.md`。这些是图纸连接，实际插线仍未验证。
+
+## STM32 到 PL，再到 USB 串口
+
+- STM32 PA9 / USART1 TX -> 底板 J3 第 1 脚 / UART2_RX 网络 -> 核心板 B35_L20_P -> XC7Z010 封装 K14 -> `pl_rx`。
+- PL `pl_tx` -> XC7Z010 封装 M15 / B35_L23_N -> J3 第 2 脚 / UART2_TX 网络 -> USB 串口 RXD。
+- STM32 和 USB 串口的 GND 接 J3 第 37 或 39 脚。J3 第 38 脚为 +3.3V，第 40 脚为 +5V。接线前识别实物第 1 脚并用万用表核对。不得将 RS-232 DB9 或适配器的 5V 输出直接接 FPGA IO。
+- UART2 还经 P1 接到 RS232/RS485 电路。P1 第 3 脚为 UART2_TX，第 4 脚为 UART2_RX。外部 TTL 驱动前断开相关连接；首次直连测试建议取下 P1 跳帽。实际跳线状态未验证。依据为 `zynq_baseboard_v3_9.pdf` 第 1、5 页和 `zynq_core_2v5.pdf` 第 3、12 页。
+- RX 完整路径：J3.1 -> 底板 J2.56 / 核心板 X3.56 -> B35_L20_P -> K14。
+- TX 完整路径：M15 -> B35_L23_N -> 核心板 X3.58 / 底板 J2.58 -> J3.2。
+- 原四份 PDF 没有 STM32 核心板图纸。2026-10-28 补充图纸现已确认 PA9 在核心板 J4.5、扩展板 J31.5 及通讯接口 3 的 J9/J10.3 引出；通讯接口 3 的 J9/J10.5 为 GND，.4 为 PA10。程序继续只初始化 USART1 TX/PA9，不启用 PA10 接收。外置 USB 串口模块的实际输出电平仍未验证。
+
+## STM32 晶振、USB 桥和占用
+
+- 双 USB 核心板原理图 PDF 第 4 页：Y1 标称 8 MHz，连接 PD0/PD1；Y2 标称 32.768 kHz，连接 PC14/PC15。引脚表相应记录一致。保留 Keil HSE_VALUE=8000000 和 CMSIS 的 72 MHz 配置；图纸确认不等于实测运行频率。
+- 核心板第 5、6 页：J5.7 为 PA9，J5.8 为 USB 桥 RXD；J5.9 为 PA10，J5.10 为 USB 桥 TXD。默认跳帽使 PA9 发往 USB 桥接收端、USB 桥发送端驱动 PA10。核心板规格书第 12 页也说明该默认连接。
+- 本程序仅通过 PA9 向外发送；保留默认跳帽时，核心板 USB 串口能观察同一份 STM32 原始数据，不能将其误认为 FPGA 回包。需要将该 USB 桥 RXD 改接 FPGA 回传时，必须先隔离 PA9→RXD 的连接，避免两个 TX 输出相连；本轮不改变跳帽、不启动 ISP。
+- 规格书称桥接芯片为 CH340C，原理图 U3 标注 CH340X，两份资料型号文字不一致；只依赖它们一致的 RXD/TXD 连接，实际芯片型号未核实。
+- 保留 PA13/PA14 的 SWD，不改 JTAG/SWD、BOOT 或烧录设置。板载 RGB 占 PA1/PA2/PA3，本轮不使用；PA11/PA12 接 USB Device，不用于新增串口或传感器 GPIO。
+
+## PL 时钟与 Bank 电压
+
+- 2026-10-27 图面复核已纠错：核心板 X1 为标称 50 MHz PL 振荡器；X1.OUT -> R7（33 欧姆）-> PL_GCLK -> Bank34 IO_L12P_T1_MRCC_34 -> 封装 **U18**，见核心板原理图第 3 页。原先 B34_L3_P/U13 的描述错误。U13 实际为 IO_L3P_T0_DQS_PUDC_B_34，网络 B34_L3_P 经 R8（1 千欧）下拉至地。
+- Bank34 的 VCCO_34 和 X1 使用 VCCIO，见核心板第 3、7 页。VCCIO 由 U8 SPX3819M5-3-3 提供，标称 3.3V，见第 10 页。
+- 核心板第 7 页通过标注 0R 的 R216/R219 将 VCCO_B35 接到 +3.3V；通往 VCCIO 的备选路径 R218/R215 标为 NC。图纸所示装配支持这些时钟和 UART 信号使用 LVCMOS33，但实际电阻焊接、Bank 电压、振荡器输出和 PCB 版本尚未实测。
+- 2026-10-28 用户补充领航者规格书 V1.2、同板呼吸灯约束示例，并说明实板连接与原理图一致。结合规格书与现有工程，当前器件采用 xc7z010clg400-1；候选文件已迁移为正式 `constr/top.xdc`，另有实现阶段专用的 `constr/uart_rx_cdc.xdc`。三个端口为 clk/U18、pl_rx/K14、pl_tx/M15，均为 LVCMOS33，时钟周期 20 ns。实际工具结果和边界见 `fpga_constraints.md`；本轮未测电压或上板。
+
+## FPGA 示例中的按键和 LED
+
+用户提供的呼吸灯示例 U18/50 MHz 与当前时钟一致，但其端口名 sys_clk 不同于本项目 clk。N16 对应 B35_L21_N/底板 PL_RESET，J16 为核心板 PL_LED，均可在核心板第 3 页及底板第 5、1 页追踪；规格书第 27 页补充说明 PL_RESET 连接。当前 top 没有复位或 LED 外部端口，所以不添加这两项约束、不改动 RTL。
+
+本项目 UART2/K14/M15 路径与板载 USB/UART3 路径不同，不能仅插入板载 USB 即预期收到 M15 的回传。规格书第 28 页给出 P5 选择 USB 桥通道，详细区别见 `fpga_constraints.md`。

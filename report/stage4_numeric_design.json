@@ -1,0 +1,172 @@
+{
+  "status": "PASS_NUMERIC_DESIGN_ONLY",
+  "sample_rate_hz": 250,
+  "taps": 63,
+  "window": "Hamming",
+  "lowpass_design_frequency_hz": 40,
+  "dc_shift": 5,
+  "dc_fraction_bits": 16,
+  "coefficient_fraction_bits": 16,
+  "coefficient_sum": 65536,
+  "coefficient_abs_sum": 117520,
+  "coefficient_memory_sha256": "b9b74fb39759cf352d2b388ea15650b0a1522d1f15dd6f4861f622d7b580fc35",
+  "fir_group_delay_samples": 31,
+  "fir_group_delay_ms": 124,
+  "combined_passband_min_db": -0.10727200394376567,
+  "combined_passband_max_db": 0.15582742699337565,
+  "combined_stopband_worst_db": -58.95056740162669,
+  "accumulator_abs_bound": 7701673200,
+  "fir_output_abs_bound_counts": 117518.20678710938,
+  "worst_case_coefficient_quantization_l1_error": 0.00039375845567109045,
+  "cases": [
+    {
+      "case": "constant_zero",
+      "samples": 512,
+      "max_float_quantized_coeff_error_counts": 0.0,
+      "maximum_abs_accumulator": 0
+    },
+    {
+      "case": "constant_bias",
+      "samples": 512,
+      "max_float_quantized_coeff_error_counts": 0.0,
+      "maximum_abs_accumulator": 0
+    },
+    {
+      "case": "constant_max",
+      "samples": 512,
+      "max_float_quantized_coeff_error_counts": 0.0,
+      "maximum_abs_accumulator": 0
+    },
+    {
+      "case": "constant_min",
+      "samples": 512,
+      "max_float_quantized_coeff_error_counts": 0.0,
+      "maximum_abs_accumulator": 0
+    },
+    {
+      "case": "impulse",
+      "samples": 640,
+      "max_float_quantized_coeff_error_counts": 0.5994321385628609,
+      "maximum_abs_accumulator": 406248241
+    },
+    {
+      "case": "positive_step",
+      "samples": 640,
+      "max_float_quantized_coeff_error_counts": 0.7192753502749838,
+      "maximum_abs_accumulator": 2178540861
+    },
+    {
+      "case": "negative_step",
+      "samples": 640,
+      "max_float_quantized_coeff_error_counts": 0.8353182427015327,
+      "maximum_abs_accumulator": 2178613555
+    },
+    {
+      "case": "sign_reversal",
+      "samples": 640,
+      "max_float_quantized_coeff_error_counts": 0.8582630616674578,
+      "maximum_abs_accumulator": 4357153008
+    },
+    {
+      "case": "fullscale_alternating",
+      "samples": 1024,
+      "max_float_quantized_coeff_error_counts": 0.8593596752578563,
+      "maximum_abs_accumulator": 2219421501
+    },
+    {
+      "case": "random_fullscale",
+      "samples": 4096,
+      "max_float_quantized_coeff_error_counts": 0.8809348685888949,
+      "maximum_abs_accumulator": 2364935785
+    },
+    {
+      "case": "tone_5hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.8116770132310194,
+      "maximum_abs_accumulator": 697801028
+    },
+    {
+      "case": "tone_10hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.8333705376280705,
+      "maximum_abs_accumulator": 705627245
+    },
+    {
+      "case": "tone_20hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.9324688097331091,
+      "maximum_abs_accumulator": 700034915
+    },
+    {
+      "case": "tone_30hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.907418810074887,
+      "maximum_abs_accumulator": 675431903
+    },
+    {
+      "case": "tone_50hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.9103959606136982,
+      "maximum_abs_accumulator": 206750051
+    },
+    {
+      "case": "tone_60hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.9042295176428841,
+      "maximum_abs_accumulator": 137745679
+    },
+    {
+      "case": "tone_80hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.8603564703432349,
+      "maximum_abs_accumulator": 74159231
+    },
+    {
+      "case": "tone_100hz",
+      "samples": 4000,
+      "max_float_quantized_coeff_error_counts": 0.8807491197713233,
+      "maximum_abs_accumulator": 36739905
+    }
+  ],
+  "tones": [
+    {
+      "frequency_hz": 5,
+      "measured_integer_model_gain_db": -0.10730504288435178
+    },
+    {
+      "frequency_hz": 10,
+      "measured_integer_model_gain_db": 0.08325856275950665
+    },
+    {
+      "frequency_hz": 20,
+      "measured_integer_model_gain_db": 0.15036765757145107
+    },
+    {
+      "frequency_hz": 30,
+      "measured_integer_model_gain_db": 0.15337687431468203
+    },
+    {
+      "frequency_hz": 50,
+      "measured_integer_model_gain_db": -61.4756573192861
+    },
+    {
+      "frequency_hz": 60,
+      "measured_integer_model_gain_db": -61.53785488283639
+    },
+    {
+      "frequency_hz": 80,
+      "measured_integer_model_gain_db": -64.14813161812533
+    },
+    {
+      "frequency_hz": 100,
+      "measured_integer_model_gain_db": -75.8302865569041
+    }
+  ],
+  "limitations": [
+    "未编写或仿真新RTL",
+    "未综合实现或测资源",
+    "采样率是标称假设，实物抖动与漏样待查",
+    "去直流不能替代传感器校准",
+    "5Hz是通带验收下限，不是严格高通截止频率"
+  ]
+}
