@@ -1,5 +1,15 @@
 `timescale 1ns/1ps
 `default_nettype none
+
+// 模块职责：锁存一包三轴输入，依次启动去直流和三个同步FIR，最后连同原SEQ一起发布。
+// 主流程为IDLE、DC、FIR、WAIT_RESULT；XYZ完全并行处理，只有三轴valid一致才提交一组。
+// 默认从接纳到filtered_valid_o为193拍；这是数字计算延迟，不是63抽头的31样本群延迟。
+// frame_valid_i是不可等待的一拍事件；忙时到达的样本丢弃、计数并要求下次重建，避免静默跨丢样卷积。
+// 三类连续性破坏：SEQ不等于前包加1、默认12ms无新包、运算忙时丢样；均清除历史可信状态。
+// 断流计数用clk推进，饱和后保持；重建在下一次接纳时同时送给基线和FIR。
+// 第一包建立初始历史，但不作为故障重启计数；后续实际不连续才产生stream_restart_o事件。
+// 输出数值在无valid时保持；history_full_o还受失效条件门控，不能只看上一轮存下的full_reg。
+
 // 包有效是一拍事件：忙时丢弃并记录，下次接纳时重建基线和历史。
 module vibration_filter #(
     parameter integer GAP_TIMEOUT_CLKS=600000,
@@ -30,10 +40,12 @@ module vibration_filter #(
     reg [GW-1:0] gap_count;
     reg [7:0] previous_seq,active_seq;
     reg signed [15:0] active_x,active_y,active_z;
+    // gap_due包含边界即将到达的一拍，用于禁止边界新包与旧历史拼接；gap_expired用于持续失效门控。
     wire gap_expired=have_sample && gap_count==GAP_LIMIT;
     wire gap_due=have_sample && gap_count>=GAP_LAST;
     wire discontinuity=have_sample && (seq_i!=(previous_seq+8'd1));
     wire accept=frame_valid_i && ready_o;
+    // 用组合条件直接参与本拍接纳，不能只依赖同沿才置位的need_restart，否则会晚一个样本。
     wire restart_now=need_restart || gap_due || discontinuity;
     wire dc_valid=(state==DC);
     wire fir_valid=(state==FIR);
@@ -43,6 +55,7 @@ module vibration_filter #(
     assign ready_o=!rst && state==IDLE;
     assign busy_o=!ready_o && !rst;
     assign history_full_o=full_reg && !need_restart && !gap_expired && !rst;
+    // 三个轴共享有效和重建条件；去直流先寄存，再由FIR状态在下一拍消费稳定结果。
     dc_remove ux(.clk(clk),.rst(rst),.sample_valid_i(dc_valid),.restart_i(active_restart),.data_i(active_x),.data_o(dx),.valid_o(dvx));
     dc_remove uy(.clk(clk),.rst(rst),.sample_valid_i(dc_valid),.restart_i(active_restart),.data_i(active_y),.data_o(dy),.valid_o(dvy));
     dc_remove uz(.clk(clk),.rst(rst),.sample_valid_i(dc_valid),.restart_i(active_restart),.data_i(active_z),.data_o(dz),.valid_o(dvz));
@@ -69,6 +82,7 @@ module vibration_filter #(
             filtered_valid_o<=0;saturated_o<=0;overrun_o<=0;stream_restart_o<=0;
             if(have_sample && !gap_expired) gap_count<=gap_count+1'b1;
             if(gap_due) need_restart<=1;
+            // 过载不覆盖active_x/y/z/seq，保证正在计算的一包不被新包撕裂；下一包从零历史重新开始。
             if(frame_valid_i && !ready_o) begin
                 overrun_o<=1;dropped_count_o<=dropped_count_o+1'b1;need_restart<=1;
             end
@@ -83,6 +97,7 @@ module vibration_filter #(
                 end
                 DC:state<=FIR;
                 FIR:state<=WAIT_RESULT;
+                // 只有三轴都完成才锁存结果和active_seq；SEQ应随计算走，不能直接取此时外部的seq_i。
                 WAIT_RESULT:if(fvx && fvy && fvz) begin
                     x_o<=fx;y_o<=fy;z_o<=fz;seq_o<=active_seq;
                     filtered_valid_o<=1;saturated_o<=fsx || fsy || fsz;

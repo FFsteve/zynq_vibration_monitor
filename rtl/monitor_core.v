@@ -1,5 +1,14 @@
 `timescale 1ns/1ps
 `default_nettype none
+
+// 层级职责：第三阶段通信闭环，uart_rx -> packet_parser -> return_controller -> uart_tx。
+// 输入输出是串行线，内部raw三轴只在frame_valid_o提交；本层不滤波、不校准传感器。
+// 解析成功的样本同时提供给回传队列与外部接口，各自按事件消费，不让发送忙影响UART接收。
+// rx_frame_count统计解析成功；accepted/dropped/completed由回传队列提供，含义和发生时刻各不相同。
+// UART、候选校验、字节超时、SEQ异常分别计数，便于定位链路中哪一层先出现问题。
+// 本层支持显式同步rst，便于自检；板级上电复位由外层top统一生成。
+// 这是历史通信基线，当前带滤波/报警的完整回传应从system_monitor_core理解。
+
 // 可施加同步复位的通信核心；诊断计数只反映当前复位周期内的活动。
 module monitor_core #(
     parameter integer CLK_HZ=50_000_000, BAUD=115_200,
@@ -19,6 +28,7 @@ module monitor_core #(
     wire rx_valid,rx_error,rx_busy,checksum_error,timeout_event,seq_error;
     wire tx_valid,tx_ready,tx_done,tx_busy,overflow,packet_done;
     wire [31:0] queued;
+    // 先完成位级停止位检查，再交给包级解析；不能把一拍rx_valid直接当成一组三轴样本。
     uart_rx #(.CLK_HZ(CLK_HZ),.BAUD(BAUD)) u_rx (
         .clk(clk),.rst(rst),.rx_i(pl_rx),.data_o(rx_data),.valid_o(rx_valid),
         .framing_error_o(rx_error),.busy_o(rx_busy));
@@ -34,6 +44,7 @@ module monitor_core #(
     uart_tx #(.CLK_HZ(CLK_HZ),.BAUD(BAUD)) u_tx (
         .clk(clk),.rst(rst),.data_i(tx_data),.valid_i(tx_valid),.ready_o(tx_ready),
         .tx_o(pl_tx),.busy_o(tx_busy),.done_o(tx_done));
+    // 每个错误源按自己的事件计数；候选校验失败次数不必等于物理坏包数，计数也不自动拒绝后续好包。
     always @(posedge clk)begin
         if(rst)begin rx_frame_count_o<=0;uart_error_count_o<=0;checksum_error_count_o<=0;
             timeout_count_o<=0;seq_error_count_o<=0;end

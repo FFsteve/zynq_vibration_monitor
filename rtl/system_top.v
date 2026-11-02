@@ -1,5 +1,15 @@
 `timescale 1ns/1ps
 `default_nettype none
+
+// 入口用途：完整滤波/统计/报警的历史板级顶层，默认RETURN_FILTERED=0，无beep输出。
+//
+// 主链由power_on_reset和system_monitor_core组成；所有计算、发送与调试寄存器都使用同一clk。
+// 保留21组共427位debug快照，并使用MARK_DEBUG与DONT_TOUCH保留真实寄存器负载。
+// 为何要有负载：只声明未被使用的统计信号仍可能被综合裁掉，导致软件仿真有算法、实际bit中没有。
+// 每拍复制核心状态到debug寄存器，快照整体比核心晚一拍，但不反馈、不改变滤波或报警计算。
+// feature_valid是新窗口的一拍事件；RMS/峰值在窗口间保持，不能把其保持时间理解成新数据频率。
+// 仅加MARK_DEBUG不会自动插入ILA，实际调试核由构建约束/脚本创建；bit与ltx必须来自匹配构建。
+
 // 独立板级入口；不改旧top或本地工程，调试标记不自动创建ILA。
 module system_top #(
     parameter integer RETURN_FILTERED=0,CLK_HZ=50000000,BAUD=115200,
@@ -9,6 +19,7 @@ module system_top #(
 )(input wire clk,pl_rx,output wire pl_tx);
     wire rst;
     power_on_reset #(.HOLD_CLKS(RESET_HOLD_CLKS)) u_reset(.clk(clk),.restart_i(1'b0),.rst_o(rst));
+    // 以下wire是核心功能结果，debug_*是独立观测寄存器；分开命名，避免调试信号被误接回主链。
     wire  feature_valid_o;
     (* MARK_DEBUG="TRUE", DONT_TOUCH="TRUE" *) reg  debug_feature_valid_o;
     wire [34:0] ms_x_o;
@@ -51,6 +62,7 @@ module system_top #(
     (* MARK_DEBUG="TRUE", DONT_TOUCH="TRUE" *) reg [31:0] debug_filter_restart_count_o;
     wire [31:0] aborted_windows_o;
     (* MARK_DEBUG="TRUE", DONT_TOUCH="TRUE" *) reg [31:0] debug_aborted_windows_o;
+    // 板级不暴露拥塞注入，把tx_pause_i固定为0；其余未使用诊断口可留空，不额外增加外部引脚。
     system_monitor_core #(.RETURN_FILTERED(RETURN_FILTERED),.CLK_HZ(CLK_HZ),.BAUD(BAUD),
         .BYTE_TIMEOUT_CLKS(BYTE_TIMEOUT_CLKS),.ACK_ONLY(ACK_ONLY),.QUEUE_DEPTH(QUEUE_DEPTH),
         .GAP_TIMEOUT_CLKS(GAP_TIMEOUT_CLKS),.WINDOW_LOG2(WINDOW_LOG2),.COEFF_FILE(COEFF_FILE)) u_core(
@@ -79,6 +91,7 @@ module system_top #(
             debug_completed_count_o<=0;
             debug_filter_restart_count_o<=0;
             debug_aborted_windows_o<=0;
+        // 每拍复制而非仅在feature_valid时复制，才能同时观察有效位变化、断流失效与累计计数。
         end else begin
             debug_feature_valid_o<=feature_valid_o;
             debug_ms_x_o<=ms_x_o;

@@ -7,7 +7,7 @@
   "manifest_files": 526,
   "vendor_files": 88,
   "vivado_version": "2020.2",
-  "design_report_complete": false,
+  "design_report_complete": true,
   "xsim": {
     "alarm_buzzer": "PASS alarm_buzzer checks=42 errors=0",
     "system_buzzer_top": "PASS system_buzzer_top checks=12732334 errors=0"
@@ -88,5 +88,13 @@
     "本次未重新执行Vivado综合实现，保留原真实报告",
     "本次未重跑原七阶段全量RTL，使用原证据与当前专项"
   ],
-  "scope": "工程包与Skill交付完成，最终设计报告后续编写"
+  "scope": "工程包与Skill交付完成；后续设计报告及实物照片已补齐，当前指纹以package_manifest.json为准",
+  "design_report_update": {
+    "files": {
+      "word": "report/技术文档word版.docx",
+      "pdf": "report/技术文档pdf版.pdf"
+    },
+    "pdf_pages": 23,
+    "note": "仅更新当前状态；checks中的历史命令及原始stdout不改写"
+  }
 }

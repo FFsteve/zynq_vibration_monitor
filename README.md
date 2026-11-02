@@ -2,7 +2,7 @@
 
 比赛初级组的纯 PL 原型。MPU6050 经 STM32F103C8T6 采集、六面校准并发送三轴包，FPGA 完成 UART 接收、恢复解析、去直流、63 抽头 FIR、窗口 MS/RMS/峰值、滞回报警与有源蜂鸣器控制，再将滤波数据通过 UART 回传。未使用 PS、AXI、Linux 或 PYNQ。
 
-当前交付版本：**v1.0-buzzer-20261102**。用户于 2026-11-02 在本对话确认最终上板完成、蜂鸣器正常响应。此前已有真实采集与 ILA 数值对照；此项声音确认由用户报告，未附新增声学记录。当前主要交付对象为 system_buzzer_top，而不是旧通信 top。设计报告按用户安排之后另行完成，本仓库现有阶段设计/验证报告不是最终设计报告。
+当前交付版本：**v1.0-buzzer-20261102**。用户于 2026-11-02 在本对话确认最终上板完成、蜂鸣器正常响应。此前已有真实采集与 ILA 数值对照；此项声音确认由用户报告，未附新增声学记录。当前主要交付对象为 system_buzzer_top，而不是旧通信 top。[设计报告Word版](report/技术文档word版.docx)和[PDF版](report/技术文档pdf版.pdf)已完成正文并补充实物照片，文件名按用户要求保留；现有阶段设计/验证报告继续作为证据来源。
 
 ## 环境与版本
 
@@ -32,7 +32,7 @@
 | board/ | board/：本次配套 bit/ltx、校准 HEX、资源时序/DRC/CDC 和下载说明 |
 | data/reference/、report/evidence/ | data/：系数、参考、选定实测数据与比对结果 |
 | skill/ | skill/：全流程技能、FIR 专项、经验清单、校验脚本与案例 |
-| docs/、report/、report/ai_records/ | report/：阶段设计、实际验证、用户交互正文和纠错；最终设计报告后续提交 |
+| docs/、report/、report/ai_records/ | report/：设计报告、阶段设计、实际验证、用户交互正文和纠错 |
 | scripts/package_final.py | 生成独立 zynq_vibration_monitor_final/，不依赖原 Vivado 工作区 |
 
 工程包和公开仓库都不需要 vivado_project/、.Xil/ 或旧 xpr。可复现工程由全部自有源码、相对路径脚本及依赖清单定义。大体积原始 ATK 工程/长采样保留在原工作区，工程包收录选定输入、参考和结果；参见 [证据索引](report/current_release.md)。
@@ -71,4 +71,4 @@ FPGA 重建结果为 build/buzzer_release/debug/system.bit 与同目录 system.l
 
 自有代码和技能按 [MIT](LICENSE) 开源，第三方材料见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。仓库：https://github.com/FFsteve/zynq_vibration_monitor 。
 
-当前工程包交付与设计报告分开：最终设计报告、参赛视频和报名平台的其他材料之后处理。本次不引入新算法或再次要求整套板测。
+设计报告及实物照片已归档，Word版、PDF版和核查记录已同步至本地最终工程包。参赛视频和报名平台的其他材料按实际提交要求另行准备；本次未引入新算法或重新进行板测。

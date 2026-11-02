@@ -5,6 +5,9 @@ import json
 from pathlib import Path, PurePosixPath
 import tempfile
 
+# 用户指定保留这两份中文报告文件名；核验仍使用相对路径和SHA256。
+REPORT_FILES = {"word": "report/技术文档word版.docx", "pdf": "report/技术文档pdf版.pdf"}
+
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -50,14 +53,22 @@ def verify(root, require_vendor=False):
         manifest = json.loads((root / "stm32/vendor_manifest.json").read_text(encoding="utf-8"))
         vendor_count = verify_files(dependency, manifest["files"])
     package_count = 0
+    report_complete = all((root / name).is_file() for name in REPORT_FILES.values())
     if (root / "package_manifest.json").exists():
         manifest = json.loads((root / "package_manifest.json").read_text(encoding="utf-8"))
         package_count = verify_files(root, manifest["files"])
-        if manifest["design_report_complete"] is not False:
-            raise ValueError("本次不应声称最终设计报告完成")
+        report_complete = manifest.get("design_report_complete", False)
+        if not isinstance(report_complete, bool):
+            raise ValueError("设计报告完成状态必须为布尔值")
+        if report_complete:
+            reports = manifest.get("design_report_files", REPORT_FILES)
+            for kind, suffix in (("word", ".docx"), ("pdf", ".pdf")):
+                name = reports.get(kind)
+                if not isinstance(name, str) or not name.endswith(suffix) or name not in manifest["files"]:
+                    raise ValueError("设计报告未纳入文件指纹清单：" + kind)
     return dict(status="PASS_DELIVERY_FILES", artifact_files=count, rtl_modules=len(rtl),
                 package_files=package_count, vendor_files=vendor_count,
-                vivado_version="2020.2", design_report_complete=False)
+                vivado_version="2020.2", design_report_complete=report_complete)
 
 
 def self_test():

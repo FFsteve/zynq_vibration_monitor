@@ -1,5 +1,15 @@
 `timescale 1ns/1ps
 `default_nettype none
+
+// 模块职责：对连续、可信的signed18三轴样本做非重叠窗口MS、整数RMS与绝对峰值统计。
+// 窗口N=2^WINDOW_LOG2，默认128；因此除以N可用右移，MS采用向下取整，不使用浮点除法。
+// 平方先保留36位，累加器再加WINDOW_LOG2位，防止大幅值连续累积溢出；MS输出35位足够存上界。
+// 流程：IDLE锁样本，MUL求平方，ACC累积；最后一项后ROOT_START并行开方，ROOT_WAIT原子发布。
+// RMS为floor(sqrt(MS))，峰值为窗口内最大绝对值；三者均是滤波计数单位，并非直接以g表示。
+// clear优先于新样本；忙时到样本取消整个在途窗口，SEQ跳号则以当前样本开新窗。
+// 这比跨缺口补足128项更严格，可防止把不连续数据伪装成完整窗口。
+// window_id只在发布时递增，seq_start/end标识覆盖范围；不能只凭不同运行的ID推定同一时间窗。
+
 // 事件接口：忙时新样本取消整个在途窗口，禁止跨丢样拼接统计。
 module window_features #(parameter integer WINDOW_LOG2=7)(
     input wire clk,rst,clear_i,sample_valid_i,
@@ -14,6 +24,7 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
     output reg overrun_o,discontinuity_o,
     output reg [31:0] accepted_count_o,dropped_count_o,aborted_windows_o
 );
+    // LG备用值只避免非法参数造成不合理位宽；仿真参数检查仍会拒绝越界配置，不代表自动修正用户参数。
     localparam integer LG=(WINDOW_LOG2<0 || WINDOW_LOG2>10)?7:WINDOW_LOG2;
     localparam integer N=2**LG,SW=36+LG,CW=(LG==0)?1:LG;
     localparam [2:0] IDLE=0,MUL=1,ACC=2,ROOT_START=3,ROOT_WAIT=4;
@@ -28,9 +39,11 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
     reg [31:0] next_id;
     reg [34:0] pending_x,pending_y,pending_z;
     reg [17:0] pending_peak_x,pending_peak_y,pending_peak_z;
+    // total包含本拍待累加的平方项；在窗口末尾必须用total求均值，否则会漏掉第128个样本。
     wire [SW-1:0] total_x=sum_x+{{LG{1'b0}},px};
     wire [SW-1:0] total_y=sum_y+{{LG{1'b0}},py};
     wire [SW-1:0] total_z=sum_z+{{LG{1'b0}},pz};
+    // 先扩为19位有符号数再取绝对值，使-131072能得到无符号131072，不在原位宽内溢出。
     function [17:0] magnitude;
         input signed [17:0] value;
         reg signed [18:0] extended;
@@ -42,6 +55,7 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
     wire [17:0] max_z=(az>peak_z)?az:peak_z;
     wire broken=have_previous && seq_i!=(previous_seq+8'd1);
     wire overrun=sample_valid_i && state!=IDLE;
+    // 取消窗口时也复位三个开方器，防止旧窗口的迟到valid被当成新窗口结果。
     wire root_clear=rst || clear_i || overrun;
     wire root_start=state==ROOT_START;
     wire vx,vy,vz;
@@ -67,6 +81,7 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
             overrun_o<=0;discontinuity_o<=0;accepted_count_o<=0;dropped_count_o<=0;aborted_windows_o<=0;
         end else begin
             feature_valid_o<=0;overrun_o<=0;discontinuity_o<=0;
+            // 失效清除只丢弃当前累积和在途计算；累计诊断仍保留，供ILA区分正常发布与反复重建。
             if(clear_i || overrun) begin
                 state<=IDLE;active<=0;have_previous<=0;count<=0;
                 sum_x<=0;sum_y<=0;sum_z<=0;peak_x<=0;peak_y<=0;peak_z<=0;
@@ -76,6 +91,7 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
                 IDLE:if(sample_valid_i) begin
                     sx<=x_i;sy<=y_i;sz<=z_i;sample_seq<=seq_i;previous_seq<=seq_i;have_previous<=1;
                     accepted_count_o<=accepted_count_o+1'b1;active<=1;state<=MUL;
+                    // 第一项明确清零累加与峰值；跳号时当前样本可以成为新窗第一项，但旧窗绝不续接。
                     if(broken || !active) begin
                         start_seq<=seq_i;count<=0;sum_x<=0;sum_y<=0;sum_z<=0;peak_x<=0;peak_y<=0;peak_z<=0;
                     end
@@ -87,6 +103,7 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
                 MUL:begin px<=$signed(sx)*$signed(sx);py<=$signed(sy)*$signed(sy);pz<=$signed(sz)*$signed(sz);state<=ACC;end
                 ACC:begin
                     if(count==N-1) begin
+                        // 先保存均方与峰值，随后等待开方；不能在等待期间把下一窗的值混入本窗。
                         pending_x<=total_x>>LG;pending_y<=total_y>>LG;pending_z<=total_z>>LG;
                         pending_peak_x<=max_x;pending_peak_y<=max_y;pending_peak_z<=max_z;
                         sum_x<=0;sum_y<=0;sum_z<=0;peak_x<=0;peak_y<=0;peak_z<=0;count<=0;state<=ROOT_START;
@@ -96,6 +113,7 @@ module window_features #(parameter integer WINDOW_LOG2=7)(
                     end
                 end
                 ROOT_START:state<=ROOT_WAIT;
+                // 同沿发布三轴MS/RMS/峰值、首尾序号和ID；feature_valid_o只打一拍，数据保持到下一窗。
                 ROOT_WAIT:if(vx && vy && vz) begin
                     ms_x_o<=pending_x;ms_y_o<=pending_y;ms_z_o<=pending_z;rms_x_o<=rx;rms_y_o<=ry;rms_z_o<=rz;
                     peak_x_o<=pending_peak_x;peak_y_o<=pending_peak_y;peak_z_o<=pending_peak_z;

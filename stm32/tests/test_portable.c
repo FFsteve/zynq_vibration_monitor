@@ -1,3 +1,8 @@
+// 主机自检入口：用内存寄存器与模拟时钟替代BSP，运行真实组包、采集调度及MPU6050业务代码。
+// 覆盖补码全范围编码、身份/配置不符、无新样本、总线失败、发送失败、延时及时间回绕、离线恢复。
+// 模拟函数只规定应用可见行为，不复现STM32 I2C接收尾时序或真实引脚，因此不能代替Keil/板测。
+// 断言失败立即终止；可选输出32包实际C编码结果，交给独立Python解码器交叉检查协议。
+
 #include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -44,6 +49,7 @@ int bsp_i2c_read(uint8_t address,uint8_t reg,uint8_t *data,unsigned length)
     if(reg==mismatch)*data^=1;
     return 1;
 }
+// 每组用例恢复独立初态，避免上一个故障残留影响下一个测试的因果判断。
 static void clear_mock(void)
 {
     now=0;bus_ok=1;tx_ok=1;ready=0;mismatch=-1;attempts=0;burst_reads=0;
@@ -78,6 +84,7 @@ int main(int argc,char **argv)
     clear_mock();registers[0x75]=0x69;assert(!mpu6050_init(&id)&&id==0x69);
     clear_mock();mismatch=0x19;assert(!mpu6050_init(&id));
 
+    // 固定源路径验证4ms调度、同毫秒去重及发送失败不回退SEQ，确保诊断包作为稳定通信参考。
     clear_mock();acquisition_init(1);
     poll_at(0);poll_at(0);poll_at(1);poll_at(3);assert(attempts==1);
     poll_at(4);assert(attempts==2&&tx_log[1][2]==1&&tx_log[1][9]==0x80);
@@ -87,6 +94,7 @@ int main(int argc,char **argv)
     clear_mock();now=0xFFFFFFFEU;acquisition_init(1);poll_at(now);poll_at(1);poll_at(2);
     assert(attempts==2);
 
+    // 传感器路径验证就绪才发送、故障离线、1s后重试并恢复，不能只测初始化成功的理想路径。
     clear_mock();acquisition_init(0);poll_at(0);
     assert(g_acquisition.online&&g_acquisition.who_am_i==0x68);
     poll_at(200);assert(g_acquisition.samples==0);

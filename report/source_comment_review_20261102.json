@@ -1,0 +1,349 @@
+{
+  "status": "PASS_COMMENT_REVIEW",
+  "files": 40,
+  "rtl_files": 20,
+  "stm32_files": 20,
+  "changed_code_tokens": 0,
+  "synthesis_and_preprocessor_directives_equal": true,
+  "added_comment_lines": 362,
+  "synchronized_files": 40,
+  "files_detail": [
+    {
+      "path": "rtl/alarm_buzzer.v",
+      "before_sha256": "c8321f4e88bc2dbcd70b7041eb837e4dfe28a380946434537af50f1983715a8a",
+      "after_sha256": "72b2874463c42a1ccfce36b9a4ca82cb7929db7ee17ebbbe8759db065c236c8f",
+      "token_sha256": "ee27e7e437effc09be8a96c0c97b9e75186e4f204fa3cff1cdff59745cbe198d",
+      "added_comment_lines": 8,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/dc_remove.v",
+      "before_sha256": "9de850ead00ae7c4217f45e0874c630dd38c65151898ce4218a8b8f1d3ea0eb4",
+      "after_sha256": "f397cbc2c1f9af12e0ea96f50a57164f1dda62fe519182f12f3c9e6b07afe6fa",
+      "token_sha256": "f30dd18a0d571b1f9a21f797416800f3f6c1fd4ff8ebb69b8bf7b5d8e7707cb1",
+      "added_comment_lines": 11,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/feature_monitor_core.v",
+      "before_sha256": "f04d5947c73f252d700e2015669db7d1cdfd3141f68832db08c129cd1a5bb5d3",
+      "after_sha256": "73851b541667988a521f5673c882ed03e0fa88867ea95491a99a3c9a2320b63e",
+      "token_sha256": "f81c9e83efb0520fb7268d51947c58b3d028bf2956e191077105ea11297bde30",
+      "added_comment_lines": 10,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/filter_monitor_core.v",
+      "before_sha256": "12a113e59e35432e5b8ba29c81df674ec33be34a2d59a574cc88fecbd14f2e79",
+      "after_sha256": "0a60067a049ba5a1ec3d58dc76f4acc77aee7ed85beb4474868a4e8b637cbc6c",
+      "token_sha256": "477cf51a7cd598d0ab02a3e3ce03f06a2710bbb6b0534121538290f37c33c7e8",
+      "added_comment_lines": 8,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/fir_lp_serial.v",
+      "before_sha256": "c181fa9a0a02bfbf80f48bf363f6521f1c5b975c70c7cdabc9ef07d683bf624d",
+      "after_sha256": "3462992b9e42d7ce154cea30ea67ce9c76804e7fdbbf19378f65a77bb5057f4d",
+      "token_sha256": "98a44c2661749743495e3bc03489d07167a32279af1451884b96eecc641fca69",
+      "added_comment_lines": 14,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/isqrt_u36.v",
+      "before_sha256": "0e5ee00fbed2ef2d018af964e3f06f12b000790b3c8ee7e59b467423694c55fa",
+      "after_sha256": "b9943d00be0583e65ee7370f8df55d6b1f16e288d86832773ac3b5bfc3cdcbc6",
+      "token_sha256": "2abe88ba224ee9a61dea7dbec0545553c393d5489bb246f90b72271ff9d1f86d",
+      "added_comment_lines": 9,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/monitor_core.v",
+      "before_sha256": "4fa23797ed3a0598183f49b336f87583760384204f54ba9e295cb93c18385dde",
+      "after_sha256": "ddbc45eca2357b5d08659fc51239c894465a831546c19aa224db606eb4920f1a",
+      "token_sha256": "e885a855233012de843367951225efd382fd89b1856cb4ed09e852f47993fa20",
+      "added_comment_lines": 9,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/packet_parser.v",
+      "before_sha256": "d56e96d05f2207c83fea175d991d6243cf9f324c81c468876726ca3a20d3bb84",
+      "after_sha256": "5c14818a3ccbf8e18e5313160bed191ff609698f1bf4548c2319f2fd59af626c",
+      "token_sha256": "a68fd925b58f15823ccce8f6472cc6afe6a76318c854eb043e09b675df37f19a",
+      "added_comment_lines": 13,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/power_on_reset.v",
+      "before_sha256": "b5dec339ffc2aff39fa60fc3fa7e2710213b3fcf605e464ec6b94f6a27b0fa61",
+      "after_sha256": "1d2d29be3056ba073c91a34510a3f3001f074c322e42c7c7dfbecafe9c6ce2b8",
+      "token_sha256": "96f46a4f87d497b7648106c0fcf39b851e82116ad0d84c32cf99995bdce20c32",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/return_controller.v",
+      "before_sha256": "3e77f9beed844fa0ca77249fc823dfe42732e7464aee5fe0bc4918ddc8bf5c4c",
+      "after_sha256": "0dacf56c790987e2edfc2ebf62be3df8c4b1f06739185c4c8451d3b6edb57fb0",
+      "token_sha256": "7bb456fa888cfc5b501a97fb915f1430e48436e81e946d3efe8e7a458aee2ea2",
+      "added_comment_lines": 13,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/return_source_select.v",
+      "before_sha256": "220f798f39bc01e618933708330a7ab97c873186aed2560c26e66ba3f832c4e0",
+      "after_sha256": "fab67c9e4cdd0b82f7eaea40c072bdd5ee36f640ae6f46c23ed3cd5fba565d95",
+      "token_sha256": "794353c77ddf18c783d6031119587d8d4a1414f829a33469b12bc2d930fd3536",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/system_buzzer_top.v",
+      "before_sha256": "9bc1fceab90c96487e4bc4a91487ac45ec930dcc38471893a4dc591665110c99",
+      "after_sha256": "9c9f99f2c5ff767e3a62e4cbaf1151345df8c0fe37207bf041cda3547f28966f",
+      "token_sha256": "50306ab5be1b35aefc5cb865da156963cb75545362a5addb38946315b6614bac",
+      "added_comment_lines": 11,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/system_monitor_core.v",
+      "before_sha256": "8c92ac3c515645dde64833f4ba93623b32747b6b02bb2088beaca7ec2f6c746b",
+      "after_sha256": "1733b7b2be0c29bb06ad75b600eb956aac5fa6fd7a8cb8aa3ba77c27bbfc5cfb",
+      "token_sha256": "dc1c76076fcc5bb2256d058589b9ba6d6bb21e84e71de8410d9de1988d000c73",
+      "added_comment_lines": 9,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/system_top.v",
+      "before_sha256": "d0eafbe5afc38be9ff3370f22f27722244d60415b2041d66b73468f7fe72cba5",
+      "after_sha256": "84ce2644a4690d8c4fd6be0d3894ef418c0fa812e2c70be14d1c3601daa388f1",
+      "token_sha256": "8a001002b1b5c8277c84e2bd6b428ef87528a28f4646e13027bc2849b4eb9a82",
+      "added_comment_lines": 11,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/threshold_alarm.v",
+      "before_sha256": "39859c3585fd336f987896daf4a11915c184c73551ea92965171143cea8d4b6b",
+      "after_sha256": "325dc847f253ce87b56d5cc0c5c7658358477a5de93878c315273391c8837001",
+      "token_sha256": "ed207c5b4953b79dccce186981ac5ea3b4f205bf0f1daf299cf3215db8246844",
+      "added_comment_lines": 12,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/top.v",
+      "before_sha256": "a5a8f39f63092f22e89479444dd7a1214b368b5de1468b782c88691f0e18d51c",
+      "after_sha256": "90fc1d54ea6e39ca8d7cd93e9b2e87f01e3f387e7ed55af6ea8167708bd3c986",
+      "token_sha256": "9ce3d55763faf93aa3c6005a691ddd2a91794b9d7c0d3818c669727f0e5d9124",
+      "added_comment_lines": 6,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/uart_rx.v",
+      "before_sha256": "4b61664ebea1e0af3f802355c77561bbeccdfb80e59c2f96ac471277b7c5dfdc",
+      "after_sha256": "3fcf23927e45b6e33763637b533414a82be6dacb8ffe3b4f362cf0bcf73ffe12",
+      "token_sha256": "4fc555aae9f6a655baa52f33bd42eae202f54ac04103afc92c4d570560e3f752",
+      "added_comment_lines": 15,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/uart_tx.v",
+      "before_sha256": "f922500776879394f7c78092437ac3e1193d5de2eac443f74b223087fc40d596",
+      "after_sha256": "4e86f9cbe209504929fbf17b7b7824909d7ec577af8d9e0fa9905b5958e2dd09",
+      "token_sha256": "00964adabcea0f5604dcf4ed7f93f584a3016b835ad485b0fdd94cec2d1c7917",
+      "added_comment_lines": 11,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/vibration_filter.v",
+      "before_sha256": "838aa583cfb58188d4e8492a434beaa278b5de92d0893a2368a38e1b0b3537b2",
+      "after_sha256": "4caba101cb9837f1e58f7228c8ad63c40868edcb73f69e74dfecec76d10eca89",
+      "token_sha256": "1c77062857161ed0c6e343d0c31c0600b9ecdce64cad8d1e2ffc3d7515eb31a6",
+      "added_comment_lines": 13,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "rtl/window_features.v",
+      "before_sha256": "950b70985182f1f0f652c5f34c132239f1ae949e346c35a2985d06f8bfdc78c2",
+      "after_sha256": "75974f56aafce866514ebac5a920608f67aeab6d5dda34d9b530682a34b79591",
+      "token_sha256": "571ce0b43042eea7fbc45aa73bb3bf2ef4a0dba7d09e81360d951c06b1999827",
+      "added_comment_lines": 16,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/accel_calibration.c",
+      "before_sha256": "c98f1db08371b158ee09b0467eb5f80782c8c374f6cd7415a8eacafae0a3eb24",
+      "after_sha256": "7452f56c2ef5b7778d953fc32bf7422d172e9cad393b29dad5cce8fc3c32e411",
+      "token_sha256": "b42dd89fe072a9b4a5a45f6d57c406bda053d6f45f10b0349a2ec29cba7b42b3",
+      "added_comment_lines": 11,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/accel_calibration.h",
+      "before_sha256": "9f99f83aa313435cd3c60b24b1c337c1731b2d1b2f68e3f02bdeaff7d488d54c",
+      "after_sha256": "1a5f7d11ac765e180ab1eec7e5d8b7f90da4844aa55639ea2f81bd3d9fd0560c",
+      "token_sha256": "02cd7c29dcf8672ce0c8a01f33b4e1aba20a4078d4bf3d39e71c02b0135f3c9a",
+      "added_comment_lines": 4,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/accel_calibration_params.h",
+      "before_sha256": "e811c9229396097e2cd080305caf5441274297d5201e9a9b511b783a2c9b68d6",
+      "after_sha256": "ecea78c66f96a25ed99c42e7bdcb9cb11f7bd178dacdb5e03e8b701cd36d862a",
+      "token_sha256": "034010c3d58ce88f283dcc639d0ebdf980b5227282b21933e787f39a7409c9b6",
+      "added_comment_lines": 8,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/acquisition.c",
+      "before_sha256": "2da3fa28b22e34524a0bcd01b87e2f1736c269f944e7fbff73c0008995716dc4",
+      "after_sha256": "e2b7a3e1b3668480613c8f41f9dcbc490183c42b873e0bd7f8997acc2949cf0f",
+      "token_sha256": "6e07580049d8cb8727197949f681f97501844b3965bbd0b0edf9dd997afce288",
+      "added_comment_lines": 16,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/acquisition.h",
+      "before_sha256": "8ee5a98523b27a728099abd7deb7fa020f816845f6afe5dc102ef840add81244",
+      "after_sha256": "ae81a5d5223a24e30724afb4f156a5d40ba7b4969ccd453282f999b963248985",
+      "token_sha256": "58effa59ec3e3db513254b7fb647aefd5672eb62854433e33db40880b5549f71",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/main.c",
+      "before_sha256": "e4d68201e5e73c343bd889a337d92ec90aa430f82de4047e482d3c38f6123182",
+      "after_sha256": "7474815f126b5d3d6c440f5a6bbb6743d5cedfe6fa34114194b8c9c8bdd1769a",
+      "token_sha256": "984a55a29ba0a701d9d2c47302b7ebda3f01354a6889c7cd9e1e42ab64b38744",
+      "added_comment_lines": 9,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/sample_packet.c",
+      "before_sha256": "9a5578f688e51a886fdb7293f64478bd3f2ee7260a2fef661ce56326a775a8e9",
+      "after_sha256": "48d0bbf69a6dab3864002b090cf79d83cca0771bfc0801eac6b5e69b45624a38",
+      "token_sha256": "b5e2a9deff3bf5c203a4d3d879e9e9cdee5bd946c430bafe59117a7cd1fd37ce",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/app/sample_packet.h",
+      "before_sha256": "5eff53cd45434b80e69c3ef0797b0d05ab9ee6e61a6884361abcba992d021560",
+      "after_sha256": "a2bdbf2ea07f6596f7a5e9753b8d310c32f29095c4e6749d0686090832c26ae9",
+      "token_sha256": "493ed4a26eab035835681ce374ce9214cc6d42eb558dbffd6d585eb62c052022",
+      "added_comment_lines": 3,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/bsp_i2c.c",
+      "before_sha256": "c9724c8f306c166d9b530ca05524ede8fd295860b5ecbe6a805c8858bd32eac5",
+      "after_sha256": "d3a84fddefe8edef7a5a048d1d6fed82cee175eb34743f47e0b70a77f9a22d42",
+      "token_sha256": "dd2a6db49f87c85b6466463b65d28afba31b7bda6d02ad9475e82ba16f3bb7ad",
+      "added_comment_lines": 19,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/bsp_i2c.h",
+      "before_sha256": "fb40ff9e180da567ebbef1512e463a524fded04e69ec6b51f0c643e3e53945f4",
+      "after_sha256": "a7a7a43dcdf7c9d63be9c34ed5d0ab4e1cfc7688331b15954e3a10df3bf88c4d",
+      "token_sha256": "9f2f5cedaffb1ef327597ff4e11a7e0dff1cccdd1f3f419e3312d256f626570c",
+      "added_comment_lines": 4,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/bsp_time.c",
+      "before_sha256": "f768d338ca0873f360e4ba596c65543c2d22b60ccfba874c4040e1d004f1c054",
+      "after_sha256": "1a4c353df768da01e0cea95cb90795db44e69bd8989c9cdba0dc8ea236008b9b",
+      "token_sha256": "7fa4bbe3b454e2e68099e3163cdc0716902efc393c51ce4085e6231145db247a",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/bsp_time.h",
+      "before_sha256": "a0aff3c4a07439efba147b3d660946266b9698b467c90482f9e730df8db2634e",
+      "after_sha256": "2e83351c0772fda8573e80f784e320c460fb16c09f784aa6da9b46af133994d5",
+      "token_sha256": "1bee8db146262f37a85a8ff48242880cd68991d75958402a42f2e82e3b3d0f28",
+      "added_comment_lines": 3,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/bsp_usart1.c",
+      "before_sha256": "9b9c61b41862a3fb8dd9827e9c0d0fad6f12c2fb00bd6922f40d89db8f524267",
+      "after_sha256": "13c465ceae36acb4538492973f66bc2bc5afb75206a15ab0e4208ec5ff8ffd7c",
+      "token_sha256": "15e048358ba37b682cb6171a99bc48abca636d045cab6d651a67085d6027e16e",
+      "added_comment_lines": 9,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/bsp_usart1.h",
+      "before_sha256": "46af7dc2f3473763f532db85d4a970d4e770e66f4b5e0c802757c6163e7fa722",
+      "after_sha256": "d8bb3e2a94da6e49412b8cdef730434b3afc912bc3f4f0e1342e2d2107f0b8ba",
+      "token_sha256": "ef2f6c6dbe676c525798c0f2a6c9bd98c4f4efb129a3e9dcd4cf41f56cf15ab0",
+      "added_comment_lines": 3,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/mpu6050.c",
+      "before_sha256": "a3e3cd0eb45f6ef8b2e567550dcd61541eb0557971847131dd407b5a337e5376",
+      "after_sha256": "6ba3361cd4cb58fe8bf51d6c29e6451006381dc6d30a5f0642730af7879a52ea",
+      "token_sha256": "cbdb0efe675c89e92c71ab17973a8aded764c60344b42b1199873ce039ecee57",
+      "added_comment_lines": 11,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/bsp/mpu6050.h",
+      "before_sha256": "0ae8e29909f142a8260b9fa5352aeb810d9986a98d7a8e7141ed0e2612be0056",
+      "after_sha256": "3650691b3b7d141f7954cfd989a561cdce8d4f438f3ba24f6023235bab947281",
+      "token_sha256": "db30791a20f9e67ab23969a4ccf619a85d918955029b670815497bfff16d3ad5",
+      "added_comment_lines": 4,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/config/board_pinmap.h",
+      "before_sha256": "293c01eaf118f812709a17f8d63eeefa1282b76974f950e0d76c289097ae2361",
+      "after_sha256": "f087b9f95de98032bfcc3ad2c00d7c51039322c831dcaaba947fe00ddd364cc0",
+      "token_sha256": "c901c6b2d35bf0d34018d5fe2e3740f08d6cc2429dad5f7ea3480437853a3d6c",
+      "added_comment_lines": 6,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/config/stm32f10x_conf.h",
+      "before_sha256": "365225910e485130c6c73c7d9477c7f85e0444f31a1e971dc271d2a5e263290e",
+      "after_sha256": "3b75af1a82dbfd6835209689835c4b4dd891f8f59d5ff0912dbc4f2290aa4988",
+      "token_sha256": "56f0bce47a30f2516330e33edcc0a025d246a39fd86a95736a4501fabdda7824",
+      "added_comment_lines": 4,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/tests/test_calibration.c",
+      "before_sha256": "87457fd2e9e746bd3338fe680283d2788ca05611c6d97a317285d68ac4c356ac",
+      "after_sha256": "b0700b355f5a9cc84b41f4e1c7974c2752be75e9fdadeceef410a6d0a37d5408",
+      "token_sha256": "e24c2952c3325e67dfcb8769ecff24acdf24e9c2bbcdb5aaaca27866862d69b0",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    },
+    {
+      "path": "stm32/tests/test_portable.c",
+      "before_sha256": "c53c2171fe566f884da4a112a34b91c676780b8e988c4e2ad7008f98bd464b06",
+      "after_sha256": "f31af29281374d265c675c9dd6809b41e46b9ce77b475e2f454558873b3a6df3",
+      "token_sha256": "a64eee87018bd100d998cfb49e4f5fc01542d03a5967d00810eade2dc62ef8a6",
+      "added_comment_lines": 7,
+      "package_bytes_equal": true
+    }
+  ],
+  "date": "2026-11-02",
+  "scope": "20份RTL、18份STM32应用/驱动/配置C及头文件、2份C自检；厂商库不修改",
+  "rtl_check": "Vivado/XVLOG 2020.2全部20模块语法编译退出0；未重新运行RTL仿真或综合实现",
+  "keil_check": "FixedSource、SensorSource、SensorCalibratedTrial重建各0错误0警告",
+  "initial_keil_failure": "受限运行环境中子编译器CreateProcess失败；失败日志保留，正常工具环境重试通过",
+  "portable_check": "65536值编码与32包独立解码通过",
+  "calibration_check": "196608轴值、65536包、错误/恢复/固定源旁路与独立参考通过",
+  "calibrated_hex_sha256": "895bbfa1f1076716d045b9235c65d62adbddf2c927687b5f0cc3e177c75a41d5",
+  "calibrated_hex_unchanged": true,
+  "hardware_action": "未操作硬件、未重新下载，无新增板测结论",
+  "log_sha256": {
+    "portable.txt": "310807cbde386c63a045d5b31e87cec47d5544b1550848c8e282f23edefe11be",
+    "calibration.txt": "e8af36cf6c84c274140b08aacc1a76cad2a47167e787d7997dd264b73f63edac",
+    "keil_original_retry.txt": "b0ca126d8096d1d02020dc347b8893a573d6d39a9df3481759077545a62fb070",
+    "keil_calibrated.txt": "68271b09d3e90897a792aaa3c461ff5bfa4fc29bf4f8fbeb0ca08d2453529915",
+    "xvlog/compile.txt": "a097f84b855b0b78641c21e10c1815177b6c88792994c78218b2dbf0a13ba651"
+  }
+}

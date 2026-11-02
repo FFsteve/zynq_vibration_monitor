@@ -279,3 +279,6 @@ __pycache__/
 !/report/evidence/fixed_filter_ila_20261101/filter_test_final/*.png
 /report/evidence/20261101_sixface*_analysis/*.csv
 /report/evidence/20261101_noreset_analysis/*.csv
+
+# 补图前的英文名报告初稿仅保留本机，发布用户指定的中文Word版和PDF版。
+/report/design_report.docx

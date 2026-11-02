@@ -1,6 +1,16 @@
 `timescale 1ns/1ps
 `default_nettype none
 
+// 模块职责：将异步串行输入转换为同一clk域的一拍字节事件，不负责判断数据包。
+// 接口约定：高有效同步rst；data_o仅在valid_o为1时表示新字节，其他时间保持最近值。
+// 工作流程：WAIT_HIGH确认一位空闲高电平，再经IDLE、START、DATA、STOP接收8N1。
+// 为何先同步：rx_i与clk没有相位关系，两级同步器降低亚稳态传播风险；rx_prev用于找下降沿。
+// 为何在位中心采样：起始沿后先等半位确认起始位，再每隔整位采一次，避开位边界抖动。
+// 默认50MHz/115200得到每位434拍；这是整数分频的近似值，不是独立的波特率时钟。
+// 错误处理：假起始位不提交；停止位低只报一拍错误，再等足够空闲，避免长低电平反复报错。
+// 调用方必须区分valid_o和整包有效；只有后级packet_parser能提交完整三轴样本。
+
+
 // 8N1 串口接收器：全部逻辑使用 clk，rx_i 是唯一的异步输入。
 // rst 必须与 clk 同步，并至少覆盖一个时钟上升沿。
 module uart_rx #(
@@ -46,6 +56,8 @@ module uart_rx #(
     localparam [2:0] DATA      = 3'd3;
     localparam [2:0] STOP      = 3'd4;
 
+    // 这两个属性帮助实现工具识别同步链，禁止将其优化为移位存储结构。
+    // 同步链只缓解单比特异步采样风险，不等于消除了所有误码。
     (* ASYNC_REG = "TRUE", SHREG_EXTRACT = "NO" *) reg rx_meta;
     (* ASYNC_REG = "TRUE", SHREG_EXTRACT = "NO" *) reg rx_sync;
     reg rx_prev;
@@ -65,6 +77,7 @@ module uart_rx #(
     end
     // synthesis translate_on
 
+    // 该时序块仅同步输入，不在原始rx_i上运行状态机；非阻塞赋值使两级逐拍传递。
     always @(posedge clk) begin
         if (rst) begin
             rx_meta <= 1'b1;
@@ -103,6 +116,7 @@ module uart_rx #(
                         baud_cnt <= baud_cnt + 1'b1;
                 end
 
+                // 只认高到低的边沿，不能把任意一个低电平都当成新字节起点。
                 IDLE: begin
                     if (rx_prev && !rx_sync) begin
                         baud_cnt <= HALF_LAST;
@@ -110,6 +124,7 @@ module uart_rx #(
                     end
                 end
 
+                // 半位后仍为低才确认起始位；若已回高，说明可能是窄脉冲而不是合法起始位。
                 START: begin
                     if (baud_cnt != 0)
                         baud_cnt <= baud_cnt - 1'b1;
@@ -124,6 +139,7 @@ module uart_rx #(
                     end
                 end
 
+                // 串口按低位先发；bit_idx直接选择目标位，组装后data_o仍是普通8位数值。
                 DATA: begin
                     if (baud_cnt != 0)
                         baud_cnt <= baud_cnt - 1'b1;
@@ -137,6 +153,7 @@ module uart_rx #(
                     end
                 end
 
+                // 在停止位中心确认高电平后才提交数据，所以错误字节不会进入包解析器。
                 STOP: begin
                     if (baud_cnt != 0)
                         baud_cnt <= baud_cnt - 1'b1;

@@ -1,3 +1,9 @@
+// 校准主机自检入口：在模拟外设下运行真实校准和采集，确认校准目标的集成行为。
+// 既检查原地与分离缓冲等价，也检查诊断、饱和、错误恢复、固定测试源旁路及SEQ缺口。
+// 全遍历65536种输入，每个输入分别作用于XYZ各自参数，共196608个轴值，输出供独立Python参考核查。
+// 每条输出含10字节协议包加1字节饱和掩码；这是测试文件格式，不是新增UART协议字段。
+// 此测试验证整数实现与目标路径，不是对新物理传感器重新进行六面采集或机械标定。
+
 #include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -67,6 +73,7 @@ int main(int argc,char **argv)
     mask=accel_calibration_apply(sensor_raw,expected);assert(mask==0);
     memcpy(alias,sensor_raw,sizeof(alias));
     accel_calibration_apply(alias,alias);assert(memcmp(alias,expected,sizeof(alias))==0);
+    // 集成检查必须通过真实acquisition路径，证明宏启用后校准发生在组包前，而不只是单函数算对。
     clear_mock();acquisition_init(0);poll_at(0);assert(g_acquisition.online);
     poll_at(201);assert(sent==0 && g_accel_calibration.samples==0);
     ready=1;poll_at(202);assert(sent==1 && g_accel_calibration.samples==1);
@@ -83,6 +90,7 @@ int main(int argc,char **argv)
     poll_at(1404);assert(last_packet[2]==1 && g_accel_calibration.samples==2);
     tx_ok=0;poll_at(1408);assert(g_acquisition.tx_errors==1 && g_acquisition.next_seq==3);
     tx_ok=1;poll_at(1412);assert(last_packet[2]==3);
+    // 即使编译启用校准，固定源仍必须逐字节等于历史诊断包，避免失去通信基线。
     clear_mock();acquisition_init(1);poll_at(0);
     axes[0]=1;axes[1]=-1;axes[2]=-32768;
     assert(sample_packet_encode(0,axes,expected_packet));
