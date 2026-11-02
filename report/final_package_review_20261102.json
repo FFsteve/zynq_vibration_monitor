@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-02",
+  "version": "v1.0-buzzer-20261102",
+  "status": "PASS_INDEPENDENT_PACKAGE_CHECKS",
+  "base_source_commit": "af8a7c9b83dda1e1df713bafb64f417f3cf60a8d",
+  "package_path": "D:\\Code\\zynq_vibration_monitor\\zynq_vibration_monitor_final",
+  "manifest_files": 526,
+  "vendor_files": 88,
+  "vivado_version": "2020.2",
+  "design_report_complete": false,
+  "xsim": {
+    "alarm_buzzer": "PASS alarm_buzzer checks=42 errors=0",
+    "system_buzzer_top": "PASS system_buzzer_top checks=12732334 errors=0"
+  },
+  "keil": {
+    "target": "SensorCalibratedTrial",
+    "errors": 0,
+    "warnings": 0,
+    "rebuilt_hex_sha256": "895bbfa1f1076716d045b9235c65d62adbddf2c927687b5f0cc3e177c75a41d5",
+    "matches_published_hex": true
+  },
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/verify_delivery.py",
+        "--root",
+        ".",
+        "--require-vendor"
+      ],
+      "cwd": "D:\\Code\\zynq_vibration_monitor\\zynq_vibration_monitor_final",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_DELIVERY_FILES\", \"artifact_files\": 33, \"rtl_modules\": 20, \"package_files\": 524, \"vendor_files\": 88, \"vivado_version\": \"2020.2\", \"design_report_complete\": false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/replay_delivery.py"
+      ],
+      "cwd": "D:\\Code\\zynq_vibration_monitor\\zynq_vibration_monitor_final",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_MEASURED_FILTER_REPLAY\", \"input_frames\": 4915, \"complete_replies\": 4914, \"axes\": 3, \"mismatches\": 0, \"boundary_trailing_bytes\": 6, \"initial_state\": \"首包前静默超过12ms\", \"evidence_kind\": \"真实UART导出重新解码与独立整数/卷积参考对照\", \"physical_buzzer_retested\": false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "skill/pl-sensor-workflow/scripts/check_csv.py",
+        "--self-test"
+      ],
+      "cwd": "D:\\Code\\zynq_vibration_monitor\\zynq_vibration_monitor_final",
+      "exit_code": 0,
+      "stdout": "{\"status\": \"PASS_SELF_TEST\", \"valid_cases\": 2, \"rejected_cases\": 4, \"recovery\": true, \"different_project_columns\": true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "host",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": "D:\\Code\\zynq_vibration_monitor\\zynq_vibration_monitor_final",
+      "exit_code": 0,
+      "stdout": "FAIL capture: ACK 模式出现非 06 字节\n{\"mode\": \"ack\", \"bytes\": 2, \"ack_count\": 2, \"unexpected_ack_bytes\": 0, \"frames\": 0, \"checksum_errors\": 0, \"discarded_bytes\": 0, \"trailing_bytes\": 0, \"seq_discontinuities\": 0, \"duplicates\": 0, \"gap_mod256_total\": 0}\nPASS capture mode=ack count=2\nFAIL capture: 数量错误：期望 3，实际 2\n",
+      "stderr": "test_capture_directory_protected_before_hardware (test_board_tools.BoardToolsTests.test_capture_directory_protected_before_hardware) ... ok\ntest_late_writes_never_burst_catchup (test_board_tools.BoardToolsTests.test_late_writes_never_burst_catchup) ... ok\ntest_partial_writes_and_receive (test_board_tools.BoardToolsTests.test_partial_writes_and_receive) ... ok\ntest_zero_write_stops (test_board_tools.BoardToolsTests.test_zero_write_stops) ... ok\ntest_ack_and_cli_failure (test_protocol.ProtocolTests.test_ack_and_cli_failure) ... ok\ntest_binary_csv_json_and_overwrite_guard (test_protocol.ProtocolTests.test_binary_csv_json_and_overwrite_guard) ... ok\ntest_corrupt_truncated_insert_delete_recovery (test_protocol.ProtocolTests.test_corrupt_truncated_insert_delete_recovery) ... ok\ntest_every_chunk_size_and_headers (test_protocol.ProtocolTests.test_every_chunk_size_and_headers) ... ok\ntest_known_vector_and_limits (test_protocol.ProtocolTests.test_known_vector_and_limits) ... ok\ntest_reject_bad_packet (test_protocol.ProtocolTests.test_reject_bad_packet) ... ok\ntest_sequence_wrap_gap_duplicate (test_protocol.ProtocolTests.test_sequence_wrap_gap_duplicate) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.027s\n\nOK\n"
+    }
+  ],
+  "physical_buzzer": {
+    "result": "USER_CONFIRMED_PASS",
+    "new_measurement_by_assistant": false
+  },
+  "not_rerun": [
+    "本次未重新执行Vivado综合实现，保留原真实报告",
+    "本次未重跑原七阶段全量RTL，使用原证据与当前专项"
+  ],
+  "scope": "工程包与Skill交付完成，最终设计报告后续编写"
+}
