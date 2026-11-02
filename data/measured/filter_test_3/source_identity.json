@@ -1,0 +1,13 @@
+{
+  "files": {
+    "uart_d0.csv.gz": "659550c45eb19b11a177abf74f4c8e60923470cdd835f548b1b53ada341c5d74",
+    "uart_d1.csv.gz": "d6d8bb12d1f473b38133c720bef1eefff3a08c6d552eeb51b387e7fcc1be46af"
+  },
+  "uncompressed_files": {
+    "uart_d0.csv": "16ab869149d239023ed947e14b07351f6ed4fb75de36e28988b479aae46d0e31",
+    "uart_d1.csv": "bbb2d95588da1171127ef806e8a7ea838f2f9ee1976d509e49eaa44fe995225c"
+  },
+  "encoding": "gb18030",
+  "original_directory": "report/evidence/fixed_filter_ila_20261101/filter_test_3",
+  "transformation": "gzip无损压缩，解压字节与原导出完全相同"
+}

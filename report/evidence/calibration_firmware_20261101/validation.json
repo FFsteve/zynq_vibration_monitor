@@ -1,0 +1,119 @@
+{
+  "calibration_id": "sixface_r1_20261101_validated",
+  "status": "SOFTWARE_PASS_BOARD_PENDING",
+  "software_pass": true,
+  "offline_static_validation_pass": true,
+  "firmware_board_test_pass": false,
+  "axis_values_checked": 196608,
+  "c_vector_packets": 65536,
+  "max_integer_difference_from_float": [
+    1,
+    1,
+    1
+  ],
+  "static_capture_c_samples": 30059,
+  "static_capture_c_results": {
+    "xp": {
+      "samples": 5010,
+      "mean_g": [
+        1.0005029735450972,
+        0.0015676045370197106,
+        0.005068049935285679
+      ],
+      "mean_norm_g": 1.0005239134344093,
+      "clipped_samples": 0,
+      "suggested_static_mean_pass": true
+    },
+    "xn": {
+      "samples": 5009,
+      "mean_g": [
+        -0.9994107408422652,
+        0.04227725786942878,
+        -0.03952325511345204
+      ],
+      "mean_norm_g": 1.0010923517100603,
+      "clipped_samples": 0,
+      "suggested_static_mean_pass": true
+    },
+    "yp": {
+      "samples": 5010,
+      "mean_g": [
+        -0.026066446209144212,
+        1.0000549560059568,
+        0.027492061774887725
+      ],
+      "mean_norm_g": 1.0007918937657747,
+      "clipped_samples": 0,
+      "suggested_static_mean_pass": true
+    },
+    "yn": {
+      "samples": 5010,
+      "mean_g": [
+        0.011758380212231787,
+        -0.9995191867242078,
+        -0.03159981306917415
+      ],
+      "mean_norm_g": 1.0001062325771168,
+      "clipped_samples": 0,
+      "suggested_static_mean_pass": true
+    },
+    "zp": {
+      "samples": 5010,
+      "mean_g": [
+        -0.004790114595028693,
+        0.001718730507734531,
+        1.000697274883826
+      ],
+      "mean_norm_g": 1.0007286968785352,
+      "clipped_samples": 0,
+      "suggested_static_mean_pass": true
+    },
+    "zn": {
+      "samples": 5010,
+      "mean_g": [
+        -0.028132126859562127,
+        -0.006721712824351298,
+        -0.9986477484484156
+      ],
+      "mean_norm_g": 0.9990857737461567,
+      "clipped_samples": 0,
+      "suggested_static_mean_pass": true
+    }
+  },
+  "hex_bytes": 4808,
+  "hex_first_address": "0x8000000",
+  "hex_last_address": "0x80012c7",
+  "hex_checksum_flash_range_pass": true,
+  "keil_targets_passed": [
+    "FixedSource",
+    "SensorSource",
+    "SensorCalibratedTrial"
+  ],
+  "source_sha256": {
+    "stm32/app/accel_calibration_params.h": "e811c9229396097e2cd080305caf5441274297d5201e9a9b511b783a2c9b68d6",
+    "stm32/app/accel_calibration.c": "c98f1db08371b158ee09b0467eb5f80782c8c374f6cd7415a8eacafae0a3eb24",
+    "stm32/app/acquisition.c": "2da3fa28b22e34524a0bcd01b87e2f1736c269f944e7fbff73c0008995716dc4",
+    "stm32/app/sample_packet.c": "9a5578f688e51a886fdb7293f64478bd3f2ee7260a2fef661ce56326a775a8e9",
+    "stm32/bsp/mpu6050.c": "a3e3cd0eb45f6ef8b2e567550dcd61541eb0557971847131dd407b5a337e5376",
+    "stm32/keil/vibration_calibration.uvprojx": "6d6a5445479d4919337f4cf85641b00b2a854caf695ae43c9b4097041ee3d70a",
+    "stm32/test_calibration.ps1": "e934d91b2abf8798b8db7d5ed3215ed4e9351c062e6c140ce109ac354976398a",
+    "stm32/tests/test_calibration.c": "87457fd2e9e746bd3338fe680283d2788ca05611c6d97a317285d68ac4c356ac",
+    "stm32/tests/check_calibration.py": "f5bcaf3af8398306e010c4b1b99aba459df7ea9bffc5343b25f6555e779ffde2"
+  },
+  "versioned_artifact_sha256": {
+    "build\\stm32_calibration_versions\\sixface_r1_20261101_validated\\accel_calibration_params.h": "e811c9229396097e2cd080305caf5441274297d5201e9a9b511b783a2c9b68d6",
+    "build\\stm32_calibration_versions\\sixface_r1_20261101_validated\\mpu6050_calibration_params_20261101.json": "20b7eab0fb587bb4f8a53c13e1dd47573f2b68f41646ac2a1e0fadc68be6c2c8",
+    "build\\stm32_calibration_versions\\sixface_r1_20261101_validated\\vibration_monitor.axf": "2663fcb9c4b8d49e5e9f669de0d55d5e3a1e19a6f4c3c5551ba5d8ed904da1ad",
+    "build\\stm32_calibration_versions\\sixface_r1_20261101_validated\\vibration_monitor.hex": "895bbfa1f1076716d045b9235c65d62adbddf2c927687b5f0cc3e177c75a41d5"
+  },
+  "c_vectors_sha256": "cc909cb13813fa01bd9a6075afe3c9184fb6095214e5828d0ce87eaee50fe48d",
+  "calibration_crosscheck_evidence": "本轮工具实际输出：196608轴输入、65536包、最大整数差[1,1,1]；详细全输入结果在上述指纹对应的C向量文件",
+  "initial_keil_failure": "受限运行环境的旧ARM编译器DLL重定位错误；保留失败日志，改执行环境后全部目标重建成功",
+  "evidence_sha256": {
+    "c_vectors.zip": "b69941f258013a86027b4f73a0240b7682c8e5f8c9fbb69803bd97e9afe79c77",
+    "keil_baseline.log": "0c88ef2d2f67ed22fdc858dd3b77d5f7d807845604a31e1904960e749ae38ad2",
+    "keil_baseline_retry.log": "15667b632e09f18a3ee4e543255cff192593a4e1d0b1a1f3615bc80e968978e8",
+    "keil_calibrated.log": "de71fbaf75221e6c283420b7fd4af50b8e48fb4a3a9736669e048bdee1e531e0",
+    "portable.log": "310807cbde386c63a045d5b31e87cec47d5544b1550848c8e282f23edefe11be"
+  }
+}

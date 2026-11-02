@@ -1,0 +1,1677 @@
+{
+    "ltx_root": {
+        "version": 4,
+        "minor": 0,
+        "ltx_data": [
+            {
+                "name": "EDA_PROBESET",
+                "active": true,
+                "debug_cores": [
+                    {
+                        "type": "XSDB_V3",
+                        "name": "dbg_hub",
+                        "spec": "labtools_xsdbm_v3",
+                        "clk_input_freq_hz": "50000000"
+                    },
+                    {
+                        "type": "ILA_V3",
+                        "name": "stage7_ila",
+                        "spec": "labtools_ila_v6",
+                        "core_location": {
+                            "user_chain": 1,
+                            "slave_index": 0,
+                            "bscan_switch_index": 0
+                        },
+                        "uuid": "B5FCD86CCBFA570691104BD2CA0F9256",
+                        "pins": [
+                            {
+                                "name": "probe0",
+                                "id": 0,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 0,
+                                "nets": [
+                                    {
+                                        "name": "debug_feature_valid_o",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe1",
+                                "id": 1,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 1,
+                                "nets": [
+                                    {
+                                        "name": "debug_quality_valid_o",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe2",
+                                "id": 2,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": false,
+                                "leftIndex": 0,
+                                "rightIndex": 0,
+                                "portIndex": 2,
+                                "nets": [
+                                    {
+                                        "name": "debug_alarm_valid_o",
+                                        "isBus": false
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe3",
+                                "id": 3,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 2,
+                                "portIndex": 3,
+                                "nets": [
+                                    {
+                                        "name": "debug_alarm_axes_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_alarm_axes_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_alarm_axes_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_alarm_axes_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe4",
+                                "id": 4,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 4,
+                                "nets": [
+                                    {
+                                        "name": "debug_window_id_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_window_id_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_window_id_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe5",
+                                "id": 5,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 7,
+                                "portIndex": 5,
+                                "nets": [
+                                    {
+                                        "name": "debug_seq_start_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_seq_start_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_seq_start_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe6",
+                                "id": 6,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 7,
+                                "portIndex": 6,
+                                "nets": [
+                                    {
+                                        "name": "debug_seq_end_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_seq_end_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_seq_end_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe7",
+                                "id": 7,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 34,
+                                "portIndex": 7,
+                                "nets": [
+                                    {
+                                        "name": "debug_ms_x_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_ms_x_o[34]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[33]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[32]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_ms_x_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe8",
+                                "id": 8,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 34,
+                                "portIndex": 8,
+                                "nets": [
+                                    {
+                                        "name": "debug_ms_y_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_ms_y_o[34]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[33]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[32]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_ms_y_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe9",
+                                "id": 9,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 34,
+                                "portIndex": 9,
+                                "nets": [
+                                    {
+                                        "name": "debug_ms_z_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_ms_z_o[34]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[33]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[32]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_ms_z_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe10",
+                                "id": 10,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 17,
+                                "portIndex": 10,
+                                "nets": [
+                                    {
+                                        "name": "debug_rms_x_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_rms_x_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_rms_x_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe11",
+                                "id": 11,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 17,
+                                "portIndex": 11,
+                                "nets": [
+                                    {
+                                        "name": "debug_rms_y_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_rms_y_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_rms_y_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe12",
+                                "id": 12,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 17,
+                                "portIndex": 12,
+                                "nets": [
+                                    {
+                                        "name": "debug_rms_z_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_rms_z_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_rms_z_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe13",
+                                "id": 13,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 17,
+                                "portIndex": 13,
+                                "nets": [
+                                    {
+                                        "name": "debug_peak_x_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_peak_x_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_peak_x_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe14",
+                                "id": 14,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 17,
+                                "portIndex": 14,
+                                "nets": [
+                                    {
+                                        "name": "debug_peak_y_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_peak_y_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_peak_y_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe15",
+                                "id": 15,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 17,
+                                "portIndex": 15,
+                                "nets": [
+                                    {
+                                        "name": "debug_peak_z_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_peak_z_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_peak_z_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe16",
+                                "id": 16,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 16,
+                                "nets": [
+                                    {
+                                        "name": "debug_rx_frame_count_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_rx_frame_count_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_rx_frame_count_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe17",
+                                "id": 17,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 17,
+                                "nets": [
+                                    {
+                                        "name": "debug_dropped_count_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_dropped_count_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_dropped_count_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe18",
+                                "id": 18,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 18,
+                                "nets": [
+                                    {
+                                        "name": "debug_completed_count_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_completed_count_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_completed_count_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe19",
+                                "id": 19,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 19,
+                                "nets": [
+                                    {
+                                        "name": "debug_filter_restart_count_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_filter_restart_count_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_filter_restart_count_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "probe20",
+                                "id": 20,
+                                "type": "DATA_TRIGGER",
+                                "direction": "IN",
+                                "isVector": true,
+                                "leftIndex": 0,
+                                "rightIndex": 31,
+                                "portIndex": 20,
+                                "nets": [
+                                    {
+                                        "name": "debug_aborted_windows_o",
+                                        "isBus": true,
+                                        "subnets": [
+                                            {
+                                                "name": "debug_aborted_windows_o[31]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[30]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[29]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[28]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[27]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[26]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[25]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[24]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[23]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[22]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[21]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[20]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[19]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[18]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[17]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[16]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[15]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[14]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[13]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[12]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[11]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[10]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[9]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[8]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[7]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[6]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[5]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[4]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[3]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[2]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[1]"
+                                            },
+                                            {
+                                                "name": "debug_aborted_windows_o[0]"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

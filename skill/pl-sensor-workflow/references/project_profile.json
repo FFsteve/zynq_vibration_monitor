@@ -1,0 +1,20 @@
+{
+  "pairs": [
+    [
+      "expected_wire_x",
+      "measured_wire_x"
+    ],
+    [
+      "expected_wire_y",
+      "measured_wire_y"
+    ],
+    [
+      "expected_wire_z",
+      "measured_wire_z"
+    ]
+  ],
+  "include_column": "complete_reply",
+  "include_value": "1",
+  "minimum_rows": 4914
+}
+

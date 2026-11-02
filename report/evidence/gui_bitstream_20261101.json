@@ -1,0 +1,125 @@
+{
+  "scope": "读取当前GUI实现产物与既有日志，未重新构建或读取板上程序",
+  "top": "system_top",
+  "return_filtered": 0,
+  "uart_return_mode": "raw",
+  "ila": "u_ila_0",
+  "ila_uuid": "23E7D65A79BC59F7BC47406C1714DFAE",
+  "probes": [
+    {
+      "port": "probe0",
+      "signal": "debug_aborted_windows_o",
+      "width": 32
+    },
+    {
+      "port": "probe1",
+      "signal": "debug_alarm_axes_o",
+      "width": 3
+    },
+    {
+      "port": "probe2",
+      "signal": "debug_completed_count_o",
+      "width": 32
+    },
+    {
+      "port": "probe3",
+      "signal": "debug_ms_y_o",
+      "width": 35
+    },
+    {
+      "port": "probe4",
+      "signal": "debug_peak_x_o",
+      "width": 18
+    },
+    {
+      "port": "probe5",
+      "signal": "debug_peak_z_o",
+      "width": 18
+    },
+    {
+      "port": "probe6",
+      "signal": "debug_seq_start_o",
+      "width": 8
+    },
+    {
+      "port": "probe7",
+      "signal": "debug_rms_z_o",
+      "width": 18
+    },
+    {
+      "port": "probe8",
+      "signal": "debug_rx_frame_count_o",
+      "width": 32
+    },
+    {
+      "port": "probe9",
+      "signal": "debug_rms_y_o",
+      "width": 18
+    },
+    {
+      "port": "probe10",
+      "signal": "debug_ms_x_o",
+      "width": 35
+    },
+    {
+      "port": "probe11",
+      "signal": "debug_rms_x_o",
+      "width": 18
+    },
+    {
+      "port": "probe12",
+      "signal": "debug_filter_restart_count_o",
+      "width": 32
+    },
+    {
+      "port": "probe13",
+      "signal": "debug_seq_end_o",
+      "width": 8
+    },
+    {
+      "port": "probe14",
+      "signal": "debug_dropped_count_o",
+      "width": 32
+    },
+    {
+      "port": "probe15",
+      "signal": "debug_ms_z_o",
+      "width": 35
+    },
+    {
+      "port": "probe16",
+      "signal": "debug_peak_y_o",
+      "width": 18
+    },
+    {
+      "port": "probe17",
+      "signal": "debug_window_id_o",
+      "width": 32
+    },
+    {
+      "port": "probe18",
+      "signal": "debug_alarm_valid_o",
+      "width": 1
+    },
+    {
+      "port": "probe19",
+      "signal": "debug_feature_valid_o",
+      "width": 1
+    },
+    {
+      "port": "probe20",
+      "signal": "debug_quality_valid_o",
+      "width": 1
+    }
+  ],
+  "sha256": {
+    "vivado_project\\zynq_vibration_monitor.runs\\impl_1\\system_top.bit": "b9b9c06644bb88baa6087f293be9eea0c34d12d79a765b31db60a753a5c14e6a",
+    "vivado_project\\zynq_vibration_monitor.runs\\impl_1\\system_top.ltx": "36345c8858ebdd05e94510e03eeb831e29cd287781691e77a1ecf89dac6065ab"
+  },
+  "existing_routed_report": {
+    "wns_ns": 5.573,
+    "whs_ns": 0.016,
+    "drc_warnings": 8
+  },
+  "user_report": "当前已加载到板子；本轮未通过硬件管理器独立读取板上版本"
+}

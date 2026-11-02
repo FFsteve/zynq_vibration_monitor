@@ -1,0 +1,1 @@
+PASS buzzer_release variant=debug mode=1 setup_slack=7.377 hold_slack=0.020

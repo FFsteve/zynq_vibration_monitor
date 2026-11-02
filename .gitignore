@@ -122,6 +122,8 @@ Listings/
 
 __pycache__/
 *.py[cod]
+
+
 *.pyd
 
 .venv/
@@ -266,3 +268,14 @@ stm32/keil/*.uvoptx
 # 所有源码和证据目录放行后，再统一排除Python缓存。
 __pycache__/
 *.py[cod]
+
+# 本地独立工程包由脚本生成，避免在主仓库递归保存第二份源码与第三方依赖。
+/zynq_vibration_monitor_final/
+
+# 长采样原件保留本地；公开仓库使用无损压缩精选UART与ILA、截图和分析汇总。
+/report/evidence/20261101_session01/
+/report/evidence/fixed_filter_ila_20261101/*
+!/report/evidence/fixed_filter_ila_20261101/filter_test_final/
+!/report/evidence/fixed_filter_ila_20261101/filter_test_final/*.png
+/report/evidence/20261101_sixface*_analysis/*.csv
+/report/evidence/20261101_noreset_analysis/*.csv

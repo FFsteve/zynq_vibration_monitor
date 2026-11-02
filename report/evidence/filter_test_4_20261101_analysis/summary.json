@@ -1,0 +1,342 @@
+{
+  "user_operation_note": "用户确认static未重新下载FPGA，motion重新下载；两次ILA均在对应DL16采集中触发；累计计数不默认从本次记录清零",
+  "parameter_sha256": "20b7eab0fb587bb4f8a53c13e1dd47573f2b68f41646ac2a1e0fadc68be6c2c8",
+  "coefficient_sha256": "b9b74fb39759cf352d2b388ea15650b0a1522d1f15dd6f4861f622d7b580fc35",
+  "cases": {
+    "static": {
+      "measured_d0": 4752,
+      "d1": 4752,
+      "calibration_matches": 4752,
+      "reconstructed_d0": [],
+      "filter_matches": 4752,
+      "ila_comparisons": [
+        {
+          "position": "before",
+          "ila": {
+            "Sample in Buffer": 0,
+            "TRIGGER": 0,
+            "debug_feature_valid_o": 0,
+            "debug_quality_valid_o": 1,
+            "debug_alarm_valid_o": 0,
+            "debug_alarm_axes_o[2:0]": 0,
+            "debug_window_id_o[31:0]": 5619,
+            "debug_seq_start_o[7:0]": 62,
+            "debug_seq_end_o[7:0]": 189,
+            "debug_rx_frame_count_o[31:0]": 720673,
+            "debug_completed_count_o[31:0]": 720673,
+            "debug_filter_restart_count_o[31:0]": 8,
+            "debug_aborted_windows_o[31:0]": 8,
+            "debug_dropped_count_o[31:0]": 0,
+            "ms": [
+              24323,
+              28205,
+              85966
+            ],
+            "rms": [
+              155,
+              167,
+              293
+            ],
+            "peak": [
+              603,
+              791,
+              1511
+            ]
+          },
+          "exact_matches": []
+        },
+        {
+          "position": "feature_event",
+          "ila": {
+            "Sample in Buffer": 512,
+            "TRIGGER": 1,
+            "debug_feature_valid_o": 1,
+            "debug_quality_valid_o": 1,
+            "debug_alarm_valid_o": 1,
+            "debug_alarm_axes_o[2:0]": 0,
+            "debug_window_id_o[31:0]": 5620,
+            "debug_seq_start_o[7:0]": 62,
+            "debug_seq_end_o[7:0]": 189,
+            "debug_rx_frame_count_o[31:0]": 720674,
+            "debug_completed_count_o[31:0]": 720673,
+            "debug_filter_restart_count_o[31:0]": 8,
+            "debug_aborted_windows_o[31:0]": 8,
+            "debug_dropped_count_o[31:0]": 0,
+            "ms": [
+              4736,
+              3656,
+              1166
+            ],
+            "rms": [
+              68,
+              60,
+              34
+            ],
+            "peak": [
+              180,
+              174,
+              91
+            ]
+          },
+          "exact_matches": [
+            {
+              "local_window": 0,
+              "window_id_offset": 5620,
+              "rx_count_before_this_record": 720484,
+              "window": {
+                "local_window": 0,
+                "begin_index": 62,
+                "end_index": 189,
+                "first_seq": 62,
+                "last_seq": 189,
+                "first_input_s": 1.278868,
+                "last_input_s": 1.785866,
+                "ms": [
+                  4736,
+                  3656,
+                  1166
+                ],
+                "rms": [
+                  68,
+                  60,
+                  34
+                ],
+                "peak": [
+                  180,
+                  174,
+                  91
+                ],
+                "predicted_alarm_mask": 0,
+                "rises": [],
+                "falls": [],
+                "reconstructed_inputs": 0
+              },
+              "alarm_matches_model": true
+            }
+          ]
+        }
+      ],
+      "ila_event_exact_window_match": true,
+      "ila_alarm_valid_transitions": [
+        [
+          0,
+          0
+        ],
+        [
+          512,
+          1
+        ]
+      ],
+      "max_reference_rms": [
+        68,
+        88,
+        97
+      ],
+      "independent": [
+        {
+          "first_input_s": 1.033871,
+          "checked_frames": 3728,
+          "exact_unique_frames": 3728,
+          "mismatch_indices": []
+        }
+      ]
+    },
+    "motion": {
+      "measured_d0": 4829,
+      "d1": 4834,
+      "calibration_matches": 4829,
+      "reconstructed_d0": [
+        {
+          "index": 660,
+          "seq": 148,
+          "reply_time_s": 3.340088
+        },
+        {
+          "index": 661,
+          "seq": 149,
+          "reply_time_s": 3.344089
+        },
+        {
+          "index": 662,
+          "seq": 150,
+          "reply_time_s": 3.348082
+        },
+        {
+          "index": 663,
+          "seq": 151,
+          "reply_time_s": 3.352084
+        },
+        {
+          "index": 664,
+          "seq": 152,
+          "reply_time_s": 3.356086
+        }
+      ],
+      "filter_matches": 4834,
+      "ila_comparisons": [
+        {
+          "position": "before",
+          "ila": {
+            "Sample in Buffer": 0,
+            "TRIGGER": 0,
+            "debug_feature_valid_o": 0,
+            "debug_quality_valid_o": 1,
+            "debug_alarm_valid_o": 1,
+            "debug_alarm_axes_o[2:0]": 4,
+            "debug_window_id_o[31:0]": 53,
+            "debug_seq_start_o[7:0]": 62,
+            "debug_seq_end_o[7:0]": 189,
+            "debug_rx_frame_count_o[31:0]": 7449,
+            "debug_completed_count_o[31:0]": 7449,
+            "debug_filter_restart_count_o[31:0]": 2,
+            "debug_aborted_windows_o[31:0]": 2,
+            "debug_dropped_count_o[31:0]": 0,
+            "ms": [
+              1741162,
+              1784437,
+              4958190
+            ],
+            "rms": [
+              1319,
+              1335,
+              2226
+            ],
+            "peak": [
+              4968,
+              4128,
+              9251
+            ]
+          },
+          "exact_matches": [
+            {
+              "local_window": 6,
+              "window_id_offset": 47,
+              "rx_count_before_this_record": null,
+              "window": {
+                "local_window": 6,
+                "begin_index": 830,
+                "end_index": 957,
+                "first_seq": 62,
+                "last_seq": 189,
+                "first_input_s": 4.018212,
+                "last_input_s": 4.525202,
+                "ms": [
+                  1741162,
+                  1784437,
+                  4958190
+                ],
+                "rms": [
+                  1319,
+                  1335,
+                  2226
+                ],
+                "peak": [
+                  4968,
+                  4128,
+                  9251
+                ],
+                "predicted_alarm_mask": 4,
+                "rises": [
+                  2
+                ],
+                "falls": [],
+                "reconstructed_inputs": 0
+              },
+              "alarm_matches_model": true
+            }
+          ]
+        },
+        {
+          "position": "feature_event",
+          "ila": {
+            "Sample in Buffer": 512,
+            "TRIGGER": 1,
+            "debug_feature_valid_o": 1,
+            "debug_quality_valid_o": 1,
+            "debug_alarm_valid_o": 1,
+            "debug_alarm_axes_o[2:0]": 4,
+            "debug_window_id_o[31:0]": 54,
+            "debug_seq_start_o[7:0]": 190,
+            "debug_seq_end_o[7:0]": 61,
+            "debug_rx_frame_count_o[31:0]": 7450,
+            "debug_completed_count_o[31:0]": 7449,
+            "debug_filter_restart_count_o[31:0]": 2,
+            "debug_aborted_windows_o[31:0]": 2,
+            "debug_dropped_count_o[31:0]": 0,
+            "ms": [
+              280696,
+              269254,
+              106036
+            ],
+            "rms": [
+              529,
+              518,
+              325
+            ],
+            "peak": [
+              1566,
+              1075,
+              928
+            ]
+          },
+          "exact_matches": [
+            {
+              "local_window": 7,
+              "window_id_offset": 47,
+              "rx_count_before_this_record": 6364,
+              "window": {
+                "local_window": 7,
+                "begin_index": 958,
+                "end_index": 1085,
+                "first_seq": 190,
+                "last_seq": 61,
+                "first_input_s": 4.529204,
+                "last_input_s": 5.036194,
+                "ms": [
+                  280696,
+                  269254,
+                  106036
+                ],
+                "rms": [
+                  529,
+                  518,
+                  325
+                ],
+                "peak": [
+                  1566,
+                  1075,
+                  928
+                ],
+                "predicted_alarm_mask": 4,
+                "rises": [],
+                "falls": [],
+                "reconstructed_inputs": 0
+              },
+              "alarm_matches_model": true
+            }
+          ]
+        }
+      ],
+      "ila_event_exact_window_match": true,
+      "ila_alarm_valid_transitions": [
+        [
+          0,
+          1
+        ]
+      ],
+      "max_reference_rms": [
+        1429,
+        1370,
+        2975
+      ],
+      "independent": [
+        {
+          "first_input_s": 3.35922,
+          "checked_frames": 3145,
+          "exact_unique_frames": 3145,
+          "mismatch_indices": []
+        }
+      ]
+    }
+  }
+}

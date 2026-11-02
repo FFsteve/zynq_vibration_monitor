@@ -1,9 +1,10 @@
-/* 由六面短记录生成的实验初值，尚未完成独立校准验收。 */
-/* 原始CSV集合SHA256：dcbd9286b3d87c8eb1f10b19d063188e17efe6c178d1e0cc1dafb5468efaa493 */
+/* 第一轮六面20秒参数，已通过独立记录的项目静态离线指标；新固件尚待板测。 */
+/* 第一轮输入集合SHA256：de0ba0a3da42483f7220c3f6d7a648f1d3c3457aef4a689709ba393692ebd4c5 */
+/* 参数来源与独立验证指纹见report/mpu6050_calibration_params_20261101.json。 */
 #ifndef ACCEL_CALIBRATION_PARAMS_H
 #define ACCEL_CALIBRATION_PARAMS_H
 #include <stdint.h>
-#define ACCEL_CALIBRATION_ID "trial_20261031_short_capture"
-static const int32_t accel_bias_q16[3]={46147847,-35083605,346581675};
-static const int32_t accel_gain_q16[3]={66036,65178,64434};
+#define ACCEL_CALIBRATION_ID "sixface_r1_20261101_validated"
+static const int32_t accel_bias_q16[3]={47687499,-36176278,341942451};
+static const int32_t accel_gain_q16[3]={65840,65180,64097};
 #endif

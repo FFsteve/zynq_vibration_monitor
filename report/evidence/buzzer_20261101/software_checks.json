@@ -1,0 +1,57 @@
+{
+  "simulations": {
+    "modelsim_alarm_buzzer": {
+      "result": "PASS alarm_buzzer checks=42 errors=0",
+      "file": "build/buzzer_sim/modelsim_alarm_buzzer/alarm_buzzer_result.txt",
+      "sha256": "4940ca15a210d0862d8729dc7eb0ce9b1774f232f1b2fd339f6cc1c9851b6908"
+    },
+    "modelsim_system_buzzer_top": {
+      "result": "PASS system_buzzer_top checks=12732334 errors=0",
+      "file": "build/buzzer_sim/modelsim_system_buzzer_top/system_buzzer_top_result.txt",
+      "sha256": "987ee3827cce0886eafffd04cd35d9d5523ae5f9800cb8aaa40e437853aa6579"
+    },
+    "xsim_alarm_buzzer": {
+      "result": "PASS alarm_buzzer checks=42 errors=0",
+      "file": "build/buzzer_sim/xsim_alarm_buzzer/alarm_buzzer_result.txt",
+      "sha256": "4940ca15a210d0862d8729dc7eb0ce9b1774f232f1b2fd339f6cc1c9851b6908"
+    },
+    "xsim_system_buzzer_top": {
+      "result": "PASS system_buzzer_top checks=12732334 errors=0",
+      "file": "build/buzzer_sim/xsim_system_buzzer_top/system_buzzer_top_result.txt",
+      "sha256": "987ee3827cce0886eafffd04cd35d9d5523ae5f9800cb8aaa40e437853aa6579"
+    }
+  },
+  "existing_rtl_matches_frozen_rc1": true,
+  "unchanged_existing_rtl_count": 18,
+  "source_sha256": {
+    "rtl/dc_remove.v": "9de850ead00ae7c4217f45e0874c630dd38c65151898ce4218a8b8f1d3ea0eb4",
+    "rtl/feature_monitor_core.v": "f04d5947c73f252d700e2015669db7d1cdfd3141f68832db08c129cd1a5bb5d3",
+    "rtl/filter_monitor_core.v": "12a113e59e35432e5b8ba29c81df674ec33be34a2d59a574cc88fecbd14f2e79",
+    "rtl/fir_lp_serial.v": "c181fa9a0a02bfbf80f48bf363f6521f1c5b975c70c7cdabc9ef07d683bf624d",
+    "rtl/isqrt_u36.v": "0e5ee00fbed2ef2d018af964e3f06f12b000790b3c8ee7e59b467423694c55fa",
+    "rtl/monitor_core.v": "4fa23797ed3a0598183f49b336f87583760384204f54ba9e295cb93c18385dde",
+    "rtl/packet_parser.v": "d56e96d05f2207c83fea175d991d6243cf9f324c81c468876726ca3a20d3bb84",
+    "rtl/power_on_reset.v": "b5dec339ffc2aff39fa60fc3fa7e2710213b3fcf605e464ec6b94f6a27b0fa61",
+    "rtl/return_controller.v": "3e77f9beed844fa0ca77249fc823dfe42732e7464aee5fe0bc4918ddc8bf5c4c",
+    "rtl/return_source_select.v": "220f798f39bc01e618933708330a7ab97c873186aed2560c26e66ba3f832c4e0",
+    "rtl/system_monitor_core.v": "8c92ac3c515645dde64833f4ba93623b32747b6b02bb2088beaca7ec2f6c746b",
+    "rtl/system_top.v": "d0eafbe5afc38be9ff3370f22f27722244d60415b2041d66b73468f7fe72cba5",
+    "rtl/threshold_alarm.v": "39859c3585fd336f987896daf4a11915c184c73551ea92965171143cea8d4b6b",
+    "rtl/top.v": "a5a8f39f63092f22e89479444dd7a1214b368b5de1468b782c88691f0e18d51c",
+    "rtl/uart_rx.v": "4b61664ebea1e0af3f802355c77561bbeccdfb80e59c2f96ac471277b7c5dfdc",
+    "rtl/uart_tx.v": "f922500776879394f7c78092437ac3e1193d5de2eac443f74b223087fc40d596",
+    "rtl/vibration_filter.v": "838aa583cfb58188d4e8492a434beaa278b5de92d0893a2368a38e1b0b3537b2",
+    "rtl/window_features.v": "950b70985182f1f0f652c5f34c132239f1ae949e346c35a2985d06f8bfdc78c2",
+    "rtl/alarm_buzzer.v": "c8321f4e88bc2dbcd70b7041eb837e4dfe28a380946434537af50f1983715a8a",
+    "rtl/system_buzzer_top.v": "9bc1fceab90c96487e4bc4a91487ac45ec930dcc38471893a4dc591665110c99",
+    "sim/tb/tb_alarm_buzzer.v": "4e8d26c95e14653d8981862370d4d7ea7d138e103b8e196bcbf4b4b46da54219",
+    "sim/tb/tb_system_buzzer_top.v": "c5c7bcad1c618a4975ced63a3da9cabd0701651cd997c62788e0761d7f07af6c",
+    "sim/run_buzzer.ps1": "4254b0d0ef68c00b5c4eb5f7a3f9ae52d2027adebbc8b392ed6f36eceb551a97",
+    "sim/xsim/run_buzzer.tcl": "6218ffa4f2392f3c61113605d4ab2cd023186e11f1da826b920e510a9a797efb",
+    "scripts/build_buzzer.ps1": "0fdac4348a46bdc332f8e3d9d37858f5ab7b21320ca6261087ec2553a18f9a5b",
+    "scripts/build_buzzer.tcl": "e5b54fee065f99ef0dba2acf7447454a0b0ec395e44a4d98c24f5243f6e805c9",
+    "constr/buzzer.xdc": "cb1e182c7162b46716eeea5d487107fabbab36461e6722421dbbeb8573991f5b",
+    "constr/top.xdc": "f72e3d91ea1738a9c76971ce948ad01cb0d9ee718f40d4d439d6c76f4329dce9",
+    "constr/system_uart_rx_cdc.xdc": "3faea8b8e611491fc418fb6a772678e54ae0371608836241ec636c334e46097c"
+  }
+}

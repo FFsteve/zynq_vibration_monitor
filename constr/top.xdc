@@ -4,7 +4,7 @@
 
 # 50 MHz 单端晶振：X1 -> R7 -> PL_GCLK -> Bank34 的 U18。
 set_property -dict {PACKAGE_PIN U18 IOSTANDARD LVCMOS33} [get_ports clk]
-create_clock -name pl_clk_50m -period 20.000 [get_ports clk]
+create_clock -period 20.000 -name pl_clk_50m [get_ports clk]
 
 # STM32 TX -> 底板 J3.1 / UART2_RX -> B35_L20_P -> K14。
 set_property -dict {PACKAGE_PIN K14 IOSTANDARD LVCMOS33} [get_ports pl_rx]
@@ -19,3 +19,4 @@ set_false_path -to [get_ports pl_tx]
 
 # 当前 top 没有 sys_rst_n 或 led 端口，不添加示例中的 N16/J16。
 # 接收输入的例外在综合后读取 uart_rx_cdc.xdc，只到第一级同步寄存器 D。
+

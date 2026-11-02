@@ -1,7 +1,7 @@
 ﻿param(
     [string]$Gcc = 'D:\msys2\ucrt64\bin\gcc.exe',
     [string]$Python = 'python',
-    [string]$Analysis = 'report/mpu6050_calibration_analysis_20261031.json'
+    [string]$Analysis = 'report/mpu6050_calibration_params_20261101.json'
 )
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot

@@ -1,0 +1,77 @@
+{
+    "status":  "PASS_STAGE7_REGRESSION",
+    "simulator":  "both",
+    "steps":  [
+                  {
+                      "finished_utc":  "2026-10-31T04:35:18.4034393Z",
+                      "started_utc":  "2026-10-31T04:35:05.4567904Z",
+                      "name":  "stage1",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage1.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:35:49.8749540Z",
+                      "started_utc":  "2026-10-31T04:35:18.4074466Z",
+                      "name":  "stage2",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage2.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:36:32.5948124Z",
+                      "started_utc":  "2026-10-31T04:35:49.8759553Z",
+                      "name":  "stage3",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage3.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:37:41.5660883Z",
+                      "started_utc":  "2026-10-31T04:36:32.5968143Z",
+                      "name":  "stage4",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage4.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:39:42.3208227Z",
+                      "started_utc":  "2026-10-31T04:37:41.5666044Z",
+                      "name":  "stage5",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage5.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:42:20.2478123Z",
+                      "started_utc":  "2026-10-31T04:39:42.3218271Z",
+                      "name":  "stage6",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage6.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:42:20.4786124Z",
+                      "started_utc":  "2026-10-31T04:42:20.2488592Z",
+                      "name":  "host_unit",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\host_unit.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:42:20.5690369Z",
+                      "started_utc":  "2026-10-31T04:42:20.4796133Z",
+                      "name":  "stage3_captures",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stage3_captures.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:42:22.0513009Z",
+                      "started_utc":  "2026-10-31T04:42:20.5690369Z",
+                      "name":  "stm32_portable",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stm32_portable.log",
+                      "exit_code":  0
+                  },
+                  {
+                      "finished_utc":  "2026-10-31T04:42:28.8489635Z",
+                      "started_utc":  "2026-10-31T04:42:22.0522934Z",
+                      "name":  "stm32_keil",
+                      "log":  "D:\\Code\\zynq_vibration_monitor\\build\\stage7_regression\\stm32_keil.log",
+                      "exit_code":  0
+                  }
+              ],
+    "hardware_tested":  false
+}

@@ -1,5 +1,7 @@
 # 第三阶段 STM32 固件
 
+> 2026-11-02 当前版本说明：传感器校准、真实滤波/ILA 数值对照及比赛演练已有记录，用户现确认最终蜂鸣器上板正常。当前下载、版本和复现入口以 [当前交付](../report/current_release.md) 与工程根 README.md 为准；下文阶段描述保留各自历史时点。
+
 2026-10-31新增独立实验校准工程 `keil/vibration_calibration.uvprojx`，目标 `SensorCalibratedTrial`。当前六面记录各仅50ms，参数只供验证初值，尚未完成正式标定。原本工程的FixedSource/SensorSource仍按下文工作。实验工程、测试命令、数据含义及结果见 `../report/mpu6050_calibration_analysis_20261031.md`。
 
 应用工程位于 `keil/vibration_monitor.uvprojx`，使用用户提供的 CMSIS 与 STM32F10x 标准外设库。没有 HAL、CubeMX、RTOS 或串口文本打印。库目录只在本地引用，源码未改；再分发授权未核实，已在 Git 中忽略 `Libraries/`。
@@ -42,6 +44,12 @@ MPU6050 配置沿用既有草案：0x6B=01、0x1A=02、0x19=03、0x1C=00；增�
 
 I2C 每段等待有 5 ms 超时；接收结尾按 [ST AN2824](https://www.st.com/resource/en/application_note/an2824-stm32f10xxx-ic-optimized-examples-stmicroelectronics.pdf) 区分长度处理。短临界区屏蔽中断，等待期间保留 SysTick；故障后重置外设。SDA/SCL 被持续拉低等物理故障仍可能一直失败，本实现不包含 GPIO 时钟脉冲解锁。
 
+## 2026-11-01六面验证参数校准目标
+
+独立工程 `keil/vibration_calibration.uvprojx` 的 `SensorCalibratedTrial` 已更新为 `sixface_r1_20261101_validated`。三轴b约727.653493/−552.006188/5217.627726，k约1.004642976/0.994565297/0.978043625，保留16384计数/g和原十字节布局。参数来源及新固件检查见 `../report/calibration_firmware_update_20261101.md`。
+
+原工程 `vibration_monitor.uvprojx` 的SensorSource仍输出未补偿计数，FixedSource仍为固定测试包。新目标D0已经校正，不能拿来再次拟合原始校准参数。新参数AXF/HEX已生成且软件检查通过，但尚未烧录或板测；版本副本位于 `../build/stm32_calibration_versions/sixface_r1_20261101_validated/`，不要混用旧短记录固件。
+
 ## 测试
 
 在仓库根目录执行：
@@ -49,6 +57,13 @@ I2C 每段等待有 5 ms 超时；接收结尾按 [ST AN2824](https://www.st.com
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\stm32\test_portable.ps1
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\stm32\build_keil.ps1
+```
+
+当前校准专项和独立目标构建：
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\stm32\test_calibration.ps1 -Python 'C:\Users\QQ165\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\stm32\build_keil.ps1 -Target SensorCalibratedTrial
 ```
 
 操作细节见 `../docs/stage3_test_guide.md`，实际证据见 `../report/stage3_validation.md`。本轮只编译和测试，未下载固件、未验证 I2C 引脚时序、未测实际采样率。

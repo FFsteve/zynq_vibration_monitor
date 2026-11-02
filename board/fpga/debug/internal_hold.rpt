@@ -1,0 +1,69 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sun Nov  1 23:28:37 2026
+| Host         : LAPTOP-1OLLF8TS running 64-bit major release  (build 9200)
+| Command      : report_timing -of_objects [get_timing_paths -from [all_registers -clock pl_clk_50m] -to [all_registers -clock pl_clk_50m] -delay_type min -max_paths 1] -file internal_hold.rpt
+| Design       : system_buzzer_top
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 debug_completed_count_o_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by pl_clk_50m  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            <hidden>
+                            (rising edge-triggered cell FDRE clocked by pl_clk_50m  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             pl_clk_50m
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (pl_clk_50m rise@0.000ns - pl_clk_50m rise@0.000ns)
+  Data Path Delay:        0.354ns  (logic 0.141ns (39.817%)  route 0.213ns (60.183%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.024ns
+    Source Clock Delay      (SCD):    1.507ns
+    Clock Pessimism Removal (CPR):    0.252ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock pl_clk_50m rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    U18                                                               r  clk_IBUF_inst/I
+    U18                  IBUF (Prop_ibuf_I_O)         0.297     0.297 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.627     0.925    clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.951 r  clk_IBUF_BUFG_inst/O
+                         net (fo=12846, routed)       0.557     1.507    clk_IBUF_BUFG
+    SLICE_X21Y57         FDRE                                         r  debug_completed_count_o_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X21Y57         FDRE (Prop_fdre_C_Q)         0.141     1.648 r  debug_completed_count_o_reg[0]/Q
+                         net (fo=2, routed)           0.213     1.861    <hidden>
+    SLICE_X25Y58         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock pl_clk_50m rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    U18                                                               r  clk_IBUF_inst/I
+    U18                  IBUF (Prop_ibuf_I_O)         0.486     0.486 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.683     1.169    clk_IBUF
+    BUFGCTRL_X0Y0                                                     r  clk_IBUF_BUFG_inst/I
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.198 r  clk_IBUF_BUFG_inst/O
+                         net (fo=12846, routed)       0.826     2.024    <hidden>
+    SLICE_X25Y58         FDRE                                         r  <hidden>
+                         clock pessimism             -0.252     1.772    
+    SLICE_X25Y58         FDRE (Hold_fdre_C_D)         0.070     1.842    <hidden>
+  -------------------------------------------------------------------
+                         required time                         -1.842    
+                         arrival time                           1.861    
+  -------------------------------------------------------------------
+                         slack                                  0.020    
+
+
+
+

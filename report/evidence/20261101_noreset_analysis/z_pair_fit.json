@@ -1,0 +1,23 @@
+{
+  "bias_z_counts": 5217.627726419789,
+  "sensitivity_z_counts_per_g": 16751.809000127116,
+  "gain_z": 0.9780436250124196,
+  "formal_calibration_pass": false,
+  "note": "仅Z正反面两点初值，不能替代完整六面与独立第二轮",
+  "user_60s_stationarity_confirmation": "全程固定静止，未主动触碰；不得自动将瞬态归因为人为操作",
+  "60s": {
+    "corrected_z_mean_g": 1.0004498933187487,
+    "corrected_z_std_g": 0.016213513728122936,
+    "independent_full_calibration_validation": false
+  },
+  "noreset_zp": {
+    "corrected_z_mean_g": 1.0,
+    "corrected_z_std_g": 0.003255201454287519,
+    "independent_full_calibration_validation": false
+  },
+  "noreset_zn": {
+    "corrected_z_mean_g": -1.0,
+    "corrected_z_std_g": 0.0026872182125085562,
+    "independent_full_calibration_validation": false
+  }
+}

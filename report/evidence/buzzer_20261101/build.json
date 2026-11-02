@@ -1,0 +1,54 @@
+{
+  "status": "PASS_SOFTWARE_AND_VIVADO_BUILD",
+  "physical_buzzer_tested": false,
+  "top": "system_buzzer_top",
+  "return_filtered": 1,
+  "clock_hz": 50000000,
+  "buzzer_pin": "M14",
+  "bank": 35,
+  "iostandard": "LVCMOS33",
+  "drive_ma": 8,
+  "slew": "SLOW",
+  "setup_slack_ns": 7.377,
+  "hold_slack_ns": 0.02,
+  "resources": {
+    "lut": 6625,
+    "register": 11521,
+    "dsp": 6,
+    "bram36_equivalent": 12
+  },
+  "drc": {
+    "errors": 0,
+    "critical_warnings": 0,
+    "warnings": 8,
+    "rules": {
+      "DPOP-1": 3,
+      "DPOP-2": 3,
+      "RTSTAT-10": 1,
+      "ZPS7-1": 1
+    }
+  },
+  "ila_probes": 21,
+  "ila_bits": 427,
+  "old_frozen_fpga_files_unchanged": {
+    "fpga/raw/system.bit": true,
+    "fpga/filtered/system.bit": true,
+    "fpga/debug/system.bit": true,
+    "fpga/debug/system.ltx": true
+  },
+  "artifact_sha256": {
+    "system.bit": "2631a9d1d3e89ccb0ec4de3fe9626d780cc754945f69c6f3dffbdafb57ee7b4b",
+    "system.ltx": "0d8a495be673a0d07fd5c42eec5ce3d174492d0eeb98affd398f3ce2ebf9efbb",
+    "routed_system.dcp": "19e71e43775f6c0a4913b06f45dd3dbc259d9facc287b602c99ab12e28d0e196",
+    "utilization.rpt": "8360239aa060f3399612b5a2bf4c5363012301dfe6efbe8b47f7c8e15a62d7ae",
+    "timing_summary.rpt": "9b479c70a04149b40691f0f7207ff8bd64d71cba0b8d11b8a77cc92e9dbe3236",
+    "internal_setup.rpt": "806432f146fd3916c23f01aa3be40d44c9be3c3dfb8d245d10459e241fec482d",
+    "internal_hold.rpt": "eb7feaa10f713e1fba808b7203d2cdc401a727b1790aace447595e78ffe9527e",
+    "drc.rpt": "1e775781f479bba0f96798a4146a40d05f68689e145519ed0b1fc0253cb1c7b6",
+    "cdc.rpt": "2b5700489dd34ea8cb33194aa66dc34299bcc8dfa5d7dbc19c4a00e55f1cd27d",
+    "io.rpt": "4db08e999e2fcc12ef051b5506236785b7e68464289a81e1820e2b9dbbf27bfc",
+    "probe_map.tsv": "464de8f70ad7111954b6b28b3a07fc9bdfc29be5c1bc703063ddc62d7bfe7a14",
+    "release_result.txt": "b57af17d95685c28c1f4ec6782df2320a99ad2ed3f492eda8a44f32d360a0bca"
+  },
+  "release_result": "PASS buzzer_release variant=debug mode=1 setup_slack=7.377 hold_slack=0.020"
+}

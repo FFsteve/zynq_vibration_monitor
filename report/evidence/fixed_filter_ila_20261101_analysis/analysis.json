@@ -1,0 +1,152 @@
+{
+  "status": "PASS_FIXED_SOURCE_FILTERED_UART",
+  "archive_crc_ok": true,
+  "original_sha256": {
+    "ila.png": "8c1adc98da8afbfa7c8efb9320c546395439f8ab5fe9ccdfb8804dccfbdcc9f6",
+    "ila_debug.atkdl": "d7ffdab6c6fc3bfec115cf750a9c67552e89fe50ec317848875aba3ce11a4137",
+    "uart_d0_ila_debug.csv": "49438b18f5c8d236abb8897d0a69330f96fcbfd961a628fac11f3df69b43fc9c",
+    "uart_d1_ila_debug.csv": "3407b0d216f0c4c2cc186fc43ab87d3bd13d78130752170dd139521c58ce16be"
+  },
+  "settings": {
+    "RLE": false,
+    "index": 6,
+    "intervalTime": 0,
+    "isBuffer": true,
+    "model": 0,
+    "selectHzIndex": 5,
+    "selectThresholdLevelIndex": 3,
+    "selectTimeIndex": 11,
+    "setHz": 20000000,
+    "setTime": 5000,
+    "thresholdLevel": 1.5,
+    "triggerPosition": 1
+  },
+  "uart_summaries": {
+    "d0": {
+      "count": 1250,
+      "first_s": 0.00207705,
+      "last_s": 4.998013,
+      "sample_span_s": 4.995935950000001,
+      "first_seq": 163,
+      "last_seq": 132,
+      "mean": [
+        1,
+        -1,
+        -32768
+      ],
+      "std": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min": [
+        1,
+        -1,
+        -32768
+      ],
+      "max": [
+        1,
+        -1,
+        -32768
+      ],
+      "half_mean_difference": [
+        0,
+        0,
+        0
+      ],
+      "interval_mean_ms": 3.9999487189751806,
+      "interval_min_ms": 3.9919999999999956,
+      "interval_max_ms": 4.002000000000727,
+      "rate_over_span_hz": 250.0032051051415,
+      "sequence_errors": [],
+      "wraps": 5,
+      "interval_outliers": []
+    },
+    "d1": {
+      "count": 1250,
+      "first_s": 0.0029448,
+      "last_s": 4.998881,
+      "sample_span_s": 4.9959362,
+      "first_seq": 163,
+      "last_seq": 132,
+      "mean": [
+        0,
+        0,
+        0
+      ],
+      "std": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "min": [
+        0,
+        0,
+        0
+      ],
+      "max": [
+        0,
+        0,
+        0
+      ],
+      "half_mean_difference": [
+        0,
+        0,
+        0
+      ],
+      "interval_mean_ms": 3.999948919135308,
+      "interval_min_ms": 3.9919999999999956,
+      "interval_max_ms": 4.002000000000727,
+      "rate_over_span_hz": 250.00319259481336,
+      "sequence_errors": [],
+      "wraps": 5,
+      "interval_outliers": []
+    }
+  },
+  "matching_packets": 1250,
+  "reply_start_delay_us": {
+    "mean": 867.737919999996,
+    "min": 866.999999999507,
+    "max": 868.000000000535
+  },
+  "ila_screenshot_manual_review": {
+    "file": "ila.png",
+    "review_method": "人工查看截图，未提供原始ILA波形数据",
+    "ms_xyz": [
+      0,
+      0,
+      0
+    ],
+    "rms_xyz": [
+      0,
+      0,
+      0
+    ],
+    "peak_xyz": [
+      0,
+      0,
+      0
+    ],
+    "quality_valid": 1,
+    "alarm_valid": 1,
+    "alarm_axes": 0,
+    "window_id_before": 193,
+    "window_id_after": 194,
+    "seq_before": [
+      62,
+      189
+    ],
+    "seq_after": [
+      190,
+      61
+    ],
+    "dropped_count": 0,
+    "filter_restart_count": 2,
+    "aborted_windows": 2,
+    "feature_valid_value_at_start_cursor": 0,
+    "note": "左值栏光标位于记录开始，红色触发标记在中部；截图不足以自动确认单拍触发或512ms周期"
+  },
+  "zero_feature_snapshot_supported": true,
+  "full_b08_alarm_validation_pass": false,
+  "new_hardware_operation_by_analysis": false
+}

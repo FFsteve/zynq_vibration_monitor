@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-02",
+  "status": "PASS_SOURCE_DELIVERY_CHECKS",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/verify_delivery.py",
+        "--root",
+        ".",
+        "--require-vendor"
+      ],
+      "exit_code": 0,
+      "seconds": 0.295,
+      "log": "build\\delivery_checks\\check_1.txt",
+      "stdout": "{\"status\": \"PASS_DELIVERY_FILES\", \"artifact_files\": 33, \"rtl_modules\": 20, \"package_files\": 0, \"vendor_files\": 88, \"vivado_version\": \"2020.2\", \"design_report_complete\": false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/verify_delivery.py",
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "seconds": 0.113,
+      "log": "build\\delivery_checks\\check_2.txt",
+      "stdout": "{\"status\": \"PASS_VERIFIER_SELF_TEST\", \"rejected_cases\": 2, \"recovery\": true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "skill/pl-sensor-workflow/scripts/check_csv.py",
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "seconds": 0.073,
+      "log": "build\\delivery_checks\\check_3.txt",
+      "stdout": "{\"status\": \"PASS_SELF_TEST\", \"valid_cases\": 2, \"rejected_cases\": 4, \"recovery\": true, \"different_project_columns\": true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "skill/pl-sensor-workflow/scripts/check_csv.py",
+        "--csv",
+        "report/evidence/filter_test_3_20261101_analysis/comparison.csv",
+        "--profile",
+        "skill/pl-sensor-workflow/references/project_profile.json"
+      ],
+      "exit_code": 0,
+      "seconds": 0.084,
+      "log": "build\\delivery_checks\\check_4.txt",
+      "stdout": "{\"status\": \"PASS_CSV_COMPARISON\", \"rows\": 4914, \"skipped_rows\": 1, \"columns\": 3}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "host",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 0.29,
+      "log": "build\\delivery_checks\\check_5.txt",
+      "stdout": "FAIL capture: ACK 模式出现非 06 字节\n{\"mode\": \"ack\", \"bytes\": 2, \"ack_count\": 2, \"unexpected_ack_bytes\": 0, \"frames\": 0, \"checksum_errors\": 0, \"discarded_bytes\": 0, \"trailing_bytes\": 0, \"seq_discontinuities\": 0, \"duplicates\": 0, \"gap_mod256_total\": 0}\nPASS capture mode=ack count=2\nFAIL capture: 数量错误：期望 3，实际 2\n",
+      "stderr": "test_capture_directory_protected_before_hardware (test_board_tools.BoardToolsTests.test_capture_directory_protected_before_hardware) ... ok\ntest_late_writes_never_burst_catchup (test_board_tools.BoardToolsTests.test_late_writes_never_burst_catchup) ... ok\ntest_partial_writes_and_receive (test_board_tools.BoardToolsTests.test_partial_writes_and_receive) ... ok\ntest_zero_write_stops (test_board_tools.BoardToolsTests.test_zero_write_stops) ... ok\ntest_ack_and_cli_failure (test_protocol.ProtocolTests.test_ack_and_cli_failure) ... ok\ntest_binary_csv_json_and_overwrite_guard (test_protocol.ProtocolTests.test_binary_csv_json_and_overwrite_guard) ... ok\ntest_corrupt_truncated_insert_delete_recovery (test_protocol.ProtocolTests.test_corrupt_truncated_insert_delete_recovery) ... ok\ntest_every_chunk_size_and_headers (test_protocol.ProtocolTests.test_every_chunk_size_and_headers) ... ok\ntest_known_vector_and_limits (test_protocol.ProtocolTests.test_known_vector_and_limits) ... ok\ntest_reject_bad_packet (test_protocol.ProtocolTests.test_reject_bad_packet) ... ok\ntest_sequence_wrap_gap_duplicate (test_protocol.ProtocolTests.test_sequence_wrap_gap_duplicate) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.023s\n\nOK\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "scripts/replay_delivery.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.12,
+      "log": "build\\delivery_checks\\check_6.txt",
+      "stdout": "{\"status\": \"PASS_MEASURED_FILTER_REPLAY\", \"input_frames\": 4915, \"complete_replies\": 4914, \"axes\": 3, \"mismatches\": 0, \"boundary_trailing_bytes\": 6, \"initial_state\": \"首包前静默超过12ms\", \"evidence_kind\": \"真实UART导出重新解码与独立整数/卷积参考对照\", \"physical_buzzer_retested\": false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "C:/Users/QQ165/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skill/pl-sensor-workflow"
+      ],
+      "exit_code": 0,
+      "seconds": 0.078,
+      "log": "build\\delivery_checks\\check_7.txt",
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\QQ165\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "C:/Users/QQ165/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skill/fir-validation"
+      ],
+      "exit_code": 0,
+      "seconds": 0.076,
+      "log": "build\\delivery_checks\\check_8.txt",
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    }
+  ],
+  "environment": {
+    "TEMP_TMP": "本次进程指向build/delivery_checks",
+    "skill_validator_PyYAML": "既有build/stage7_tools"
+  },
+  "initial_attempts": {
+    "temp_permission": "系统临时目录访问失败；重试仅设置当前进程临时目录，不修改代码/系统策略",
+    "yaml_dependency": "初次缺PyYAML，改用既有本地工具依赖"
+  },
+  "not_rerun": [
+    "本轮未重跑全部七阶段仿真",
+    "本轮未重新操作硬件",
+    "最终设计报告尚未编写"
+  ]
+}
